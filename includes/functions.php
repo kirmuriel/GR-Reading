@@ -12,34 +12,7 @@ if (isset ($_GET ['user'])) {
 	$grUserIdName = $_GET ['user'];
 }
 
-if (isset($_GET['bookHash'])) {
-	$bookHash = $_GET ['bookHash'];
-	$grUser = getUserFromSessionFile();
-	$library = $grUser->getLibrary();
-	$books = $library->books;
-	/* @var $book Book */
-	$book = $books[$bookHash];
-
-	$book->completeInfo($grUser->userIdName());
-	$book->getStatusUpdates();
-
-	saveUserToFile($grUser);
-	getData($book);
-} else if(isset($_GET['bookHashChart'])){
-	$bookHash = $_GET ['bookHashChart'];
-	$grUser = getUserFromSessionFile();
-	$library = $grUser->getLibrary();
-	$books = $library->books;
-	/* @var $book Book */
-	$book = $books[$bookHash];
-
-	$book->completeInfo($grUser->userIdName());
-	$book->getStatusUpdates();
-
-	saveUserToFile($grUser);
-	getChartData($book);
-
-} else if(isset($_GET['bookHashAll'])){
+if(isset($_GET['bookHashAll'])){
 	$bookHash = $_GET ['bookHashAll'];
 	$grUser = getUserFromSessionFile();
 	$library = $grUser->getLibrary();
@@ -104,87 +77,12 @@ function getFeedData($num_pages = 9) {
 	echo $htmlListItems;
 	echo $hash_array;
 	echo "<script src='js/books.js' type='text/javascript'></script>";
-	//echo "<script src='js/tables.js' type='text/javascript'></script>";
-	//echo "<script src='js/chart.js' type='text/javascript'></script>";
 
 	$lap = GRUser::getTime();
 	echo "<br>Time taken TFeed = " . number_format(($lap - $start), 2) . " secs ";
 	return;
 }
 
-
-function getData($book) {
-	/* @var $book Book */
-	$response = array();
-	$dateFinishedHeader = ($book->getFinishedOn() === 0) ? "" : date('D d M \'y H:i', $book->getFinishedOn());
-	$statusList = array();
-
-	$updates = $book->getStatusUpdates();
-	foreach ($updates as $date => $page) {
-		$statusList[] = array(
-			'style' => "",
-			'date' => gmdate('D d M Y', $date),
-			'page' => $page
-		);
-	}
-	$lastUpdate = count($statusList) - 1;
-	for ($i = $lastUpdate - 1; $i >= 0; $i--) {
-		$statusList[$i]['delta'] = $statusList[$i]['page'] - $statusList[($i + 1)]['page'];
-	}
-	$statusList[$lastUpdate]['delta'] = $statusList[$lastUpdate]['page'];
-	$statusList[$lastUpdate]['style'] = " style='border-bottom : hidden;'";
-
-	$response['status'] = $statusList;
-	$response['title'] = $book->getTitle();
-	$response['totalPages'] = $book->getTotalPages();
-	$response['finishedOn'] = $dateFinishedHeader;
-	$response['shelf'] = $book->getShelf();
-
-	echo json_encode($response);
-}
-
-function getChartData($book){
-	/* @var $book Book */
-	$response = array();
-
-	$updates = $book->getStatusUpdates();
-	$data = normalizePoints($updates);
-	$updatesDates = array_keys($updates);
-	$stats = statistics($data['delta']);
-	$finish = $book->getFinishedOn();
-	$total = ($book->getTotalPages() != 0) ? $book->getTotalPages() : 123;
-	try {
-		//@todo get line
-		if(count($data['page'])>1){
-			$line = getLine($updates);
-			$finish = $line["m"] * $total + $line["b"] ;
-			GRUser::debug($finish);
-		}
-	}catch(Exception $e){
-		echo $e->getMessage();
-	}
-
-	$maxVal = ($data['date'][0] - ($data['date'][0] % 120) + 115)/24;
-	$numDays = ceil($maxVal / 1) + 1;//24
-	$finishDate =  (($book->getFinishedOn() != 0) ? "{" . date("r", $book->getFinishedOn()) . "}" : "");
-	$calculatedFinishDate = date("r", $finish);
-	$book_title = $book->getTitle();//addslashes(html_entity_decode(htmlentities($book->getTitle(), ENT_QUOTES, "UTF-8")));
-	$color = (($book->getFinishedOn() != 0) ? "green" : "red");
-
-	$response['title'] = $book_title;
-	$response['calculatedFinishDate'] = $calculatedFinishDate;
-	$response['finishDate'] = $finishDate;
-	$response['color'] = $color;
-	$response['numDays'] = $numDays;
-	$response['maxVal'] = $maxVal;
-	$response['total'] = $total;
-	$response['stats'] = $stats;
-
-	$response['data'] = $data;
-	$response['updatesDates'] = $updatesDates;
-
-	echo json_encode($response);
-}
 
 function getAllData($book){
 	/* @var $book Book */
