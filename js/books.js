@@ -17,12 +17,22 @@ var reponse = {
 	maxVal:0,
 	totalPages:0,
 	stats:{"var":0, std:0, avg:0, count:0, sum:0},
+	constStats:{"var":0, std:0, avg:0, count:0, sum:0},
 	data:{page:[], date:[], delta:[]},
 	updatesDates:[],
 	finishedOn:""
 };
 
+var allData ={
+	matrix:{},
+	titles:{},
+	pages:{}
+}
+
 jQuery(document).ready(function () {
+	jQuery.getJSON('includes/functions.php?all=true', function (data) {
+		draw(data);
+	});
 	jQuery.each(myBooks, function (index, bookHash) {
 		jQuery.getJSON('includes/functions.php?bookHashAll=' + bookHash, function (data) {
 			if (data.totalPages == 0) {
@@ -34,15 +44,62 @@ jQuery(document).ready(function () {
 	});
 });
 
+function draw(allData){
+	var data = new google.visualization.DataTable();
+	var divId = 'mysuperdiv';
+	var countBooks = myBooks.length ;
+	var i, maxValue = 100, day_read, hash, last_read = {}, points = [];
+
+	data.addColumn('date', 'Day');
+	for(i=0;i<countBooks;i++){
+		hash = myBooks[i];
+		data.addColumn('number', allData.titles[hash]);
+		last_read[hash]=0;
+	}
+
+	for(var day in allData.matrix){
+		if(allData.matrix.hasOwnProperty(day)){
+			//console.log(new Date(day*1000));
+			day_read = [new Date(day*1000)];
+			for(i=0;i<countBooks;i++){
+				hash = myBooks[i];
+				if(last_read[hash] == 100){
+					day_read.push(undefined);
+				} else {
+					if(allData.matrix[day][hash] != 'undefined'){
+						last_read[hash]=Math.round(10000*(allData.matrix[day][hash])/(allData.pages[hash]))/100;
+					}
+					day_read.push(last_read[hash]);
+				}
+			}
+			points.push(day_read);
+		}
+	}
+	data.addRows(points);
+
+	var options = {
+		width: 1200,
+		height: 200,
+		titleTextStyle: {color: 'black'},
+		hAxis: {gridlines: {count: 10 }, minValue: 0, maxValue: maxValue },
+		vAxis: {minValue: 0, maxValue: 100 },
+		lineWidth: 1,
+		legend: 'none'
+	};
+
+	var chart = new google.visualization.LineChart(document.getElementById(divId));
+	chart.draw(data, options);
+}
 function drawData(bookHash, response) {
 
 	var points = [];
 	var avg = response.stats.avg;
-	var numUpdates = response.data.page.length;
-	var totalDays=numUpdates;
+	var avgC = response.constStats.avg;
+	var totalDays=response.data.page.length;
 	if(response.color == "red" && response.totalPages != 0){
 		//Unifinished book!
 		totalDays =  Math.ceil(response.totalPages/avg);
+		//avg = avgC;
 	}
 
 	var data = new google.visualization.DataTable();
@@ -54,15 +111,9 @@ function drawData(bookHash, response) {
 
 	points.push([ 0, 0 , 0, 0, avg]);
 	for (var i = 0; i < totalDays ; i++) {
-		points.push([ (i + 1), response.data.page[i], avg*(i+1),  response.data.delta[i] , avg]);
+		points.push([ (i + 1), response.data.page[i], Math.round(avg*(i+1)),  response.data.delta[i] , Math.round(avg*10)/10]);
 	}
 
-
-	console.log(response.title + ": " + points);
-	/*for (i = numUpdates; i < totalDays; i++) {
-		console.log(response.title + ": " +totalDays + " - "+ numUpdates );
-		points.push([ (i + 1), undefined, avg*(i+1),  undefined , avg]);
-	}*/
 	data.addRows(points);
 
 	var options = {
@@ -81,7 +132,6 @@ function drawData(bookHash, response) {
 }
 
 function setBookDataTable(bookHash, response){
-	//new Date(date * 1000)
 	var style = " style='border-bottom : hidden;'";
 	var il = document.getElementById(bookHash);
 	var html = "<table class='tableList '>" +

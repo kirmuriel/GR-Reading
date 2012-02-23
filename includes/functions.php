@@ -25,12 +25,19 @@ if(isset($_GET['bookHashAll'])){
 
 	saveUserToFile($grUser);
 	getAllData($book);
+}
+if(isset($_GET['all'])){
+	$grUser = getUserFromSessionFile();
+	$library = $grUser->getLibrary();
+	$books = $library->books;
+	grahpAll($books);
+
 
 } else {
-	echo "//else\n";
+	//echo "//else\n";
 	if (!isset($_SESSION['user'])) {
 		$_SESSION['user'] = new GRUser($grUserIdName, $rssPagesTotal);
-		echo "//create\n";
+		//echo "//create\n";
 		//var_dump($_SESSION['user']);
 	}
 }
@@ -94,12 +101,22 @@ function getAllData($book){
 	$stats = statistics($data['delta']);
 	$finish = $book->getFinishedOn();
 	$totalPages = $book->getTotalPages();
+	$const_stats = $stats;
 	try {
 		//@todo get line
 		if(count($data['page'])>1 && $totalPages != 0){
 			$line = getLine($updates);
 			$finish = $line["m"] * $totalPages + $line["b"] ;
 			GRUser::debug($finish);
+
+			$delta=$data['delta'];
+			sort($delta);
+			GRUser::debug(json_encode($delta),true);
+			$const = getConstantArray($delta,$totalPages );
+			GRUser::debug(json_encode($const),true);
+			$const_stats = statistics($const);
+			GRUser::debug(json_encode($const_stats),true);
+
 		}
 	}catch(Exception $e){
 		echo $e->getMessage();
@@ -118,9 +135,45 @@ function getAllData($book){
 	$response['title'] = $book->getTitle();
 	$response['totalPages'] = $totalPages;
 	$response['finishedOn'] = $dateFinishedHeader;
+	$response['constStats'] =$const_stats;
 
 	echo json_encode($response);
 
+}
+
+function grahpAll($books){
+	$response = array();
+	$allUpdateDates = array();
+	$matrix=array();
+	$book_titles = array();
+	$book_pages = array();
+	foreach($books as $hash=>$book){
+		/* @var Book $book */
+		$updates = $book->getStatusUpdates();
+		$updatesDates = array_keys($updates);
+		$allUpdateDates = array_merge($allUpdateDates,$updatesDates);
+		$book_titles[$hash]=substr($book->getTitle(),0,15);
+		$book_pages[$hash]=$book->getTotalPages();
+	}
+	sort($allUpdateDates);
+
+	foreach ($allUpdateDates as $idx => $date) {
+		$matrix[$date] = array();
+		foreach ($books as $hash => $book) {
+			/* @var Book $book */
+			$updates = $book->getStatusUpdates();
+			if (isset($updates[$date])) {
+				$matrix[$date][$hash] = $updates[$date];
+			} else {
+				$matrix[$date][$hash] = "undefined";
+			}
+		}
+	}
+
+	$response['matrix']=$matrix;
+	$response['titles']=$book_titles;
+	$response['pages']=$book_pages;
+	echo json_encode($response);
 }
 function getCharts() {
 	/*	readSession() */
