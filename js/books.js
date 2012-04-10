@@ -27,7 +27,7 @@ var allData ={
 	matrix:{},
 	titles:{},
 	pages:{}
-}
+};
 
 jQuery(document).ready(function () {
 	jQuery.getJSON('includes/functions.php?all=true', function (data) {
@@ -58,22 +58,25 @@ function draw(allData){
 	}
 
 	for(var day in allData.matrix){
-		if(allData.matrix.hasOwnProperty(day)){
-			//console.log(new Date(day*1000));
-			day_read = [new Date(day*1000)];
-			for(i=0;i<countBooks;i++){
-				hash = myBooks[i];
-				if(last_read[hash] == 100){
-					day_read.push(undefined);
-				} else {
-					if(allData.matrix[day][hash] != 'undefined'){
-						last_read[hash]=Math.round(10000*(allData.matrix[day][hash])/(allData.pages[hash]))/100;
+		if (allData.matrix.hasOwnProperty(day)) {
+			if (day > 1320019200) {//October 2011 1317427200 November 2011? 1320019200
+				//console.log(new Date(day*1000));
+				day_read = [new Date(day * 1000)];
+				for (i = 0; i < countBooks; i++) {
+					hash = myBooks[i];
+					if (last_read[hash] == 100) {
+						day_read.push(undefined);
+					} else {
+						if (allData.matrix[day][hash] != 'undefined') {
+							last_read[hash] = Math.round(10000 * (allData.matrix[day][hash]) / (allData.pages[hash])) / 100;
+						}
+						day_read.push(last_read[hash]);
 					}
-					day_read.push(last_read[hash]);
 				}
+				points.push(day_read);
 			}
-			points.push(day_read);
 		}
+
 	}
 	data.addRows(points);
 
@@ -119,7 +122,7 @@ function drawData(bookHash, response) {
 	var options = {
 		width: 500,
 		height: 240,
-		title: response.title + ' : ' + response.calculatedFinishDate + ' ' + response.finishDate,
+		title: response.title + ' : '  + response.finishDate + ' ' + response.calculatedFinishDate,
 		titleTextStyle: {color: response.color},
 		hAxis: {title: 'Day', gridlines: {count: ( totalDays + 1) }, minValue: 0, maxValue: ( totalDays - 1 ) },
 		vAxis: {title: response.title + " ( "+response.totalPages + " )", minValue: 0, maxValue: 100 },

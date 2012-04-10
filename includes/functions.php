@@ -214,45 +214,22 @@ function normalizePoints($updates) {
 }
 
 function getPoints($updates) {
-	//@todo get points
 	$data = array('page' => array(), 'date' => array());
 
-	//$accumulated = 0;
-	//$prev_date = 0;
 	foreach ($updates as $date => $page) {
-		/*$mod =0;
-
-		if ($prev_date !== 0) {
-			$mod = 86400;
-			$prev_date = date('Y-m-d', $date);
-		} else {
-			 echo "//0";
-			$prev_date = date('Y-m-d',$date);
-		}
-		 echo "\n";
-
-		$accumulated = $accumulated + $mod;    */
 		$data ['date'] [] = $date; // 24*
 		$data ['page'] [] = $page;
 	}
 	$data['page'] = array_reverse($data['page']);
-	/*return $data;
 
 	$last = count($data ['date']) - 1;
 	$dayInSeconds = 60 * 60 * 24;
-	$accumulated = 0;
-	$lastDay = $data ['unix'] [0];
+	$lastDay = $data ['date'] [0];
 
 	for ($i = $last; $i >= 0; $i --) {
-		$mod = ($data ['unix'] [$i]) % ($dayInSeconds);
-		$accumulated = $accumulated + $mod;
-		$data ['date'] [$i] = ( int ) ($accumulated);
+		$data ['date'] [$i] = ( int ) ($lastDay);
+		$lastDay -= ($dayInSeconds);
 	}
-	$lastDay = $lastDay - $data ['date'] [0];
-
-	for ($i = $last; $i >= 0; $i --) {
-		$data ['unix'] [$i] += $lastDay;
-	}*/
 	return $data;
 }
 

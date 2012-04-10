@@ -7269,9 +7269,9 @@ ul.adminLinks li a.last {
     z-index: 3;
 }
 
+/* border-bottom: solid 1px #d7d7d7;*/
 #siteheader #usernav .userNameNav {
     font-weight: bold;
-    border-bottom: solid 1px #d7d7d7;
     padding-bottom: 10px;
     padding-top: 5px;
 }
@@ -10271,4 +10271,36 @@ span.toRight {
 /* stop the float */
 br {
     clear: left;
+}
+
+.left {
+  float: left;
+  padding: 0px 10px 0px 0px;
+  width: 180px;
+}
+
+.middle {
+  top: 10px;
+  margin-left: 190px;
+  margin-right: 260px;
+}
+
+.right {
+  float: right;
+  padding: 0px 10px 0px 10px;
+  width: 250px;
+}
+.widgetsContainer {
+  width: 700px;
+/* Centering for IE6+ in strict mode,
+Firefox, and other modern browsers */
+margin: auto;
+/* Don't center every line of text -
+we inherited this setting from body */
+text-align: left;
+
+}
+
+#wolframAlphaWidget33630 .wolframAlphaWidgetOutput{
+height:100%;
 }
