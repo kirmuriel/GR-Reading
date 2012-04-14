@@ -33,11 +33,12 @@ jQuery(document).ready(function () {
 	jQuery.getJSON('includes/functions.php?all=true', function (data) {
 		draw(data);
 	});
-	jQuery.each(myBooks, function (index, bookHash) {
-		jQuery.getJSON('includes/functions.php?bookHashAll=' + bookHash, function (data) {
+	jQuery.each(myBooksData, function (index, bookData) {
+		jQuery.getJSON('includes/functions.php?bookHashAll=' + bookData, function (data) {
 			if (data.totalPages == 0) {
 				console.log(data.title + "[" + data.totalPages + "]");
 			}
+			var bookHash = data.hash;
 			google.setOnLoadCallback(drawData(bookHash, data));
 			setBookDataTable(bookHash, data);
 		});
@@ -59,7 +60,7 @@ function draw(allData){
 
 	for(var day in allData.matrix){
 		if (allData.matrix.hasOwnProperty(day)) {
-			if (day > 1320019200) {//October 2011 1317427200 November 2011? 1320019200
+			//if (day > 1320019200) {//October 2011 1317427200 November 2011? 1320019200
 				//console.log(new Date(day*1000));
 				day_read = [new Date(day * 1000)];
 				for (i = 0; i < countBooks; i++) {
@@ -74,7 +75,7 @@ function draw(allData){
 					}
 				}
 				points.push(day_read);
-			}
+			//}
 		}
 
 	}
@@ -149,7 +150,7 @@ function setBookDataTable(bookHash, response){
 				"<tbody>";
 
 	var numUpdates = response.data.page.length;
-	for (i = numUpdates-1; i >= 0; i--) {
+	for (var i = numUpdates-1; i >= 0; i--) {
 		var date = response.updatesDates[numUpdates - i - 1];
 
 		if(i == 0){ //remove last line
