@@ -43,7 +43,7 @@ class GRUser {
 
 			$start = self::getTime();
 			for ($page = 1; $page <= $max_page; $page++) {
-				$content = file_get_contents(self::status_feed_base . $this->userIdName() . ".rss?page=" . $page);
+				$content = file_get_contents(self::status_feed_base . $this->userIdName() . "?format=rss&page=" . $page);
 				$x = new SimpleXmlElement ($content);
 				foreach ($x->channel->item as $entry) {
 					$this->library->addUpdate($entry);
