@@ -1,0 +1,22 @@
+{
+  "name": "BookPrediction",
+  "subdomain": "readingstats",
+  "scripts": {
+    "start": "index.js"
+  },
+  "version": "0.0.0-6",
+  "engines": {
+    "node": "0.6.x"
+  },
+  "dependencies": {
+    "url": "0.4.9",
+    "mu2": "0.5.x",
+    "crypto": "0.0.3",
+    "util": "0.4.9",
+    "feedparser": "0.9.6",
+    "moment": "1.5.1",
+    "request": "2.9.202",
+    "path": "0.4.9",
+    "xml2js": "0.1.13"
+  }
+}
