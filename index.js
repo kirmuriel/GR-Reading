@@ -30,23 +30,7 @@ var http = require('http')
 
 mu.root = __dirname + '/templates';
 
-function getFeedData(grUser, num_pages, response) {
-	/* @var grUser GRUser */
-	grUser.getLibrary(num_pages, function(library){
-		//console.log(library.titleHash);
-		var hashes = [], books = [];
-		for ( var title in library.titleHash){
-			if (library.titleHash.hasOwnProperty(title)){
-				hashes.push({hash:library.titleHash[title]});
-				books.push({book:JSON.stringify(library.books[library.titleHash[title]])});
-			}
-		}
-		mu.clearCache();//@kjc remove on production
-		var stream = mu.compileAndRender('index.html', {properName:"Isabel", userIdName:"isabel-62760", "hashes":hashes, "books":books});
-		util.pump(stream, response);
 
-	});
-}
 
 /*if (undefined !=  (_GET ['user'])) {
 	grUserIdName = _GET ['user'];
@@ -165,10 +149,3 @@ var server = http.createServer(function (req, response) {
 // Listen on port 8000, IP defaults to 127.0.0.1
 server.listen(80);
 
-// Put a friendly message on the terminal
-console.log("Server running at http://127.0.0.1:80/");
-
-/**
- * @function
- */
-var class_log = require('./functions').class_log;
