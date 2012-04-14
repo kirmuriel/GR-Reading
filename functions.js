@@ -151,7 +151,6 @@ function grahpAll(books, callback) {
 	var bookPages = {};
 	var booksProcessed = 1;
 	var lasBook = false;
-	console.log(books.length);
 
 	for (var i = 0; i < books.length; i++) {
 
@@ -355,7 +354,7 @@ function getConstantArray(sortedDeltaArray, totalPages) {
 function class_log() {
 	if (arguments[0] == "er") {
 		for (var i = 1; i < arguments.length; i++) {
-			console.log(arguments[i]);
+			//console.log(arguments[i]);
 		}
 	}
 }

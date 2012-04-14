@@ -86,7 +86,7 @@ var server = http.createServer(function (req, response) {
 			book.getStatusUpdates(function (bookW) {
 				bookW.completeInfo(user.userIdName(), function (bookComplete) {
 					require('./functions').getAllData(bookComplete,function(data){
-						console.log("::", book.title, "::");
+						//console.log("::", book.title, "::");
 						response.writeHead(200, { 'Content-Type':contentType });
 						response.end(JSON.stringify(data), 'utf-8');
 					});
@@ -94,11 +94,11 @@ var server = http.createServer(function (req, response) {
 			});
 
 		} else if (url_parts.query.indexOf("all") == 0) {
-			console.log(url_parts.query);
+			//console.log(url_parts.query);
 			user.getLibrary(10, function (library) {
 				var books = library.getBooks();
 				require('./functions').grahpAll(books, function (data) {
-					console.log("AAAAAAALLLLLLL", raw);
+					//console.log("AAAAAAALLLLLLL", raw);
 					response.writeHead(200, { 'Content-Type':contentType });
 					response.end(JSON.stringify(data), 'utf-8');
 				});
@@ -116,7 +116,7 @@ var server = http.createServer(function (req, response) {
 		if (filePath == './') {
 			user.getLibrary(10, function (library) {
 				var hashes = [], books = [];
-				console.log(library.titleHash);
+				//console.log(library.titleHash);
 				for (var i=0;i<library.hashes.length;i++) {
 					hashes.push({hash:library.hashes[i]});
 					books.push({book:JSON.stringify(library.books[library.hashes[i]])});
@@ -127,7 +127,7 @@ var server = http.createServer(function (req, response) {
 			});
 		} else {
 			var extname = path.extname(filePath);
-			console.log(extname);
+			//console.log(extname);
 			var contentType = 'text/html';
 			switch (extname) {
 				case '.js':
@@ -140,7 +140,7 @@ var server = http.createServer(function (req, response) {
 					contentType = 'image/jpeg';
 					break;
 				default:
-					console.log('request url:'+req.url);
+					//console.log('request url:'+req.url);
 			}
 			path.exists(filePath, function (exists) {
 				if (exists) {

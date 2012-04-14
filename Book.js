@@ -229,7 +229,7 @@ Book.prototype = {
 					var numReviews = result.reviews['@'].total;
 					//console.log("Book %s has %s reviews",self.title,numReviews);
 					if(numReviews==0){
-						console.log("Book %s has 0 reviews",self.title);
+						//console.log("Book %s has 0 reviews",self.title);
 					}else{
 						var reviews = [];
 						if (numReviews == 1) {

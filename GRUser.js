@@ -69,13 +69,12 @@ GRUser.prototype.getLibrary = function (max_page, callback) {
 				}
 			});
 		}
-		console.log("get library end end !!!~~!!!~~");
 	}
 };
 
 function class_debug () {
 	for (var i=0; i<arguments.length; i++){
-		 console.log(arguments[i]);
+		 //console.log(arguments[i]);
 		}
 }
 GRUser.getTime = function () {
