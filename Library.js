@@ -1,6 +1,6 @@
-var Book = require('./Book').Book;
-var StatusUpdate = require('./StatusUpdate').StatusUpdate;
-var StatusUpdateTypes = require('./StatusUpdate').StatusUpdateTypes;
+var Book = require('./Book');
+var StatusUpdate = require('./StatusUpdate');
+var StatusUpdateTypes = StatusUpdate.StatusUpdateTypes;
 var crypto = require('crypto');
 
 
@@ -91,4 +91,4 @@ Library.prototype.getByHash = function (hash) {
  */
 var class_log = require('./functions').class_log;
 
-exports.Library = Library;
+module.exports = Library;

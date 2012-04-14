@@ -22,8 +22,8 @@ var http = require('http')
 	, mu = require('mu2')
 	, fs = require('fs')
 	, path = require('path')
-	, GRUser = require('./GRUser').GRUser
-	, Book = require('./Book').Book
+	, GRUser = require('./GRUser')
+	, Book = require('./Book')
 	, url = require('url')
 	, querystring = require('querystring')
 	;

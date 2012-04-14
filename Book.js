@@ -57,11 +57,6 @@ Util.mapToColumnArrays = function (map, columnLabels) {
 	return array;
 };
 
-var Shelves = {
-	Read:0,
-	Currently:1,
-	Other:2
-};
 /**
  * Creates a new Book.
  * @constructor
@@ -74,7 +69,7 @@ var Book = function (title, hash) {
 	this.rawReadUpdates = [];
 	this.dailyUpdates = null;
 	this.totalPages = this.lastUpdateDate = this.finishedOn = 0;
-	this.shelf = Shelves.Other;
+	this.shelf = Book.Shelves.Other;
 	this.needsUpdate = true;
 	this.bookId = -1;
 };
@@ -85,16 +80,6 @@ Book.READ_QUERY_FEED = "&shelf=read&search[query]=";
 Book.CURRENTLY_READING_FEED = "&shelf=currently-reading&search[query]=";
 
 Book.prototype = {
-	shelf:Shelves.Other,
-	totalPages:0,
-	title:"",
-	finishedOn:"",
-	rawReadUpdates:[],
-	dailyUpdates:null,
-	lastUpdateDate:0,
-	needsUpdate:true,
-	bookId:-1,
-	hash:"",
 	toString:function () {
 		return "(" + this.shelf + ")" + this.bookId + "= " + this.title + "[" + this.totalPages + "]";
 	}
@@ -169,7 +154,7 @@ Book.prototype = {
 	Book.prototype.setFinishedOn = function(finishedOn) {
 		this.finishedOn = finishedOn;
 		if (finishedOn != 0) {
-			this.setShelf(Shelves.Read);
+			this.setShelf(Book.Shelves.Read);
 		}
 	};
 
@@ -223,10 +208,10 @@ Book.prototype = {
 		class_log(this.hash,this.getTitle()+"=>"+escaped_title);
 		var feedUrl = Book.FEED_BASE + userIdName + Book.CURRENTLY_READING_FEED + escaped_title;
 		var needsReadDate = true;
-		if (this.getShelf() == Shelves.Other) {
+		if (this.getShelf() == Book.Shelves.Other) {
 			needsReadDate = true;
 			feedUrl = Book.FEED_BASE + userIdName + Book.CURRENTLY_READING_FEED + escaped_title;
-		} else if (this.getShelf() == Shelves.Read) {
+		} else if (this.getShelf() == Book.Shelves.Read) {
 			feedUrl = Book.FEED_BASE + userIdName + Book.READ_QUERY_FEED + escaped_title;
 			needsReadDate = false;
 		}
@@ -271,13 +256,13 @@ Book.prototype = {
 
 							class_log(self.hash, bookTitle.indexOf(trimmedTitle), pagesCondition);
 							if ((bookTitle.indexOf(trimmedTitle) == 0) && pagesCondition ) {
-								if (!read && self.getShelf() == Shelves.Other){
-									console.log("not read currently?" + self.title);
+								if (!read && self.getShelf() == Book.Shelves.Other){
+									//console.log("not read currently?" + self.title);
 								}else{
 									var bookID = parseInt(review.id);
 									self.setTitle(bookTitle);
 									self.setBookId(bookID);
-									if (read && self.getShelf() == Shelves.Other) {
+									if (read && self.getShelf() == Book.Shelves.Other) {
 										self.setFinishedOn(read);
 									}
 								}
@@ -298,13 +283,17 @@ Book.prototype = {
 		});
 	};
 
-
+Book.Shelves = {
+	Read:0,
+	Currently:1,
+	Other:2
+};
 /**
  * @function
  */
 var class_log = require('./functions').class_log;
 
 
-exports.Shelves = Shelves;
-exports.Book = Book;
+//exports.Shelves = Shelves;
+module.exports = Book;
 

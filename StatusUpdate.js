@@ -7,28 +7,21 @@
 
 var moment = require('moment');
 
-var StatusUpdateTypes = {
-	Other:0,
-	OnPage:1,
-	Start:2,
-	Finish:3
-};
-
 var StatusUpdate = function (entry) {
 	var chars;
 	var update = entry.title;
 	this.date = moment(entry.pubDate).valueOf()/1000;
-	this.type = StatusUpdateTypes.Other;
+	this.type = StatusUpdate.StatusUpdateTypes.Other;
 	if (update.indexOf(" is finished with ") > 0) {
 		chars = update.match(/ is finished with (.*)/);
 		this.bookTitle = chars [1];
 		this.finishedOn = this.date;
-		this.type = StatusUpdateTypes.Finish;
+		this.type = StatusUpdate.StatusUpdateTypes.Finish;
 	} else if (update.indexOf(" is reading ") > 0) {
 		chars = update.match(/ is reading (.*)/);
 		this.bookTitle = chars [1];
 		this.page = 0;
-		this.type = StatusUpdateTypes.Start;
+		this.type = StatusUpdate.StatusUpdateTypes.Start;
 	} else if (update.indexOf(" is on page ") > 0) {
 		// name page total title
 		chars = update.match(/ is on page (\d+) of (\d+) of (.*)/);
@@ -41,18 +34,17 @@ var StatusUpdate = function (entry) {
 			this.totalPages = 0;
 		}
 		this.page = parseInt(chars [1]);
-		this.type = StatusUpdateTypes.OnPage;
+		this.type = StatusUpdate.StatusUpdateTypes.OnPage;
 	}
 };
 
-StatusUpdate.prototype = {
-	finishedOn:0,
-	bookTitle:"",
-	page:0,
-	totalPages:0,
-	date:0,
-	type:StatusUpdateTypes.Other
+StatusUpdate.StatusUpdateTypes = {
+	Other:0,
+	OnPage:1,
+	Start:2,
+	Finish:3
 };
 
-exports.StatusUpdate = StatusUpdate;
-exports.StatusUpdateTypes = StatusUpdateTypes;
+
+module.exports = StatusUpdate;
+//exports.StatusUpdateTypes = StatusUpdateTypes;

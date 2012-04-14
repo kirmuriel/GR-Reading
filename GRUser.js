@@ -1,4 +1,4 @@
-var Library = require('./library').Library;
+var Library = require('./Library');
 var moment = require('moment');
 var request = require('request');
 
@@ -81,5 +81,5 @@ function class_debug () {
 GRUser.getTime = function () {
 	return moment.utc().valueOf();
 };
-
-exports.GRUser = GRUser;
+module.exports = GRUser;
+//exports.GRUser = GRUser;
