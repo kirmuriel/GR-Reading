@@ -54,7 +54,7 @@ function getFeedData(grUser, numPages, writeStream) {
 				books.push({book:JSON.stringify(library.books[library.titleHash[title]])});
 			}
 		}
-		mu.clearCache();//@kjc remove on production
+		//mu.clearCache();//@kjc remove on production
 		var stream = mu.compileAndRender('index.html', {properName:"Isabel", userIdName:"isabel-62760", "hashes":hashes, "books":books});
 		util.pump(stream, writeStream);
 	});
