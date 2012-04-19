@@ -5,7 +5,6 @@
  */
 //
 /*
-@kjc sort by last update
 @kjc remove books without things
 @kjc remove comments
 @kjc set logs
