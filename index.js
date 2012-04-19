@@ -78,22 +78,13 @@ var server = http.createServer(function (req, response) {
 			});
 
 		} else if (url_parts.query.indexOf("all") == 0) {
-			//console.log(url_parts.query);
 			user.getLibrary(10, function (library) {
 				var books = library.getBooks();
 				require('./lib/functions').grahpAll(books, function (data) {
-					//console.log("AAAAAAALLLLLLL", raw);
 					response.writeHead(200, { 'Content-Type':contentType });
 					response.end(JSON.stringify(data), 'utf-8');
 				});
 			});
-			/*
-				grUser = getUserFromSessionFile();
-	library = grUser.getLibrary();
-	books = library.books;
-	grahpAll(books);
-			 */
-
 		}
 	}else{
 
@@ -116,7 +107,6 @@ var server = http.createServer(function (req, response) {
 			util.pump(stream, response);
 		}else {
 			var extname = path.extname(filePath);
-			//console.log(extname);
 			var contentType = 'text/html';
 			switch (extname) {
 				case '.js':
@@ -129,7 +119,6 @@ var server = http.createServer(function (req, response) {
 					contentType = 'image/jpeg';
 					break;
 				default:
-					//console.log('request url:'+req.url);
 			}
 			path.exists(filePath, function (exists) {
 				if (exists) {
