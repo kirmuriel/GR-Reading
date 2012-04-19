@@ -5,6 +5,7 @@
  */
 //
 /*
+@kjc sort by last update
 @kjc remove books without things
 @kjc remove comments
 @kjc set logs
@@ -102,8 +103,9 @@ var server = http.createServer(function (req, response) {
 				var hashes = [], books = [];
 				//console.log(library.titleHash);
 				for (var i=0;i<library.hashes.length;i++) {
-					hashes.push({hash:library.hashes[i]});
-					books.push({book:JSON.stringify(library.books[library.hashes[i]])});
+					var hash = library.hashes[i];
+					hashes.push({hash:hash});
+					books.push({book:JSON.stringify(library.books[hash])});
 				}
 				mu.clearCache();//@kjc remove on production
 				var stream = mu.compileAndRender('index.html', {properName:"Isabel", userIdName:"isabel-62760", "hashes":hashes, "books":books});
