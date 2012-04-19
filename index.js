@@ -22,8 +22,8 @@ var http = require('http')
 	, mu = require('mu2')
 	, fs = require('fs')
 	, path = require('path')
-	, GRUser = require('lib/GRUser.js')
-	, Book = require('lib/Book.js')
+	, GRUser = require('./lib/GRUser')
+	, Book = require('./lib/Book')
 	, url = require('url')
 	, querystring = require('querystring')
 	;
@@ -69,7 +69,7 @@ var server = http.createServer(function (req, response) {
 
 			book.getStatusUpdates(function (bookW) {
 				bookW.completeInfo(user.userIdName(), function (bookComplete) {
-					require('lib/functions.js').getAllData(bookComplete,function(data){
+					require('./lib/functions').getAllData(bookComplete,function(data){
 						//console.log("::", book.title, "::");
 						response.writeHead(200, { 'Content-Type':contentType });
 						response.end(JSON.stringify(data), 'utf-8');
@@ -81,7 +81,7 @@ var server = http.createServer(function (req, response) {
 			//console.log(url_parts.query);
 			user.getLibrary(10, function (library) {
 				var books = library.getBooks();
-				require('lib/functions.js').grahpAll(books, function (data) {
+				require('./lib/functions').grahpAll(books, function (data) {
 					//console.log("AAAAAAALLLLLLL", raw);
 					response.writeHead(200, { 'Content-Type':contentType });
 					response.end(JSON.stringify(data), 'utf-8');
