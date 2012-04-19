@@ -109,7 +109,11 @@ var server = http.createServer(function (req, response) {
 				var stream = mu.compileAndRender('index.html', {properName:"Isabel", userIdName:"isabel-62760", "hashes":hashes, "books":books});
 				util.pump(stream, response);
 			});
-		} else {
+		} else if(filePath == './widgets.html'){
+			mu.clearCache();//@kjc remove on production
+			var stream = mu.compileAndRender('widgets.html', {properName:"Isabel", userIdName:"isabel-62760"});
+			util.pump(stream, response);
+		}else {
 			var extname = path.extname(filePath);
 			//console.log(extname);
 			var contentType = 'text/html';
