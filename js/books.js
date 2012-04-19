@@ -23,10 +23,9 @@ var reponse = {
 	finishedOn:""
 };
 
-var allData ={
-	matrix:{},
-	titles:{},
-	pages:{}
+var allData = {
+	points:{},
+	titles:{}
 };
 
 jQuery(document).ready(function () {
@@ -48,36 +47,18 @@ jQuery(document).ready(function () {
 function draw(allData){
 	var data = new google.visualization.DataTable();
 	var divId = 'mysuperdiv';
-	var countBooks = myBooks.length ;
-	var i, maxValue = 100, day_read, hash, last_read = {}, points = [];
+	var i, hash, points;
 
 	data.addColumn('date', 'Day');
-	for(i=0;i<countBooks;i++){
-		hash = myBooks[i];
-		data.addColumn('number', allData.titles[hash]);
-		last_read[hash]=0;
+	for(hash in allData.titles){
+		if(allData.titles.hasOwnProperty(hash)){
+			data.addColumn('number', allData.titles[hash]);
+		}
 	}
 
-	for(var day in allData.matrix){
-		if (allData.matrix.hasOwnProperty(day)) {
-			//if (day > 1320019200) {//October 2011 1317427200 November 2011? 1320019200
-				//console.log(new Date(day*1000));
-				day_read = [new Date(day * 1000)];
-				for (i = 0; i < countBooks; i++) {
-					hash = myBooks[i];
-					if (last_read[hash] == 100) {
-						day_read.push(undefined);
-					} else {
-						if (allData.matrix[day][hash] != 'undefined') {
-							last_read[hash] = Math.round(10000 * (allData.matrix[day][hash]) / (allData.pages[hash])) / 100;
-						}
-						day_read.push(last_read[hash]);
-					}
-				}
-				points.push(day_read);
-			//}
-		}
-
+	points = allData.points;
+	for (i = 0; i < points.length; i++) {
+		points[i][0] = new Date(points[i][0]);
 	}
 	data.addRows(points);
 
