@@ -24,6 +24,7 @@ var http = require('http')
 	, path = require('path')
 	, GRUser = require('./lib/GRUser')
 	, Book = require('./lib/Book')
+	, Util = Book.Util
 	, url = require('url')
 	, querystring = require('querystring')
 	;
@@ -89,11 +90,19 @@ var server = http.createServer(function (req, response) {
 	}else{
 
 		if (filePath == './') {
-			user.getLibrary(10, function (library) {
+			user.getLibrary(6, function (library) {
 				var hashes = [], books = [];
-				//console.log(library.titleHash);
-				for (var i=0;i<library.hashes.length;i++) {
-					var hash = library.hashes[i];
+				var hash,i,sortedHashes=[], updates;
+
+				for (hash in library.books){
+					if(library.books.hasOwnProperty(hash)){
+						updates = library.books[hash].rawReadUpdates;
+						sortedHashes.push({hash:hash,date:updates[0].date});
+					}
+				}
+				Util.sortByDate(sortedHashes);
+				for (i=0;i<sortedHashes.length;i++) {
+					hash = sortedHashes[i].hash;
 					hashes.push({hash:hash});
 					books.push({book:JSON.stringify(library.books[hash])});
 				}
