@@ -5,18 +5,13 @@
  */
 //
 /*
+@kjc restructure callbacks
 @kjc remove books without things
 @kjc remove comments
 @kjc set logs
 @kjc the adventures of ...
 @kjc no graph on 10
  */
-	/*@kjc solve
-	(node) warning: possible EventEmitter memory leak detected. 11 listeners added. Use emitter.setMaxListeners() to increase limit.
-
-	Trace:
-	    at SAXStream.addListener (events.js:139:15)
-	*/
 var http = require('http')
 	, util = require('util')
 	, mu = require('mu2')
@@ -79,7 +74,7 @@ var server = http.createServer(function (req, response) {
 			});
 
 		} else if (url_parts.query.indexOf("all") == 0) {
-			user.getLibrary(10, function (library) {
+			user.getLibrary(12, function (library) {
 				var books = library.getBooks();
 				require('./lib/functions').grahpAll(books, function (data) {
 					response.writeHead(200, { 'Content-Type':contentType });
@@ -90,10 +85,9 @@ var server = http.createServer(function (req, response) {
 	}else{
 
 		if (filePath == './') {
-			user.getLibrary(6, function (library) {
+			user.getLibrary(12, function (library) {
 				var hashes = [], books = [];
 				var hash,i,sortedHashes=[], updates;
-
 				for (hash in library.books){
 					if(library.books.hasOwnProperty(hash)){
 						updates = library.books[hash].rawReadUpdates;
