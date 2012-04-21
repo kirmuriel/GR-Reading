@@ -97,7 +97,9 @@ var server = http.createServer(function (req, response) {
 				for (hash in library.books){
 					if(library.books.hasOwnProperty(hash)){
 						updates = library.books[hash].rawReadUpdates;
-						sortedHashes.push({hash:hash,date:updates[0].date});
+						if (updates && updates[0]) {
+							sortedHashes.push({hash:hash, date:updates[0].date});
+						}
 					}
 				}
 				Util.sortByDate(sortedHashes);
