@@ -123,6 +123,9 @@ var server = http.createServer(function (req, response) {
 				case '.jpg':
 					contentType = 'image/jpeg';
 					break;
+				case '.png':
+					contentType = 'image/png';
+					break;
 				default:
 			}
 			path.exists(filePath, function (exists) {
