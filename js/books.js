@@ -58,7 +58,7 @@ function draw(allData) {
 
 	points = allData.points;
 	for (i = 0; i < points.length; i++) {
-		points[i][0] = new Date(points[i][0]);
+		points[i][0] = new Date(parseInt(points[i][0]));
 	}
 	data.addRows(points);
 
@@ -141,7 +141,7 @@ function setBookDataTable(bookHash, response) {
 		}
 
 		//html += ("<td class='dateCol'>" + date  + "</td>");
-		html += ("<td class='dateCol'>" + new Date(date * 1000).toUTCString().substr(0, 16) + "</td>");
+		html += ("<td class='dateCol'>" + (new Date(parseInt(date))).toUTCString().substr(0, 16) + "</td>");
 		html += ("<td class='pageCol'>" + response.data.page[i] + "</td>");
 		html += ("<td class='pageCol'>" + response.data.delta[i] + "</td>");
 		html += "</tr>";
