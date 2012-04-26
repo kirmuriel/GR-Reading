@@ -56,7 +56,7 @@ var server = http.createServer(function (req, response) {
 			//console.log(raw);
 			var rawBook = JSON.parse(raw);
 
-			var book = new Book(rawBook.title, rawBook.hash);
+			var book = Book.createBook(rawBook.title, rawBook.hash);
 			book.rawReadUpdates = rawBook.rawReadUpdates;
 			book.totalPages = rawBook.totalPages;
 			book.finishedOn = rawBook.finishedOn;
