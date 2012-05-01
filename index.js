@@ -5,7 +5,7 @@
  */
 //
 /*
-@kjc restructure callbacks
+@kjc restructure callbacks with step!
 @kjc remove books without things
 @kjc remove comments
 @kjc set logs
@@ -63,20 +63,28 @@ var server = http.createServer(function (req, response) {
 			book.needsUpdate = rawBook.needsUpdate;
 			book.shelf = rawBook.shelf;
 
-			book.getStatusUpdates(function (bookW) {
-				bookW.completeInfo(user.userIdName(), function (bookComplete) {
-					require('./lib/functions').getAllData(bookComplete,function(data){
-						//console.log("::", book.title, "::");
-						response.writeHead(200, { 'Content-Type':contentType });
-						response.end(JSON.stringify(data), 'utf-8');
+			book.getStatusUpdates(function (err) {
+				if(err)console.log(err);
+				else{
+					book.completeInfo(user.userIdName(), function (err) {
+						if(err) console.log(err);
+						require('./lib/functions').getAllData(book,function(err, data){
+							if(err) console.log(err);
+							console.log("::", book.title, "::");
+							response.writeHead(200, { 'Content-Type':contentType });
+							response.end(JSON.stringify(data), 'utf-8');
+						});
 					});
-				});
+				}
 			});
 
 		} else if (url_parts.query.indexOf("all") == 0) {
-			user.getLibrary(12, function (library) {
+			user.getLibrary(8, function (err) {
+				if(err)console.log(err);
+				var library = user.library;
 				var books = library.getBooks();
-				require('./lib/functions').grahpAll(books, function (data) {
+				require('./lib/functions').graphAll(books, function (err, data) {
+					if(err)console.log(err);
 					response.writeHead(200, { 'Content-Type':contentType });
 					response.end(JSON.stringify(data), 'utf-8');
 				});
@@ -85,7 +93,9 @@ var server = http.createServer(function (req, response) {
 	}else{
 
 		if (filePath == './') {
-			user.getLibrary(12, function (library) {
+			user.getLibrary(8, function (err) {
+				if(err)console.log(err);
+				var library = user.library;
 				var hashes = [], books = [];
 				var hash,i,sortedHashes=[], updates;
 				for (hash in library.books){
