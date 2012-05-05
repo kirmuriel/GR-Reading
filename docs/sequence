@@ -1,0 +1,38 @@
+title App Sequence
+opt init
+ Client->Server: GET
+  activate Server
+  Server->GR : getRSSStatusUpdates()
+  activate GR
+  GR-->Server : statusUpdates
+  Server->Server : process(statusUpdates)
+  Server->Cookie :  store(statusUpdates)
+  activate Cookie
+  Server->Client: callback(HTML)
+  activate Client
+end
+opt static
+  Client->Server : getStaticContent(id)
+  Server->Client : callback(staticContent)
+end
+opt displayBook
+  Client->Server: getBookInfo(hash)
+  Server->Cookie: get(hash)
+  Cookie-->Server : data
+  Server->GR : getBookInfo(bookTitle)
+  GR-->Server : info
+  Server->Cookie : store(info)
+  Server->Server : process(info)
+  Server->Client: callback(bookInfo)
+  Client->Client : display(bookInfo)
+end
+opt displayGraph
+  Client->Server: getGraphInfo()
+  Server->Cookie: getAll()
+  Cookie-->Server : allData
+  Server->Server : process(allData)
+  Server->Client: callback(graphInfo)
+  Client->Client : display(graphInfo)
+end
+
+http://www.websequencediagrams.com/
