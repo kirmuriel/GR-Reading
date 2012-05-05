@@ -29,11 +29,11 @@ var allData = {
 };
 
 jQuery(document).ready(function () {
-	jQuery.getJSON('includes/functions.php?all=true', function (data) {
+	jQuery.getJSON('getGraphInfo', function (data) {
 		draw(data);
 	});
 	jQuery.each(myBooksData, function (index, bookData) {
-		jQuery.getJSON('includes/functions.php?bookHashAll=' + bookData, function (data) {
+		jQuery.getJSON('getBookInfo?hash=' + bookData, function (data) {
 			if (data.totalPages == 0) {
 				console.log(data.title + "[" + data.totalPages + "]");
 			}
