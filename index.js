@@ -54,14 +54,15 @@ var server = http.createServer(function (req, response) {
 	} else {
 		switch (filePath) {
 			case './':
-				init(user, 2, response);
+				init(user, 8, response);
 				break;
 			case './widgets.html':
+				mu.clearCache();
 				var stream = mu.compileAndRender('widgets.html', {properName:"Isabel", userIdName:"isabel-62760"});
 				util.pump(stream, response);
 				break;
 			case './getGraphInfo':
-				getGraphInfo(user, 2, response);
+				getGraphInfo(user, 8, response);
 				break;
 			default:
 				getStatic(filePath, response);
