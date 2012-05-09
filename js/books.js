@@ -13,14 +13,12 @@ var reponse = {
 	calculatedFinishDate:"",
 	finishDate:"",
 	color:"",
-	numDays:0,
-	maxVal:0,
 	totalPages:0,
 	stats:{"var":0, std:0, avg:0, count:0, sum:0},
-	constStats:{"var":0, std:0, avg:0, count:0, sum:0},
 	data:{page:[], date:[], delta:[]},
 	updatesDates:[],
-	finishedOn:""
+	finishedOn:"",
+	line:{m:0, b:0}
 };
 
 var allData = {
@@ -79,12 +77,12 @@ function drawData(bookHash, response) {
 
 	var points = [];
 	var avg = response.stats.avg;
-	var avgC = response.constStats.avg;
 	var totalDays = response.data.page.length;
+	var m = response.line.m;
+	var b = response.line.b;
 	if (response.color == "red" && response.totalPages != 0) {
 		//Unifinished book!
 		totalDays = Math.ceil(response.totalPages / avg);
-		//avg = avgC;
 	}
 
 	var data = new google.visualization.DataTable();
@@ -93,10 +91,11 @@ function drawData(bookHash, response) {
 	data.addColumn('number', 'Expected');
 	data.addColumn('number', 'Delta');
 	data.addColumn('number', 'Average');
+	data.addColumn('number', 'Projection');
 
-	points.push([ 0, 0 , 0, 0, avg]);
+	points.push([ 0, 0 , 0, 0, avg,0]);
 	for (var i = 0; i < totalDays; i++) {
-		points.push([ (i + 1), response.data.page[i], Math.round(avg * (i + 1)), response.data.delta[i] , Math.round(avg * 10) / 10]);
+		points.push([ (i + 1), response.data.page[i], Math.round(avg * (i + 1)), response.data.delta[i] , Math.round(avg * 10) / 10, Math.round((m * i + b) * 10) / 10   ]);
 	}
 
 	data.addRows(points);
