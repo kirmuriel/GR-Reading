@@ -1,14 +1,4 @@
 /* A generic box with a border. Old: #F9F8F3 #EAE7B4 #F2F0E3*/
-.box {
-    border: 2px solid #D5E2FF;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    padding: 5px;
-}
-
-.indentedBox {
-    padding: 0 7px 0 7px;
-}
 
 .box td, .box th {
     padding-left: 7px;
@@ -37,16 +27,6 @@ div.content {
     position: relative;
 }
 
-.overflowHidden {
-    width: 100%;
-    overflow: hidden;
-}
-
-.textRight {
-    display: block;
-    text-align: right;
-}
-
 /* use this class to fix container height for a div with floating elements */
 .clearFix:after {
     content: '.';
@@ -58,11 +38,7 @@ div.content {
 }
 
 /* inline UL is a list which displays as list items separated by bars */
-UL.inline {
-    padding: 0px;
-    margin: 0px;
-    list-style: none;
-}
+
 
 UL.inline LI {
     display: inline;
@@ -71,130 +47,18 @@ UL.inline LI {
     margin: 0;
 }
 
-UL.inline LI.first {
-    padding-left: 0;
-    border-left: none;
-}
 
 /* end: inline UL */
 
-.fader {
-    background: -webkit-gradient(linear, left center, right center, from(rgba(255, 255, 255, 0)), to(white));
-    background: -moz-linear-gradient(left, rgba(255, 255, 255, 0), white);
-}
 
-/* navigation box */
-.roundedBorder {
-    border-radius: 7px;
-    -moz-border-radius: 7px;
-    -webkit-border-radius: 7px;
-}
 
-#loadingPageImage,
-.loadingPageImage {
-    width: 100%;
-    min-height: 90px;
-    background-image: url(/images/loading.gif);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    text-decoration: blink;
-}
-
-div.navigationBoxOuter {
-    padding-bottom: 10px;
-}
-
-div.navigationBox {
-    background-color: #E9E4D0;
-    padding: 0 10px 10px 10px;
-    font-family: Arial, Helvetica, Verdana, sans-serif;
-}
-
-div.navigationBox h3 {
-    color: #635C52;
-    padding-bottom: 5px;
-    padding-top: 10px;
-}
-
-div.navigationBox div.navigationList {
-    background-color: #FFFFFF;
-}
-
-div.navigationBox div.navRow {
-    position: relative;
-    height: 27px;
-    border-bottom: 1px solid #F8F7F2;
-}
-
-div.navigationBox div.pagRow {
-    text-align: right;
-    padding: 5px 10px 5px 10px;
-}
-
-div.navigationBox div.navRow.lastRow {
-    border-bottom: none;
-}
-
-div.navigationBox div.navRow a {
-    display: block;
-    clear: left;
-    padding: 5px 10px 5px 10px;
-}
-
-div.navigationBox .badge {
-    color: #635C52;
-    font-weight: bold;
-    float: right;
-}
-
-div.navigationBox div.navRow a.selected .badge {
-    color: #FFF;
-}
-
-div.navigationBox div.navRow a:hover {
-    background-color: #F8F7F2;
-    text-decoration: none;
-}
-
-div.navigationBox a.helpTip {
-    color: #FFF;
-    float: right;
-    background-color: #7B7164;
-    line-height: auto;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    font-size: 10px;
-    border-radius: 3px;
-    font-family: Verdana, sans-serif;
-    font-weight: bold;
-    padding: 0 5px 0 5px;
-    text-decoration: none;
-}
-
-div.navigationBox div.navRow a.selected,
-div.navigationBox div.navRow a.selected:hover {
-    background-image: url(/images/layout/navigation_arrow.png);
-    background-color: transparent;
-    width: 261px;
-    color: #FFF;
-    font-weight: bold;
-    overflow-x: visible;
-    padding-left: 34px;
-    position: absolute;
-    left: -25px;
-    top: 0px;
-    vertical-align: middle;
-    background-repeat: no-repeat;
-    border-bottom: none;
-    text-decoration: none;
-}
 
 /*  Start style classes */
 .clearFloats:after {
     content: '.';
     display: block;
     visibility: hidden;
-    height: 0px;
+    height: 0;
     clear: both;
 }
 
@@ -251,11 +115,6 @@ div.navigationBox div.navRow a.selected:hover {
     text-decoration: underline;
 }
 
-.reviewText a.freeTextLink,
-.reviewText a.actionLink,
-.reviewText a.actionLinkLite {
-    text-decoration: none;
-}
 
 .userReview a {
     color: #660;
@@ -269,14 +128,6 @@ div.navigationBox div.navRow a.selected:hover {
 
 .stacked {
     margin-bottom: 10px;
-}
-
-.col {
-    margin-right: 10px;
-}
-
-.col.last {
-    margin-right: 0px;
 }
 
 .review .imgcol {
@@ -295,11 +146,6 @@ div.navigationBox div.navRow a.selected:hover {
     width: 500px;
 }
 
-.review .reviewHeader .user {
-    font-weight: bold;
-}
-
-.review .reviewHeader .star,
 .review .reviewHeader .createdAt {
     position: relative;
     top: 2px;
@@ -330,14 +176,6 @@ div.navigationBox div.navRow a.selected:hover {
     font-weight: bold;
 }
 
-.actionLink {
-    font-weight: bold;
-    color: #215625;
-    font-family: arial, verdana, helvetica, sans-serif;
-    font-size: 13px;
-    text-decoration: none;
-}
-
 .actionLinks a {
     font-weight: bold;
     color: #215625;
@@ -359,53 +197,7 @@ div.navigationBox div.navRow a.selected:hover {
     text-decoration: none;
 }
 
-div.bookRow {
-    margin: 5px 5px 5px 5px;
-    border-bottom: 1px solid #E8D8E4;
-    overflow: hidden;
-    width: 100%;
-}
 
-div.bookRow.bookRowLast {
-    border-bottom: none;
-}
-
-div.bookRow.seriesBookRow {
-    width: 100%;
-}
-
-div.bookRow .seriesDesc {
-    float: left;
-    vertical-align: middle;
-}
-
-div.bookRow .seriesCovers {
-    float: right;
-    overflow: hidden;
-    height: 80px;
-}
-
-div.bookRow .seriesCovers img {
-    max-width: 60px;
-}
-
-div.bookRow .seriesCovers a {
-    max-width: 60px;
-}
-
-.actionLinkLites {
-
-}
-
-.actionLinkLites a {
-    color: #215625;
-    font-family: arial, verdana, helvetica, sans-serif;
-    text-decoration: none;
-}
-
-.actionLinkLites a.current {
-    color: #999;
-}
 
 .blockedLinks a {
     display: block;
@@ -436,7 +228,7 @@ div.bookRow .seriesCovers a {
 
 .tableList .no_border td {
     border-bottom: 0px;
-    padding: 0px;
+    padding: 0;
 }
 
 .tableList td.last {
@@ -483,7 +275,7 @@ div.bookRow .seriesCovers a {
 }
 
 .art_book.elementListLast {
-    padding: 0px;
+    padding: 0;
 }
 
 .greyBottomBorder {
@@ -504,7 +296,7 @@ div.bookRow .seriesCovers a {
 
 .deleteLink {
     border: 1px solid #D5E2FF;
-    padding: 0px;
+    padding: 0;
     font-size: 12px;
 }
 
@@ -533,13 +325,13 @@ div.bookRow .seriesCovers a {
 .storyText {
     font-family: verdana, arial, helvetica, sans-serif;
     font-size: 13px;
-    padding: 5px 0px;
+    padding: 5px 0;
 }
 
 .quoteText {
     font-family: georgia, serif;
     font-size: 14px;
-    padding: 0 5px 10px 0px;
+    padding: 0 5px 10px 0;
 }
 
 .videoTitle {
@@ -559,7 +351,7 @@ div.bookRow .seriesCovers a {
     float: left;
     padding: 2px;
     padding-top: 5px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     line-height: 120%;
 }
 
@@ -567,65 +359,6 @@ div.bookRow .seriesCovers a {
     white-space: nowrap;
     overflow: hidden;
     width: 170px;
-}
-
-.quizTitle {
-    font-size: 14px;
-    color: #660;
-}
-
-.randomQuizImg {
-    float: right;
-    margin: 0 0 5px 5px;
-}
-
-.quizDescription {
-    margin-bottom: 10px;
-}
-
-.quizQuestionText,
-.quizDescriptionText,
-.quizAnswerText {
-    font-family: verdana, arial, helvetica, sans-serif;
-    font-style: normal;
-    color: black;
-}
-
-.quizBox {
-    width: 47%;
-    margin: 5px 0 10px;
-}
-
-.quizBoxImg {
-    float: left;
-    padding: 0 5px 0 0px;
-}
-
-.ereaderUser {
-    width: 75px;
-    height: 105px;
-    margin: 5px;
-    margin-bottom: 20px;
-    float: left;
-    text-align: center;
-}
-
-.ereaderUserRating {
-    width: 90px;
-}
-
-.ereaderBox {
-    margin-top: 10px;
-    margin-left: 20px;
-    width: 40%;
-    height: 160px;
-    float: left;
-}
-
-.ereaderImage {
-    float: left;
-    margin-right: 4px;
-    text-align: center;
 }
 
 .testBook td {
@@ -644,7 +377,7 @@ div.bookRow .seriesCovers a {
 }
 
 .noCoverMediumContainer {
-    padding: 0px;
+    padding: 0;
     height: 176px;
     width: 111px;
     overflow: hidden;
@@ -683,17 +416,6 @@ div.bookRow .seriesCovers a {
     margin-right: 10px;
 }
 
-.middleAlignedText {
-    float: left;
-}
-
-.leftContainer .middleAlignedText {
-    width: 365px;
-}
-
-.rightContainer .middleAlignedText {
-    width: 220px;
-}
 
 .leftContainer .halfColumn {
     width: 310px;
@@ -769,37 +491,7 @@ div.bookRow .seriesCovers a {
     line-height: 14px;
 }
 
-.smallGreyText {
-    color: #999;
-    font-size: 10px;
-    line-height: 14px;
-}
 
-.mediumImage {
-    width: 50px;
-    max-height: 66px;
-}
-
-.smallImage {
-    width: 25px;
-    max-height: 33px;
-}
-
-.darkGreyText {
-    color: #777;
-}
-
-.greyText {
-    color: #999;
-}
-
-.greyTextAndLinks, .greyTextAndLinks a {
-    color: #999;
-}
-
-.lightGreyText {
-    color: #d7d7d7;
-}
 
 .newCommentsText {
     color: #FF6666;
@@ -913,7 +605,7 @@ div.bookRow .seriesCovers a {
     font-family: arial, verdana, helvetica, sans-serif;
     /*font-size:11px;*/
     text-decoration: none;
-    padding: 0 0px 1px 0px;
+    padding: 0 0 1px 0;
 }
 
 .selectedShelf {
@@ -927,42 +619,11 @@ div.bookRow .seriesCovers a {
     text-decoration: none;
 }
 
-.shelfLinkClose:hover {
-    background-color: #D5E2FF;
-    color: red;
-}
 
-.shelfDropdown {
-    position: absolute;
-    width: 200px;
-    z-index: 1;
-    padding: 5px 5px 20px 5px;
-}
 
-.shelfDropdownNew {
-    background-color: #D5E2FF;
-    width: 150px;
-    border: 1px solid #d7d7d7;
-    padding: 5px 5px 5px 5px;
-}
+   /* background-color: #D5E2FF;*/
 
-.shelfDropdownEdit {
-    background-color: white;
-    border: 1px solid #999;
-    /*  height: 500px;*/
-    height: 400px;
-    /*  overflow: scroll; */
-    overflow: auto;
-}
 
-.shelfDropdownNew .shelfDropdownName {
-    padding: 5px 0 5px 6px;
-    font-size: 1.1em;
-}
-
-.shelfDropdownEdit .shelfDropdownName {
-    padding: 0 0px 1px 6px;
-}
 
 .shelfInDropdown {
     padding: 2px;
@@ -974,15 +635,7 @@ div.shelfInDropdown:hover {
     cursor: pointer;
 }
 
-.shelfDropdownButton {
-    border: 2px solid #999;
-    border-bottom: 1px solid #999;
-    border-right: none;
-    width: 150px;
-    float: left;
-    margin-right: 5px;
-    padding: 0 0px 0 4px;
-}
+
 
 .shelfStatColumn {
     margin-bottom: 3px;
@@ -1000,13 +653,13 @@ div.shelfInDropdown:hover {
     font-weight: bold;
     width: 25%;
     float: left;
-    margin: 1px 0px;
+    margin: 1px 0;
 }
 
 .infoBoxRowItem {
     float: left;
     width: 75%;
-    margin: 1px 0px;
+    margin: 1px 0;
 }
 
 #authorStatsBox .minirating {
@@ -1022,22 +675,6 @@ div.shelfInDropdown:hover {
     width: 15%;
 }
 
-.graphBar {
-    background-image: url(/images/layout/gr_button.gif);
-    background-color: #D7D2C4;
-    background-repeat: repeat-x;
-    height: 8px;
-    overflow: hidden;
-    float: left;
-}
-
-.graphContainer {
-    width: 130px;
-    border: 1px solid #382110;
-    overflow: hidden;
-    height: 8px;
-    float: left;
-}
 
 .shelfContainer {
     float: left;
@@ -1191,598 +828,6 @@ div.inviteMatchButton {
     margin-bottom: 24px;
 }
 
-/*trivia!*/
-
-#myQuizStats .infoBoxRowTitle {
-    width: 130px;
-    text-align: right;
-}
-
-#myQuizStats .infoBoxRowItem {
-    width: auto;
-    margin-left: 5px;
-}
-
-.answerButton {
-    border: 1px solid #382110;
-    background-repeat: repeat-x;
-    background-color: #D5D0B0;
-    display: block;
-    text-align: center;
-    padding: 3px;
-    margin: 0 120px 3px 0px;
-}
-
-.incorrectAnswerButton {
-    border: 1px solid rgb(240, 240, 240);
-    background-repeat: repeat-x;
-    background-color: #EEE;
-    display: block;
-    text-align: center;
-    padding: 3px;
-    margin: 0 120px 3px 0px;
-}
-
-.answerButton:hover {
-    background: #BBB596;
-    text-decoration: none;
-    color: black;
-}
-
-.book_poll_answer_link .answerButton {
-    text-align: left;
-}
-
-.correct, .correct a {
-    color: green;
-}
-
-.incorrect, .incorrect a {
-    color: red;
-}
-
-.smallTable td, .smallTable th {
-    font-size: .9em;
-    line-height: 1.2;
-}
-
-.rightedBox {
-    float: right;
-    border: 1px solid #D5E2FF;
-    padding: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-}
-
-.triviaQuestionLite {
-    list-style: none;
-    padding-left: 0px;
-    margin-left: 0px;
-}
-
-.triviaQuestionLite li {
-    margin-left: 0px;
-}
-
-ol.triviaQuestionLite a {
-    margin-left: 0px;
-    background-color: #E8E2CC;
-    border-bottom: 1px solid #ccc;
-    color: #543319;
-    display: block;
-    font-family: Helvetica, Arial, sans-serif;
-    margin-bottom: 2px;
-    padding: 2px 8px;
-    text-decoration: none;
-}
-
-/* start of listopia */
-.listTitle {
-    font-weight: bold;
-}
-
-.bookVotedRow {
-    width: 100%;
-    overflow: hidden;
-}
-
-.bookVotedRow div {
-    float: left;
-}
-
-.bookVotedRow div div {
-    float: none;
-}
-
-#castButton {
-    margin: 3px;
-}
-
-.votedRowNum {
-    font-size: 2em;
-    float: left;
-    width: 40px;
-    padding-bottom: 3px;
-}
-
-.bookData {
-    float: left;
-    overflow: hidden;
-}
-
-#listBooks .bookRow, #add_mention_book_results .bookRow, .bookSelectorList .bookRow {
-    padding: 4px 0px;
-}
-
-#listBooks .shaded, #add_mention_book_results .shaded, .bookSelectorList .shaded {
-    background: #EFF0EF;
-}
-
-.cover {
-    float: left;
-    margin-right: 10px;
-}
-
-.book_choose_results .cover {
-    text-align: center;
-    width: 70px;
-}
-
-#add_mention_book_results .titleAndAuthor {
-    width: 300px;
-    float: left;
-    overflow: hidden;
-}
-
-.book_choose_results .bookData {
-    width: 400px;
-}
-
-.book_choose_results .authorName,
-#add_mention_book_results .authorName {
-    font-size: 10px;
-}
-
-#listBooks .cover {
-    width: 80px;
-    overflow: hidden;
-    text-align: center;
-}
-
-#showVotes .number {
-    font-size: 1.2em;
-}
-
-#showVotes .cover {
-    width: 70px;
-    overflow: hidden;
-    text-align: center;
-}
-
-#showVotes .bookData {
-    width: 200px;
-    overflow: hidden;
-}
-
-#showVotes .bookData .bookTitle, #showVotes .bookData .authorName {
-    font-size: 12px;
-}
-
-#voteForm {
-    margin-top: 4px;
-}
-
-#voteForm .number {
-    font-size: 1.2em;
-    font-family: serif;
-    margin-right: 10px;
-}
-
-#voteForm .number input {
-    width: 21px;
-}
-
-#voteForm .cover {
-    float: left;
-    margin-right: 10px;
-}
-
-#voteForm .cover img {
-    width: 30px;
-}
-
-#voteForm .bookData {
-    width: 235px;
-    overflow: hidden;
-}
-
-#voteForm .comment {
-    padding-left: 37px;
-    padding-bottom: 10px;
-}
-
-#voteForm .dataAndRating {
-    width: 183px;
-    float: left;
-}
-
-#voteForm textarea {
-    width: 236px;
-    height: 40px;
-    margin-right: 10px;
-}
-
-.pendingNotice {
-    display: none;
-}
-
-#voteForm.pending {
-    border: 3px solid #FFFBD9;
-}
-
-#voteForm.pending .pendingNotice {
-    background: #FFFBD9;
-    display: block;
-}
-
-.chooseExplanation p {
-    padding-bottom: 20px;
-}
-
-.dataAndRating .rating {
-    display: none;
-}
-
-.book_choose_results .dataAndRating .rating {
-    display: block;
-}
-
-#list_add_books_my_books_form {
-    margin-bottom: 10px;
-    overflow: hidden;
-    width: 100%;
-}
-
-#list_add_books_my_books_form select {
-    width: 120px;
-}
-
-#list_add_books_form {
-    text-align: center;
-}
-
-#list_add_books_form input {
-    font-size: 1.2em;
-}
-
-#list_add_books_form #searchTabQuery {
-    width: 230px;
-}
-
-#cobrandSlot {
-    margin-top: 9px;
-    margin-bottom: 9px;
-}
-
-#myBooksResultsContents .dataAndRating {
-    float: left;
-    width: 310px;
-}
-
-#not_any_error {
-    margin: 0 50px 20px;
-}
-
-.voteButtonDiv {
-    padding: 2px;
-    float: right;
-}
-
-.bookScoreData {
-    float: left;
-    width: 100px;
-}
-
-.listBook {
-    border: solid 1px #D7D7D7;
-    margin: 20px;
-    padding: 5px;
-}
-
-.userBlurb {
-    float: left;
-    height: 72px;
-    width: 150px;
-    overflow: hidden;
-}
-
-.userBlurb .profilePic {
-    float: left;
-    margin-right: 5px;
-}
-
-.userBlurb .details {
-    color: #777;
-    float: left;
-    width: 90px;
-    overflow: hidden;
-}
-
-.userListBookVote {
-    width: 173px;
-    float: left;
-    margin-right: 10px;
-}
-
-.userListBookVoteGroups {
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 15px;
-}
-
-.listRow {
-    padding-bottom: 10px;
-    float: left;
-    width: 210px;
-}
-
-.listRowsFull .cell {
-    float: left;
-    text-align: left;
-    padding: 0 9px 10px;
-    width: 287px;
-}
-
-.listRowsFull .row {
-    margin-bottom: 5px;
-}
-
-.listFullDetails {
-    color: #999;
-    font-family: arial, verdana, helvetica, sans-serif;
-}
-
-.listFullDetails a {
-    color: #999;
-}
-
-.rightContainer .listRowsFull .cell {
-    padding: 0 0 10px;
-}
-
-.listImgs {
-    height: 80px;
-    overflow: hidden;
-    margin-bottom: 5px;
-}
-
-.listImgs img {
-    width: 55px;
-    height: 80px;
-    margin-right: 2px;
-}
-
-.listPageHeader {
-    color: #382110;
-    font-family: Helvetica Neue UltraLight, Helvetica Neue Light, helvetica, sans-serif;
-    font-style: normal;
-    font-size: 1.2em;
-}
-
-.listHeaderLogo {
-    margin-bottom: 15px;
-    float: left;
-
-}
-
-.listTagline {
-    color: #382110;
-    font-family: helvetica, sans-serif;
-    font-style: italic;
-    font-weight: 200;
-    font-size: 13px;
-}
-
-.listPageTitle {
-    color: #382110;
-    font-weight: normal;
-    font-size: 2.0em;
-    margin-bottom: 10px;
-}
-
-.listInviteRow .friendData {
-    float: left;
-    width: 150px;
-    height: 40px;
-    overflow: hidden;
-}
-
-.listInviteRow .friendData img {
-    margin-right: 10px;
-    width: 25px;
-}
-
-.listInviteRow .friendData a {
-    float: left;
-}
-
-.listInviteRow .friendData .name {
-    width: 113px;
-    overflow: hidden;
-}
-
-.listInviteRow .inviteAction {
-    float: left;
-}
-
-.bestBookCol {
-    float: left;
-    width: 24%;
-}
-
-/*end of listopia */
-
-/* Start compare prices */
-table.bookPrices {
-    width: 550px;
-    margin-left: 55px;
-}
-
-table.bookPrices th.price,
-table.bookPrices td.price,
-table.bookPrices th.condition,
-table.bookPrices td.condition {
-    width: 85px;
-}
-
-table.bookPrices th.seller,
-table.bookPrices td.seller,
-table.bookPrices th.currentOwner,
-table.bookPrices td.currentOwner {
-    width: 300px;
-}
-
-/* End compare prices */
-
-/* tabbed panel */
-.tabs {
-    margin-bottom: -1px;
-}
-
-.tabs .tab, .tabs .selectedTab {
-    color: #382110;
-    border: 1px solid black;
-    border-bottom: 0px;
-
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-
-.tabs .tab {
-    padding: 1px 3px 0 3px;
-    background: #ddd;
-    margin: 1px 1px 0 1px;
-    z-index: 1;
-}
-
-.tabs .selectedTab {
-    position: relative;
-    padding: 1px 3px 2px 3px;
-    z-index: 3;
-    background: white;
-}
-
-.tabbedBox {
-    border: 1px solid black;
-    padding-left: 3px;
-    margin: 0px;
-    z-index: 2;
-}
-
-.tabbedBox #errorExplanation {
-    width: 200px;
-}
-
-.bigTabs, .mediumTabs {
-    border-bottom: 1px solid #BBB596;
-    margin-bottom: 20px;
-}
-
-.mediumTabs .tab,
-.mediumTabs .selectedTab,
-.bigTabs .tab,
-.bigTabs .selectedTab {
-    display: block;
-    float: left;
-    position: relative;
-    top: 1px;
-    border: 1px solid #BBB596;
-    background-color: #E9E7D2;
-    color: #382110;
-    margin: 0 5px;
-    padding: 3px 10px;
-    font-family: arial, verdana, helvetica, sans-serif;
-    background-color: #E9E7D2;
-    background-image: url(/images/layout/gr_subheader_bg_right.jpg);
-    background-position: left top;
-    outline: 0;
-    z-index: 0;
-}
-
-.bigTabs .tab,
-.bigTabs .selectedTab {
-    font-weight: bold;
-}
-
-.mediumTabs .selectedTab,
-.bigTabs .selectedTab {
-    background-color: white;
-    background-image: none;
-    border-bottom: 1px solid white;
-}
-
-.bigTabs .selectedTab:active {
-    outline: none;
-}
-
-.bigTabs .selectedTab:focus {
-    -moz-outline-style: none;
-}
-
-.nonTabs {
-    margin-bottom: 10px;
-}
-
-.nonTabs a {
-    font-size: 1.2em;
-}
-
-.nonTabs .selectedTab {
-    color: grey;
-}
-
-/* end of tabbed panel */
-
-/*giveaways*/
-.giveaway .cover {
-    width: 80px;
-}
-
-.giveaway .description {
-    width: 280px;
-    float: left;
-    margin-right: 10px;
-}
-
-.giveaway .actions {
-    width: 229px;
-    float: right;
-    padding: 2px 5px;
-}
-
-div.leftContainerFatty {
-    float: left;
-    width: 630px;
-}
-
-div.rightContainerSkinny {
-    float: left;
-    margin-left: 20px;
-    width: 280px;
-}
-
-.tableAlignTop td, .tableAlignTop th {
-    vertical-align: top;
-}
-
-.giveaway_action_button {
-    display: inline;
-    padding: 0 5px 0 0;
-}
-
-/*end of giveaways*/
 
 /*
  * import contacts form css
@@ -1868,25 +913,6 @@ ul.leftTabs li a:focus {
     outline: none;
 }
 
-ul.leftTabs li.gmail a {
-    background-image: url("/images/icons/gmail_icon.jpg");
-}
-
-ul.leftTabs li.yahoo a {
-    background-image: url("/images/icons/yahoo_icon_small.gif");
-}
-
-ul.leftTabs li.hotmail a {
-    background-image: url("/images/icons/hotmail_icon.jpg");
-}
-
-ul.leftTabs li.facebook a {
-    background-image: url("/images/icons/facebook_icon.jpg");
-}
-
-ul.leftTabs li.plaxo a {
-    background-image: url("/images/icons/plaxo_icon.gif");
-}
 
 div.tabContent p {
     float: left;
@@ -1915,37 +941,6 @@ div.tabContent ul li p.privacyPromise {
     font-size: 93%;
 }
 
-/* review form */
-.ownedBookFields .labelDiv {
-    clear: both;
-    float: none;
-}
-
-.ownedBookFields .labelDiv,
-.ownedBookFields label,
-.ownedBookFields .fieldDiv {
-    float: none;
-}
-
-/* end review form */
-
-/* schedule ad page */
-#scheduleAdForm {
-    width: 300px;
-    margin-left: 30px;
-    float: left;
-}
-
-#scheduleAdForm input {
-    text-align: right;
-}
-
-#adPreview {
-    float: left;
-    margin-left: 100px;
-}
-
-/* end of schedule ad page */
 
 /* google preview css */
 #viewport {
@@ -1972,33 +967,6 @@ div.tabContent ul li p.privacyPromise {
 
 /* LIGHTBOX STUFF */
 
-#overlay {
-    background-image: url(/images/overlay.png);
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    z-index: 100088;
-    width: 100%;
-    height: 100%;
-}
-
-* html #overlay {
-    background-color: #333;
-    background-color: transparent;
-    background-image: url(/images/blank.gif);
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src = "/images/overlay.png", sizingMethod = "scale");
-}
-
-#box {
-    background: #FFFFFF;
-    margin: 0;
-    padding: 0;
-    border: 1px solid #000000;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    -moz-box-shadow: 0 4px 8px #333;
-    box-shadow: 0 4px 8px #333;
-}
 
 #box h1 {
     background-color: transparent;
@@ -2006,17 +974,7 @@ div.tabContent ul li p.privacyPromise {
     margin: 0;
 }
 
-#box #close {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    cursor: pointer;
-}
 
-#box #boxContents {
-    margin-top: 12px;
-    padding: 10px 25px;
-}
 
 /* END OF LIGHTBOX */
 
@@ -2039,43 +997,11 @@ form.tableBuilderForm td {
     padding-bottom: 0.5em;
 }
 
-form.paragraphBuilderForm .labelDiv {
-    float: none;
-    clear: right;
-    font-weight: bold;
-    margin: 0;
-}
-
-form.paragraphBuilderForm .labelDiv label {
-    float: none;
-    vertical-align: baseline;
-}
-
-form.paragraphBuilderForm .labelDiv .tip {
-    margin-left: 0.5em;
-}
-
-form.paragraphBuilderForm .formField {
-    width: 100%;
-    margin-bottom: 1em;
-}
-
-form.sideBySideBuilderForm .formField {
-    margin-bottom: 1em;
-}
-
-form.sideBySideBuilderForm .labelDiv, form.titledBuilderForm .labelDiv {
-    font-weight: bold;
-}
-
 .sideBySideBuilderForm .fieldWithErrors {
     display: inline;
 }
 
-.oneLineBuilderForm .formField {
-    float: left;
-    margin-right: 10px;
-}
+
 
 .oneLineBuilderForm .button {
     float: left;
@@ -2133,74 +1059,6 @@ ul.tagList li a {
 div.pagination {
     text-transform: lowercase;
     padding: 10px 0;
-}
-
-/* video thumbnails */
-.inlineVideo {
-    position: relative;
-}
-
-.inlineVideo .playIcon {
-    background: url('/images/play_video.png');
-    position: absolute;
-    left: 45px;
-    top: 35px;
-    width: 42px;
-    height: 27px;
-    z-index: 2;
-    cursor: pointer;
-}
-
-.inlineVideo .bigPlayIcon {
-    left: 138px;
-    top: 107px;
-}
-
-.voteArrows {
-    width: 20px;
-    float: left;
-}
-
-a.voteUp {
-    display: block;
-    width: 15px;
-    height: 15px;
-    text-decoration: none;
-    background: url(/images/vote_up.gif);
-}
-
-a.voteUpVoted {
-    display: block;
-    width: 15px;
-    height: 15px;
-    text-decoration: none;
-    background: url(/images/vote_up.gif);
-    background-position: -15px 0;
-}
-
-a.voteUp:hover {
-    background-position: -15px 0;
-}
-
-a.voteDown {
-    display: block;
-    width: 15px;
-    height: 15px;
-    text-decoration: none;
-    background: url(/images/vote_down.gif);
-}
-
-a.voteDownVoted {
-    display: block;
-    width: 15px;
-    height: 15px;
-    text-decoration: none;
-    background: url(/images/vote_down.gif);
-    background-position: -15px 0;
-}
-
-a.voteDown:hover {
-    background-position: -15px 0;
 }
 
 .commentReplyLinks {
@@ -2359,7 +1217,7 @@ div.auto_complete ul li {
 .groupBook .meta dl {
     float: left;
     width: 135px;
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 0.5em;
 }
 
@@ -2456,13 +1314,6 @@ div.auto_complete ul li {
     padding: 5px 10px;
 }
 
-.featureBox {
-    background-color: #E0DCC2;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    padding-bottom: 10px;
-    background-image: url(/images/pale_gradient.png);
-}
 
 .featureBox .h2Container {
     background: none;
@@ -2540,91 +1391,6 @@ div.auto_complete ul li {
     padding: 5px 0 5px 5px;
 }
 
-#librarianNote {
-    margin-bottom: 1em;
-}
-
-.librarianNote label {
-    font-weight: bold;
-    color: #382110;
-}
-
-#librarianNote textarea {
-    margin-bottom: 10px;
-}
-
-#librarianNoteBodyField {
-    padding: 1em;
-}
-
-/* transaction log stuff */
-.transaction {
-    border-bottom: 1px solid rgb(215, 215, 215);
-}
-
-.transactionHeadings div {
-    float: left;
-    font-weight: bold;
-    margin-right: 5px;
-}
-
-.transactions div.id {
-    width: 40px;
-    float: left;
-    margin-right: 5px;
-}
-
-.transactions div.item {
-    width: 280px;
-    float: left;
-    margin-right: 5px;
-}
-
-.transactions div.status {
-    width: 60px;
-    float: left;
-    margin-right: 5px;
-}
-
-.transactions div.partner {
-    width: 85px;
-    float: left;
-    margin-right: 5px;
-}
-
-.transactions div.amount {
-    width: 75px;
-    float: left;
-    margin-right: 5px;
-}
-
-.transactions div.credit {
-    width: 50px;
-    white-space: nowrap;
-    float: left;
-    margin-right: 5px;
-}
-
-.transactions div.date {
-    width: 130px;
-    float: left;
-    margin-right: 5px;
-}
-
-.transaction .success .value {
-    font-weight: bold;
-}
-
-.transaction .processing, .transaction .processing a, .transaction .pending, .transaction .pending a {
-    color: grey;
-}
-
-.transaction .failure,
-.transactions .BookCreditPayment .value {
-    text-decoration: line-through;
-}
-
-/* end of tranaction log stuff */
 
 /* transaction log stuff */
 .campaignHeadings div {
@@ -2752,7 +1518,7 @@ div.selfServeAds {
 .selfServeAds130 .selfServeAd .adImage {
     text-align: center;
     width: 100%;
-    padding: 0px;
+    padding: 0;
 }
 
 .selfServeAds600 .selfServeAd {
@@ -3206,63 +1972,13 @@ img.loading {
     vertical-align: middle;
 }
 
-/* facebook connect */
-a.facebook_connect span {
-    background-image: url('/images/facebook/connect_white_small_short.gif');
-    width: 16px;
-    height: 18px;
-    float: left;
-    display: block;
-    margin-right: 10px;
-}
 
-/* end facebook connect */
 
-/* google accounts */
-a.google_account {
-    background: transparent url('/images/icons/google_account.gif') no-repeat;
-    padding-left: 20px;
-}
 
-/* end google accounts */
-a.twitter_account {
-    background: transparent url('/images/icons/twitter_icon.jpg') no-repeat;
-    padding-left: 20px;
-    text-decoration: none;
-}
-
-a.facebook_account {
-    background-image: url();
-    background: transparent url('/images/icons/facebook_icon.jpg') no-repeat;
-    padding-left: 20px;
-}
 
 /* addresses */
 
-#address_form .labelDiv {
-    width: 150px;
-}
 
-#address_form .formField {
-    margin-bottom: 0.2em;
-}
-
-.addressChooser h2 {
-    margin-bottom: 1em;
-}
-
-.addressChooser input.text {
-    margin: 0 0.5em 0 0;
-}
-
-.addressChooser .labelDiv label {
-    float: none;
-}
-
-.addressChooser .inlineAddressForm {
-    width: 615px;
-    border: 2px solid #FFD324;
-}
 
 #pageHeader {
     margin-bottom: 1em;
@@ -3750,20 +2466,6 @@ html>/**/body .inlineHorizontalKarma li {
     color: #666;
 }
 
-.bookMeta .value,
-.keyValue .value {
-    color: black;
-}
-
-.greyText.bookMeta .value,
-.greyText.keyValue .value {
-    color: #333;
-}
-
-.bookMeta .actionLinkLite,
-.keyValue .actionLinkLite {
-    font-size: inherit;
-}
 
 /* end book metadata styles */
 
@@ -3996,11 +2698,6 @@ ul.relatedWorks > li {
 
 /* end of swap header */
 
-.amazon {
-    background: transparent url('/images/icons/amazon_icon.png') no-repeat;
-    padding-left: 20px;
-    padding-bottom: 2px;
-}
 
 .editShelf {
     width: 200px;
@@ -4087,7 +2784,7 @@ ul.formatting_tips li {
 }
 
 ul.recommendation_tip li {
-    margin-left: 0px;
+    margin-left: 0;
     margin-right: 5px;
 }
 
@@ -4210,27 +2907,6 @@ ul.recommendation_tip li {
     margin-right: 5px;
 }
 
-.shelfChooser .shelves li {
-    padding: 2px 0 2px 20px;
-    background-image: url('/images/checkbox.png');
-    background-repeat: no-repeat;
-    background-position: 2px 50%;
-    margin: 0;
-    overflow-x: hidden;
-}
-
-.shelfChooser .shelves li.chosen {
-    background-image: url('/images/checkbox_checked.png');
-}
-
-.shelfChooser .shelves li.exclusive {
-    border-bottom: 1px solid #eee;
-    background-image: url('/images/radio.png');
-}
-
-.shelfChooser .shelves li.exclusive_chosen {
-    background-image: url('/images/radio_checked.png');
-}
 
 .shelfChooser .shelves .newShelfButtonLi {
     background: none;
@@ -4485,12 +3161,12 @@ ul.recommendation_tip li {
 /* end of inline comments */
 
 .notTableList {
-    padding: 0px;
+    padding: 0;
 }
 
 .notTableList td, .notTableList th {
     border-width: 0px;
-    padding: 0px;
+    padding: 0;
 }
 
 /* datepicker */
@@ -4501,13 +3177,13 @@ div.datepicker {
     font-family: arial;
     background: #FFFFFF;
     font-size: 10px;
-    padding: 0px;
+    padding: 0;
 }
 
 div.datepicker table {
     font-size: 10px;
     margin: 0px;
-    padding: 0px;
+    padding: 0;
     text-align: center;
     width: 180px;
 }
@@ -4517,20 +3193,20 @@ div.datepicker table thead tr th {
     font-weight: bold;
     background: rgb(235, 232, 213);
     border-bottom: 1px solid rgb(225, 222, 203);
-    padding: 0px;
+    padding: 0;
     margin: 0px;
 }
 
 div.datepicker table tbody tr {
     border: 1px solid white;
     margin: 0px;
-    padding: 0px;
+    padding: 0;
 }
 
 div.datepicker table tbody tr td {
     border: 1px solid #eaeaea;
     margin: 0px;
-    padding: 0px;
+    padding: 0;
     text-align: center;
 }
 
@@ -4593,7 +3269,7 @@ div.datepicker table tfoot tr td {
     border-top: 1px solid rgb(225, 222, 203);
     cursor: pointer;
     text-align: center;
-    padding: 0px;
+    padding: 0;
 }
 
 /* end of date_picker */
@@ -4758,8 +3434,7 @@ table.nowrap td.wrap {
 }
 
 /* IE7 hacks */
-html*#hp_status_editor input.button,
-html*#hp_year_challenge input.button {
+html*#hp_status_editor input.button{
 ] padding-right : 0 px;
 ] padding-left : 0 px;
 ] font-size : 1.1 em;
@@ -4797,257 +3472,7 @@ html*#hp_year_challenge input.button {
     margin-right: 10px;
 }
 
-#hp_year_challenge .userPhoto {
-    display: none;
-}
 
-#hp_year_challenge .challengeForm,
-#hp_year_challenge .userChallenge .viewBooksLink {
-    font-family: arial, verdana, helvetica, sans-serif;
-    font-size: 90%;
-    color: #666666;
-}
-
-.userChallenge form.challengeForm.newChallengeForm {
-    background-color: #FFF;
-    padding: 0px;
-}
-
-#hp_year_challenge .userChallenge.userChallenge .challengeFormLink {
-    font-size: 10px;
-    line-height: 14px;
-    float: right;
-    clear: both;
-}
-
-.challengeShowLarge .challengeStats p {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.challengeShowLarge .viewBooksLink {
-    display: none;
-}
-
-.challengeList {
-    margin-bottom: 10px;
-}
-
-#hp_year_challenge .userChallenge .viewBooksLink {
-    float: left;
-    font-size: 10px;
-    line-height: 14px;
-}
-
-#hp_year_challenge .userChallenge div.goal {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-#hp_year_challenge .userChallenge form.challengeForm.newChallengeForm div.goal {
-    margin-top: 0px;
-}
-
-.challengeShowLarge #user_challenge {
-    border-top: solid 1px #d7d7d7;
-    padding-top: 7px;
-    margin-top: 7px;
-}
-
-.challengeShowLarge div.goal {
-    margin: 5px 0 5px 0px;
-}
-
-.challengeShowLarge div.challengePic {
-    text-align: center;
-    float: left;
-    width: 115px;
-    margin: 5px;
-}
-
-.challengeShowLarge div.challengePic .enteredSoFar {
-    text-align: center;
-    float: left;
-    clear: left;
-}
-
-.challengeShowLarge .userChallenge .challengeFormLinkOuter,
-.challengeShowLarge .userChallenge .challengeFormLink {
-    float: right;
-    clear: left;
-    color: #215625;
-}
-
-.challengeShowLarge .box {
-    margin-bottom: 20px;
-    padding: 20px 10px;
-}
-
-.challengeShowLarge .coverRow {
-    border-bottom: none;
-}
-
-.challengeShowLarge .covers img {
-    max-width: 100px;
-    max-height: 150px;
-    -webkit-box-shadow: #ccc 5px 5px 5px;
-    -moz-box-shadow: #ccc 5px 5px 5px;
-    width: 100%;
-}
-
-#hp_year_challenge .challengeShortText {
-    margin-bottom: 0px;
-    margin-left: 5px;
-}
-
-.yearChallengeLarge {
-    background-image: url(/images/challenges/background-texture.jpg);
-    font-family: Arial, Helvetica, Verdana, sans-serif;
-    padding-bottom: 10px;
-}
-
-.yearChallengeLarge .readLastYear {
-    width: 100%;
-    clear: both;
-    text-align: center;
-    padding-top: 5px;
-}
-
-.yearChallengeLarge .newChallengeForm .goal,
-.yearChallengeLarge .newChallengeForm .goal input {
-    font-size: 20px;
-}
-
-.yearChallengeLarge .newChallengeForm .challengeFields {
-    float: left;
-}
-
-.yearChallengeLarge .newChallengeForm .button {
-    float: left;
-    margin-left: 10px;
-    font-size: 14px;
-}
-
-.yearChallengeLarge.challengeShowLarge div.challengePic {
-    width: 100%;
-    padding-bottom: 10px;
-}
-
-.yearChallengeLarge .challengePic img {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
-
-.yearChallengeLarge .userChallengeBlock {
-    background-color: #FFFFFF;
-    padding: 10px;
-    width: 469px;
-    float: left;
-}
-
-.yearChallengeLarge .userChallengeBubble {
-    background-image: url(/images/challenges/speech-bubble-tail.png);
-    background-repeat: no-repeat;
-    background-position: 0 15px;
-    float: left;
-    width: 15px;
-    height: 50px;
-}
-
-.yearChallengeLarge h1 {
-    font-family: Arial, Helvetica, Verdana, sans-serif;
-    color: #181818;
-    font-size: 38px;
-    padding-top: 10px;
-    line-height: 38px;
-}
-
-.yearChallengeLarge h2 {
-    font-family: Arial, Helvetica, Verdana, sans-serif;
-    font-size: 16px;
-    color: #181818;
-    padding-bottom: 10px;
-}
-
-.yearChallengeLarge .mainContentFloat {
-    min-height: 10px
-}
-
-.yearChallengeLarge.challengeShowLarge #user_challenge {
-    margin-top: 0px;
-    border-top: none;
-}
-
-.yearChallengeLarge .challengeShortText,
-.challengeShowLarge .challengeShortText {
-    display: none;
-}
-
-.challengeShowLarge .challengeFormLink {
-    font-size: 12px;
-}
-
-.yearChallengeLarge .challengeStats {
-    padding: 10px 0 10px 10px;
-}
-
-.yearChallengeLarge .challengeStats .challengeStat {
-    width: 100%;
-    text-align: center;
-    padding-bottom: 3px;
-}
-
-.yearChallengeLarge .challengeStats .challengeStatNum {
-    width: 100px;
-    color: #2C8C84;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.yearChallengeLarge .challengeStats .challengeStatWhat {
-    width: 100px;
-    font-size: 12px;
-    color: #181818;
-}
-
-.challengeShowLarge.showUserChallengePage .challengeShortText {
-    display: block;
-}
-
-.challengeShowLarge .challengeDesc {
-    margin-bottom: 10px;
-}
-
-.previous_challenges .endedMessage {
-    display: none;
-}
-
-.challengeListed {
-    padding: 10px 10px 10px 10px;
-    -moz-box-shadow: 0 5px 5px #ddd;
-    -webkit-box-shadow: 0 5px 5px #ddd;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-}
-
-.userChallengeListed {
-    border-top: 1px solid #ddd;
-    padding-top: 10px;
-}
-
-div .challenge-on-track {
-    color: green;
-}
-
-#mainContent {
-
-    padding: 5px;
-    -moz-border-radius-bottomleft: 5px;
-    -moz-border-radius-bottomright: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
 
 .auto_complete_results {
     position: absolute;
@@ -5362,7 +3787,7 @@ div .challenge-on-track {
     position: relative;
     min-height: 33px;
     background: #EEE;
-    margin: 10px 0 0px 22px;
+    margin: 10px 0 0 22px;
     border-bottom: 1px solid #555;
     border-left: 1px solid #ccc;
     border-top: 1px solid #ccc;
@@ -5467,14 +3892,6 @@ a.uitext, .uitext a {
 .dropButton .floatingBox td,
 .dropButton .floatingBox th {
     font-family: arial, verdana, helvetica, sans-serif;
-}
-
-.atmb .dropButton .floatingBox {
-    padding: 0;
-}
-
-.atmb .dropButton img.loading {
-    margin: 5px 8px;
 }
 
 .atmb .dropButton .button {
@@ -5985,7 +4402,7 @@ ul.tableOfContents ul {
 }
 
 .coverBigBox .bot {
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 5px;
 }
 
@@ -6025,7 +4442,7 @@ ul.tableOfContents ul {
 }
 
 .coverBigBox .moreLink {
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 7px;
 }
 
@@ -6089,13 +4506,13 @@ ul.tableOfContents ul {
 }
 
 .movers .moreLink {
-    margin-top: 0px;
+    margin-top: 0;
     padding-top: 5px;
     margin-bottom: 5px;
 }
 
 .bigBox.movers {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 .leftContainer .bigBox .bigBoxAncillaryData {
@@ -6184,7 +4601,7 @@ ul.tableOfContents ul {
 
 .newUserNotice {
     background-color: #E4F4DA;
-    padding: 20px 0 0px 20px;
+    padding: 20px 0 0 20px;
     min-height: 175px;
     font-family: Arial, Helvetica, Verdana, sans-serif;
     position: relative;
@@ -6192,7 +4609,7 @@ ul.tableOfContents ul {
 
 .newUserNotice .closeButton {
     position: absolute;
-    top: 0px;
+    top: 0;
     right: 10px;
     clear: both;
     font-weight: bold;
@@ -6206,7 +4623,7 @@ ul.tableOfContents ul {
 
 .newUserNoticeLink h2.boxTitle {
     font-size: 16px;
-    padding: 5px 0 10px 0px;
+    padding: 5px 0 10px 0;
     font-weight: bold;
 }
 
@@ -6315,13 +4732,13 @@ th {
 }
 
 H1, H2, H3, H4, H5, H6 {
-    margin: 4px 0 4px 0px;
+    margin: 4px 0 4px 0;
     color: #aaa;
     font-weight: normal;
 }
 
 H1, .h2Container H2 {
-    padding: 0 0px 2px 0px;
+    padding: 0 0 2px 0;
     font-size: 20px;
     margin-top: 0;
     margin-bottom: 15px;
@@ -6372,15 +4789,13 @@ img.inline {
 
 /* BEGIN: header styles */
 .headerContainer {
-    background-image: url(/images/layout/gr_header_bg_wo_books_new.jpg);
-    background-repeat: repeat-x;
     width: 100%;
     height: 64px;
     text-align: center;
 }
 
 .headerContainer .headerTitle {
-    padding: 30px 0pt 0pt 25px;
+    padding: 30px 0 0 25px;
     background: none;
     float: left;
 }
@@ -6456,8 +4871,6 @@ img.inline {
     padding: 0;
     padding-top: 3px;
     padding-left: 10px;
-    background-image: url(/images/layout/gr_header_bg_search_238.gif);
-    background-repeat: no-repeat;
     width: 233px;
     height: 21px;
 }
@@ -6691,7 +5104,7 @@ ul.links .submenu li a {
 
 .subNav a {
     color: #215625;
-    padding: 2px 0px;
+    padding: 2px 0;
 }
 
 .subNav a:hover {
@@ -6710,14 +5123,6 @@ ul.links .submenu li a {
 
 .mainContentContainer * {
     /*  text-align:left;*/
-}
-
-.mainContent {
-    /*  width:960px;*/
-    max-width: 965px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
 }
 
 .mainContentFloat {
@@ -6753,9 +5158,6 @@ ul.links .submenu li a {
 }
 
 .h2Container {
-    background-image: url(/images/layout/gr_subheader_bg_right.jpg);
-    background-position: top right;
-    background-repeat: no-repeat;
     height: 28px;
     overflow: hidden;
     white-space: nowrap;
@@ -6764,19 +5166,9 @@ ul.links .submenu li a {
 .h2Container h2 {
     position: relative;
     font-size: 16px;
-    top: 0px;
+    top: 0;
 }
 
-h2.brownBackground {
-    background-image: url(/images/layout/gr_subheader_bg_left.jpg);
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-position: top left;
-}
-
-h2.brownBackground a {
-    color: #382110;
-}
 
 .bigBox .h2Container h2 {
     display: block;
@@ -6840,61 +5232,10 @@ h2.brownBackground a {
 }
 
 .leftContainer h2#bookPageTitle {
-    padding: 0px;
+    padding: 0;
 }
 
 /* END: page styles */
-
-.bigGreyBox, .grey500Box, .big420Box {
-    float: left;
-    background-repeat: no-repeat;
-    padding-top: 5px;
-}
-
-.bigGreyBox {
-    width: 625px;
-    background-image: url(/images/layout/gr_large_container_625_top.gif);
-}
-
-.grey540Box {
-    width: 540px;
-    background-image: url(/images/layout/gr_large_container_top.gif);
-}
-
-.grey500Box {
-    width: 500px;
-    background-image: url(/images/layout/gr_large_container_500_top.gif);
-}
-
-.grey292Box {
-    width: 292px;
-    background-image: url(/images/layout/gr_small_container_top292.gif);
-}
-
-.big420Box {
-    width: 420px;
-    background-image: url(/images/layout/gr_large_container_420_top.gif);
-}
-
-.bigGreyBoxBody, .grey540BoxBody, .grey500BoxBody, .big420BoxBody {
-    background-repeat: repeat-y;
-}
-
-.bigGreyBoxBody {
-    background-image: url(/images/layout/gr_large_container_625_center.gif);
-}
-
-.grey540BoxBody {
-    background-image: url(/images/layout/gr_large_container_center.gif);
-}
-
-.grey500BoxBody {
-    background-image: url(/images/layout/gr_large_container_500_center.gif);
-}
-
-.big420BoxBody {
-    background-image: url(/images/layout/gr_large_container_420_center.gif);
-}
 
 .bigGreyBoxContent, .grey540BoxContent, .grey500BoxContent, .big420BoxContent, .grey292BoxContent {
     padding: 0 10px 0 10px;
@@ -6925,32 +5266,6 @@ h2.brownBackground a {
     padding-bottom: 10px;
     height: 10px;
     background-repeat: no-repeat;
-}
-
-.bigGreyBoxBottom {
-    width: 625px;
-    background-image: url(/images/layout/gr_large_container_625_bottom.gif);
-}
-
-.grey540BoxBottom {
-    width: 540px;
-    background-image: url(/images/layout/gr_large_container_540_bottom.gif);
-}
-
-.grey500BoxBottom {
-    width: 500px;
-    background-image: url(/images/layout/gr_large_container_500_bottom.gif);
-}
-
-.big420BoxBottom {
-    width: 420px;
-    background-image: url(/images/layout/gr_large_container_420_bottom.gif);
-}
-
-.grey292BoxBottom {
-    width: 292px;
-    height: 20px;
-    background-image: url(/images/layout/gr_small_container_bottom292.gif);
 }
 
 .greyBoxH2Container {
@@ -6991,11 +5306,11 @@ h2.brownBackground a {
 
 /* BEGIN: footer styles */
 .footerContainer {
-    background-image: url(/img/gr_footer_bg.png);
-    background-repeat: repeat-x;
+    background: url(/img/gr_footer_bg.png) repeat-x;
     width: 100%;
-    height: 30px;
+    height: 80px;
     text-align: center;
+    clear: both;
 }
 
 .footerContainer * {
@@ -7058,19 +5373,6 @@ ul.adminLinks li a.last {
 /* END: footer styles */
 
 /* seth-style header test */
-#siteheader {
-    padding-top: 5px;
-    background: url(/images/layout/gr_header_bg_wo_books_new.jpg) repeat-x;
-    height: 45px;
-    border-bottom: 1px solid #E3DFC9;
-    color: #382110;
-}
-
-.home #siteheader {
-    background: url(../img/gr_header_bg_books_new.jpg) repeat-x top center;
-    padding-top: 45px;
-    border-bottom: 1px solid #E3DFC9;
-}
 
 #siteheader a {
     color: #382110;
@@ -7180,44 +5482,8 @@ ul.adminLinks li a.last {
     height: 33px;
     margin-top: 5px;
     margin-right: 2px;
-    padding-top: 0px;
+    padding-top: 0;
     padding-right: 10px;
-}
-
-#siteheader #usernav li.friendsNotice a {
-    background-image: url(/images/header/friend_off.png);
-}
-
-#siteheader #usernav li.friendsNotice a.noticeOn {
-    background-image: url(/images/header/friend_on.png);
-}
-
-#siteheader #usernav li.friendsNotice a:hover {
-    background-image: url(/images/header/friend_over.png);
-}
-
-#siteheader #usernav li.generalNotice a {
-    background-image: url(/images/header/notification_off.png);
-}
-
-#siteheader #usernav li.generalNotice a.noticeOn {
-    background-image: url(/images/header/notification_on.png);
-}
-
-#siteheader #usernav li.generalNotice a:hover {
-    background-image: url(/images/header/notification_over.png);
-}
-
-#siteheader #usernav li.inboxNotice a {
-    background-image: url(/images/header/message_off.png);
-}
-
-#siteheader #usernav li.inboxNotice a.noticeOn {
-    background-image: url(/images/header/message_on.png);
-}
-
-#siteheader #usernav li.inboxNotice a:hover {
-    background-image: url(/images/header/message_over.png);
 }
 
 #siteheader #usernav li.notificationIcon a {
@@ -7232,7 +5498,7 @@ ul.adminLinks li a.last {
 }
 
 #siteheader #usernav li.notificationIcon.generalNotice a {
-    background-position: 0 0px;
+    background-position: 0 0;
 }
 
 #siteheader #usernav li.notificationIcon .notification {
@@ -7247,7 +5513,7 @@ ul.adminLinks li a.last {
 }
 
 #siteheader #usernav li.notificationIcon {
-    margin-right: 0px;
+    margin-right: 0;
 }
 
 #siteheader #usernav .subnavlink.profilePhoto {
@@ -7279,19 +5545,19 @@ ul.adminLinks li a.last {
 #siteheader #usernav .userNameHeader {
     font-weight: bold;
     border-bottom: solid 1px #d7d7d7;
-    padding-bottom: 0px;
+    padding-bottom: 0;
     padding-top: 5px;
 }
 
 #siteheader .subnav.profileSubNav {
     top: 35px;
     padding-right: 3px;
-    padding-top: 0px;
+    padding-top: 0;
     z-index: 1;
 }
 
 #siteheader #usernav .subnav {
-    margin: 0 0px 5px 10px
+    margin: 0 0 5px 10px
 }
 
 #siteheader #usernav .subNavTopper {
@@ -7351,7 +5617,7 @@ ul.adminLinks li a.last {
 
 #siteheader .subnav.selected {
     left: auto;
-    right: 0px;
+    right: 0;
 }
 
 #siteheader .subnav .content {
@@ -7429,7 +5695,7 @@ ul.adminLinks li a.last {
 
 #siteheader .headerTitle {
     font-size: 20px;
-    padding: 12px 0 0px 25px;
+    padding: 12px 0 0 25px;
     float: left;
 }
 
@@ -7447,29 +5713,8 @@ ul.adminLinks li a.last {
     color: white;
 }
 
-#siteheader .inbox.notification {
-    background-image: url(/images/mail.png);
-    background-repeat: no-repeat;
-    background-position: 3px center;
-    padding-left: 15px;
-    margin-right: 2px;
-}
-
 #siteheader a.notice {
     color: #D10000;
-}
-
-/*  Style for Advertisers/ad_home */
-.campaigns h3 {
-    float: left;
-}
-
-.campaigns form.ad_home_sort_form {
-    float: right;
-}
-
-.campaignHeadings {
-    clear: both;
 }
 
 /* end seth-style header test */
@@ -7534,27 +5779,11 @@ ul.adminLinks li a.last {
 
 /* end image pagination styles */
 
-/* User List Challenges */
-#UserListChallenge {
-    margin-bottom: 16px;
-}
 
-/* User List Challenges end */
 
 /* Review Show Page */
 .currently-reading {
     width: 100px;
-}
-
-/* Review Show Page End */
-#review-follow {
-    margin-top: 8px;
-}
-
-#review-like {
-    text-align: right;
-    float: right;
-    margin-top: 8px;
 }
 
 /* book/edit onix explanation */
@@ -7563,10 +5792,6 @@ ul.adminLinks li a.last {
 }
 
 /* Home page myprofile Box */
-.bigBoxContent .actionLinkLites .profileMyLinksNarrow, .bigBoxContent .actionLinkLites .profileMyLinksWide {
-    list-style: none;
-    padding: 0;
-}
 
 .tanBackgroundTexture {
     background-image: url(/images/layout/tan-bg-texture.jpg);
@@ -7587,16 +5812,6 @@ ul.adminLinks li a.last {
     width: 50px;
 }
 
-.leftContainer {
-    float: left;
-    width: 625px;
-    padding-right: 10px;
-}
-
-* html .leftContainer {
-    width: 640px;
-    w\idth: 625px;
-}
 
 .rightContainer {
     float: left;
@@ -7605,13 +5820,9 @@ ul.adminLinks li a.last {
     margin-left: 14px;
 }
 
-.reverseColumnSizes .leftContainer {
-    width: 300px;
-    padding-right: 0px;
-}
 
 .reverseColumnSizes .rightContainer {
-    padding-left: 0px;
+    padding-left: 0;
     width: 625px;
 }
 
@@ -7657,520 +5868,6 @@ html[xmlns] .clearfix {
     height: 1%;
 }
 
-.voice .art_group .title, .show .art_group .title {
-    display: block;
-}
-
-.voice .art_group .image img, .show .art_group .image img {
-    height: 9em;
-    vertical-align: bottom;
-    padding-right: 0.5em;
-}
-
-.voice .art_group .description, .show .art_group .description {
-    font-size: 1em;
-    line-height: 1.5em;
-}
-
-.voice .art_group .image, .show .art_group .image {
-    float: left;
-}
-
-.voice .art_quiz .title, .show .art_quiz .title {
-    display: block;
-}
-
-.voice .art_quiz .image img, .show .art_quiz .image img {
-    height: 9em;
-    vertical-align: bottom;
-    padding-right: 0.5em;
-}
-
-.voice .art_quiz .description, .show .art_quiz .description {
-    font-size: 1em;
-    line-height: 1.5em;
-}
-
-.voice .art_quiz .image, .show .art_quiz .image {
-    float: left;
-}
-
-.voice .art_giveaway {
-    padding: 0;
-}
-
-.voice .art_book_news_post .title {
-    display: block;
-}
-
-.voice .art_book_news_post .image img {
-    height: 6em;
-    vertical-align: bottom;
-    padding-right: 0.5em;
-}
-
-.voice .art_book_news_post .description {
-    font-size: 1em;
-    line-height: 1.5em;
-}
-
-.voice .art_book_news_post .image {
-    float: right;
-}
-
-.voice .art_interview .title {
-    display: block;
-}
-
-.voice .art_interview .image img {
-    height: 9em;
-    vertical-align: bottom;
-    padding-right: 0.5em;
-}
-
-.voice .art_interview .description {
-    font-size: 1em;
-    line-height: 1.5em;
-}
-
-.voice .art_interview .image {
-    float: left;
-}
-
-.voice .art_interview .image a {
-    display: block;
-    float: left;
-}
-
-.voice .art_interview .action,
-.voice .art_group .action {
-    float: right;
-}
-
-.voice .art_book .image img {
-    height: 9em;
-    vertical-align: bottom;
-    padding-right: 0.5em;
-}
-
-.voice .art_book .description {
-    font-size: 1em;
-    line-height: 1.5em;
-}
-
-.voice .art_book .voice {
-    display: block;
-}
-
-.voice .art_book .show {
-    display: none;
-}
-
-.show .art_book_news_post .title {
-    display: block;
-}
-
-.show .art_book_news_post .image img {
-    height: 6em;
-    vertical-align: bottom;
-    padding-right: 0.5em;
-}
-
-.show .art_book_news_post .description {
-    font-size: 1em;
-    line-height: 1.5em;
-}
-
-.show .art_book_news_post .image {
-    float: right;
-}
-
-.show .art_book .voice {
-    display: none;
-}
-
-.show .art_book .show {
-    display: block;
-}
-
-.show .art_book .image img {
-    height: 9em;
-    vertical-align: bottom;
-    padding-right: 0.5em;
-}
-
-.show .art_book .description {
-    font-size: 1em;
-    line-height: 1.5em;
-}
-
-.show .art_interview .image img {
-    height: 9em;
-    vertical-align: bottom;
-    padding-right: 0.5em;
-}
-
-.show .art_interview .description {
-    font-size: 1em;
-    line-height: 1.5em;
-}
-
-.show .art_interview .image {
-    float: right;
-}
-
-.show .art_interview .action {
-    float: left;
-    clear: left;
-}
-
-/* CSS to go with Prototip.Styles */
-.prototip {
-    font: 11px Arial, Helvetica, sans-serif;
-    color: #000;
-}
-
-/* the default style */
-.prototip .default {
-    width: 250px;
-    color: #808080;
-}
-
-.prototip .default .toolbar {
-    background: #f1f1f1;
-    font-weight: bold;
-}
-
-.prototip .default .title {
-    padding: 5px;
-}
-
-.prototip .default .content {
-    padding: 5px;
-    background: #fff;
-}
-
-/* basic */
-.prototip .basic {
-    width: 250px;
-    color: #808080;
-}
-
-.prototip .basic .toolbar {
-    background: #f1f1f1;
-    font-weight: bold;
-}
-
-.prototip .basic .title {
-    padding: 5px;
-}
-
-.prototip .basic .content {
-    padding: 5px;
-    background: #fff;
-}
-
-/* basic */
-.prototip .hint {
-    width: 250px;
-    color: #313120;
-    background: #fff6aa;
-}
-
-.prototip .hint .toolbar {
-    background: #fdf1a0;
-    font-weight: bold;
-}
-
-.prototip .hint .title,
-.prototip .hint .content {
-    padding: 5px;
-}
-
-/* protoblue */
-.prototip .protoblue {
-    width: 250px;
-    color: #fff;
-}
-
-.prototip .protoblue .toolbar {
-    background: #0d7cd0;
-    font-weight: bold;
-}
-
-.prototip .protoblue .title {
-    padding: 5px;
-}
-
-.prototip .protoblue .content {
-    background: #1e90ff;
-    padding: 5px;
-}
-
-/* creamy */
-.prototip .creamy {
-    width: 250px;
-    color: #514721;
-}
-
-.prototip .creamy .toolbar {
-    background: #fff6bf;
-    font-weight: bold;
-}
-
-.prototip .creamy .title {
-    padding: 5px;
-    font-weight: bold;
-    color: #382110;
-    background: #Fdedae
-}
-
-.prototip .creamy .content {
-    background: #fff6bf;
-    padding: 5px;
-}
-
-/* darkgrey */
-.prototip .darkgrey {
-    width: 250px;
-    color: #fff;
-}
-
-.prototip .darkgrey .toolbar {
-    background: #5f5f5f;
-    font-weight: bold;
-}
-
-.prototip .darkgrey .title {
-    padding: 5px;
-}
-
-.prototip .darkgrey .content {
-    background: #808080;
-    padding: 5px;
-}
-
-/* protogrey */
-.prototip .protogrey {
-    width: 250px;
-    color: #fff;
-    background: #fff;
-}
-
-.prototip .protogrey .toolbar {
-    background: #969c92;
-    font-weight: bold;
-}
-
-.prototip .protogrey .title {
-    padding: 5px;
-}
-
-.prototip .protogrey .content {
-    color: #808080;
-    padding: 5px;
-}
-
-/* This is how to resize the close button for a style */
-.prototip .protogrey .toolbar .close {
-    width: 14px;
-    height: 14px;
-}
-
-/* goodreads */
-.prototip .goodreads {
-    background: #F7F4F2;
-}
-
-.prototip .goodreads .toolbar {
-    background: #E9E5D3;
-    font-weight: bold;
-}
-
-.prototip .goodreads .toolbar .title {
-    padding: 5px;
-    color: #382110;
-}
-
-.prototip .goodreads .content {
-    padding: 5px;
-}
-
-/* add-book */
-.prototip .addbook {
-    background: #F7F4F2;
-}
-
-.prototip .addbook .toolbar {
-    background: #E9E5D3;
-    font-weight: bold;
-}
-
-.prototip .addbook .toolbar .title {
-    padding: 5px;
-    color: #382110;
-}
-
-.prototip .addbook .content {
-    padding: 5px;
-}
-
-/* add-book */
-.prototip .noBg {
-    background: none;
-}
-
-.prototip .noBg.toolbar {
-    background: none;
-}
-
-.prototip .noBg .toolbar .title {
-    padding: 0px;
-    background: none;
-}
-
-.prototip .noBg .content {
-    padding: 0px;
-}
-
-/* loader gif */
-.prototipLoader {
-    position: absolute;
-    top: -1000px;
-    left: -1000px;
-    height: 16px;
-    width: 16px;
-    border: 2px solid white;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    overflow: hidden;
-}
-
-/* Required for all tooltips, do not modify */
-.prototip {
-    position: absolute;
-    overflow: hidden;
-}
-
-.prototip .tooltip, .prototip .toolbar, .prototip .toolbar .title {
-    position: relative;
-}
-
-.prototip .content {
-    clear: both;
-}
-
-.prototip .toolbar .close {
-    position: relative;
-    text-decoration: none;
-    float: right;
-    width: 19px;
-    height: 15px;
-    display: block;
-    line-height: 0;
-    font-size: 0;
-    border: 0;
-    cursor: pointer;
-}
-
-.prototip .tooltip {
-    clear: both;
-    float: left;
-}
-
-.prototip .borderLeftWrapper, .prototip .borderRightWrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 300px;
-    height: 20px;
-}
-
-.prototip .borderFrame {
-    height: 100%;
-    width: 100%;
-    float: left;
-    margin: 0;
-    padding: 0;
-    position: relative;
-}
-
-.prototip .borderTop, .prototip .borderBottom {
-    overflow: hidden;
-}
-
-.prototip .borderRow {
-    list-style-type: none;
-    float: left;
-    width: 100%;
-    position: relative;
-    clear: both;
-    margin: 0;
-    padding: 0;
-}
-
-.prototip_CornerWrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    clear: both;
-}
-
-.prototip_Corner {
-    float: left;
-    position: relative;
-}
-
-.prototip canvas {
-    position: relative;
-    float: left;
-}
-
-.prototip_CornerTr, .prototip_CornerBr {
-    float: right;
-}
-
-.prototip_BetweenCorners {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    clear: both;
-}
-
-.prototip .borderMiddle {
-    position: relative;
-    float: left;
-}
-
-.prototip .borderCenter {
-    position: relative;
-    float: left;
-    height: 100%;
-}
-
-.prototip_StemWrapper {
-    position: relative;
-    width: 100%;
-    height: auto;
-    clear: both;
-}
-
-.prototip_StemBox {
-    float: left;
-    position: relative;
-}
-
-.prototip_Stem {
-    width: 100%;
-    position: absolute;
-    overflow: hidden;
-}
 
 .iframeShim {
     position: absolute;
@@ -8181,28 +5878,8 @@ html[xmlns] .clearfix {
     overflow: hidden;
 }
 
-.prototip .clearfix:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-}
-
-.prototip .clearfix {
-    display: inline-block;
-}
-
-/* IE Mac Hide \*/
-.prototip .clearfix {
-    display: block;
-}
 
 /* IE Mac Hide End */
-
-.prototipAllowOverflow {
-    overflow: visible;
-}
 
 .actionLinkLites a.button {
     color: #222;
@@ -8513,106 +6190,6 @@ table.adminDataTable .timestamp {
 
 /* end specific to the recs refresh configs page */
 
-/* Spam users tool styles */
-
-.suspicious {
-    background-color: #fbb;
-}
-
-input.suspicious {
-    background-color: transparent;
-}
-
-.unsuspicious {
-    background-color: #bfb;
-}
-
-/* end spam users tool */
-
-/* admin users page */
-#adminUserTools .elementList {
-    float: left;
-    width: 100%;
-}
-
-#userStatsTable {
-    float: left;
-    width: 200px;
-}
-
-#adminUserTools .toolsButton {
-    width: 95px;
-    float: right;
-    height: 18px;
-    line-height: 18px;
-    padding: 0;
-}
-
-/* admin users page */
-
-/* homepage */
-#ratingsForRecsBox {
-    float: left;
-    width: 100%;
-    /*  padding-bottom: 18px;*/
-    vertical-align: middle;
-}
-
-#ratingsForRecsCounter {
-    float: left;
-    width: 80px;
-    padding: 4px 2px 5px;
-    margin: -1px 0 18px;
-    border: 1px solid #BBB596;
-    color: #382110;
-    background-color: #F5F5EA;
-    background: -moz-linear-gradient(top, #F5F5EA, #D4CEB9);
-    background: -webkit-gradient(linear, center top, center bottom, from(#F5F5EA), to(#D4CEB9));
-    font-family: arial, helvetica, sans-serif;
-}
-
-#ratingsForRecsHelpText {
-    float: left;
-    width: 204px;
-    padding: 13px 0 0 10px;
-    color: #777;
-}
-
-.topText, .bottomText {
-    text-align: center;
-    float: left;
-    width: 100%;
-    font-size: 10px;
-    color: #555;
-}
-
-.ratingsCount {
-    text-align: center;
-    float: left;
-    width: 100%;
-    font-size: 30px;
-    line-height: 36px;
-}
-
-.titleText {
-    text-align: center;
-    float: left;
-    width: 100%;
-    font-size: 30px;
-    line-height: 30px;
-}
-
-#hideRatingsForRecs {
-    display: none;
-    color: #999;
-    font-size: 10px;
-}
-
-#ratingsForRecsBox:hover #hideRatingsForRecs {
-    display: inline;
-}
-
-/* end homepage */
 
 /* recs pages */
 .navigationBoxOuter {
@@ -8664,70 +6241,8 @@ input.suspicious {
     color: #1b1b1b;
 }
 
-.recTipLarge {
-    background-color: #E4F4DA;
-    padding: 9px 18px 0;
-}
-
-.recTipLarge h2 {
-    /* BEGIN ugly temp hack to clean up style */
-    line-height: 36px;
-    margin: 0;
-    /* END ugly temp hack to clean up style */
-    color: #303B2D;
-}
-
-.recTipLarge p {
-    /* BEGIN ugly temp hack to clean up style */
-    margin: 0;
-    padding: 0 0 18px;
-    /* END ugly temp hack to clean up style */
-    font-size: 14px;
-    color: #303B2D;
-}
-
-.recTipLarge a {
-    color: #303B2D;
-    font-weight: bold;
-}
-
-.recTipLarge #pollForReload {
-    margin: 9px 0 9px 166px;
-}
-
-.recTipLarge #pollForReload img {
-    vertical-align: bottom;
-}
-
-.recTipLarge #pollForReload a {
-    font-size: 10px;
-    color: #999;
-    text-decoration: none;
-    font-weight: normal;
-}
-
-.recTipLarge li {
-    font-size: 14px;
-}
-
 /* end general recs pages */
 
-/* recommendations requests */
-#recommendationRequestExamples {
-    padding-bottom: 18px;
-    list-style-type: none;
-}
-
-#recommendationRequestExamples li {
-    padding-left: 20px;
-}
-
-#recommendation_request_body {
-    height: 100px;
-    width: 400px;
-}
-
-/* end recommendations requests */
 
 #newShelfForm {
     height: 23px;
@@ -8804,538 +6319,12 @@ input.suspicious {
     float: right;
 }
 
-.gritterError li {
-    display: inline;
-    line-height: 15px;
-}
-
-.gritter-item-wrapper {
-    position: relative;
-    margin: 0 0 10px 0;
-    background: url('../images/ie-spacer.gif'); /* ie7/8 fix */
-}
-
-.gritter-top {
-    background: url(../images/gritter.png) no-repeat left -30px;
-    height: 10px;
-}
-
-.hover .gritter-top {
-    background-position: right -30px;
-}
-
-.gritter-bottom {
-    background: url(../images/gritter.png) no-repeat left bottom;
-    height: 8px;
-    margin: 0;
-}
-
-.hover .gritter-bottom {
-    background-position: bottom right;
-}
-
-.gritter-item {
-    display: block;
-    background: url(../images/gritter.png) no-repeat left -40px;
-    color: #382110;
-    padding: 2px 11px 8px 11px;
-    font-size: 11px;
-    font-family: verdana;
-}
-
-.hover .gritter-item {
-    background-position: right -40px;
-}
-
-.gritter-item p {
-    padding: 0;
-    margin: 0;
-}
-
-.gritter-close {
-    display: none;
-    position: absolute;
-    top: 5px;
-    right: 3px;
-    background: url(../images/gritter.png) no-repeat left top;
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-}
-
-.gritter-title {
-    font-size: 14px;
-    padding: 0 0 7px 0;
-    display: block;
-
-}
-
-.gritter-image {
-    width: 48px;
-    height: 48px;
-    float: left;
-}
-
-.gritter-with-image,
-.gritter-without-image {
-    padding: 0 0 5px 0;
-}
-
-.gritter-with-image {
-    width: 220px;
-    float: right;
-}
-
-#jobs h3 {
-    color: #333333;
-}
-
 ul.jobListing, ul.jobResponsibilities {
     margin-left: 30px;
     padding-bottom: 18px;
 }
 
 /* Special styling for the home page */
-/* Some home page styles have been placed elsewhere when appropriate. See, e.g., button.css */
-
-#signedOutHome h2:first-child, #signedOutHome h3:first-child, #signedOutHome p:first-child {
-    margin-top: 0px;
-}
-
-#signedOutHome h2 {
-    clear: both;
-    margin: 20px 0 10px 0;
-    color: #000;
-    font-size: 20px;
-}
-
-#signedOutHome h3 {
-    margin-top: 20px;
-    font-size: 16px;
-    font-family: arial, verdana, helvetica, sans-serif;
-}
-
-#signedOutHome .premiumAd {
-    width: 300px;
-    max-height: 265px; /* Let it collapse when no ad present */
-    overflow: hidden;
-}
-
-#signedOutHome .premiumAd #div-gpt-ad-1 {
-    margin-bottom: 30px;
-}
-
-#signedOutHome #self_serve_ads {
-    padding-bottom: 0;
-    margin-top: 20px;
-}
-
-#signedOutHome #self_serve_ads .selfServeAds {
-    clear: both;
-    background-color: #f4f2e9;
-}
-
-#signedOutHome .sellingPointBoxLeft,
-#signedOutHome .sellingPointBoxRight {
-    float: left;
-    margin: 0 10px 10px 0;
-    width: 280px;
-    font-size: 13px;
-}
-
-#signedOutHome .sellingPointBoxLeft {
-    margin-right: 40px;
-}
-
-#signedOutHome .rightContainer {
-    float: right;
-}
-
-#signedOutHome #browseBox {
-    margin: 25px 0;
-}
-
-#signedOutHome #browseBox h2 {
-    clear: none;
-}
-
-#signedOutHome #browseBox #searchBox {
-    float: right;
-}
-
-#signedOutHome #browseBox #browseBoxGenres {
-    width: 100%;
-}
-
-#signedOutHome .leftContainer .featureTeaserGroup {
-    clear: both;
-    padding: 25px 0;
-}
-
-/* "siteheader" is really the entire masthead region */
-#signedOutHome #siteheader {
-    height: 370px;
-    padding: 0;
-    border: 0;
-    background-image: url(/images/home/masthead_background.jpg);
-    background-position: center;
-    background-repeat: repeat-x;
-    background-color: #f4f2e9;
-}
-
-#signedOutHome #siteheader .mainContent {
-
-}
-
-/* navBar is the thin header bar at the top */
-#signedOutHome #navBar {
-    height: 65px;
-    padding-top: 10px;
-}
-
-#signedOutHome #navBar #signInForm {
-    float: right;
-}
-
-#signedOutHome #navBar #signInForm .formBox {
-    float: left;
-}
-
-#signedOutHome #navBar #signInForm input[type="email"],
-#signedOutHome #navBar #signInForm input[type="text"],
-#signedOutHome #navBar #signInForm input[type="password"] {
-    width: 120px;
-    padding: 5px;
-    background-color: #f5f5f0;
-    border-top: 1px solid #ccccc6;
-    border-right: 1px solid #dfdcd5;
-    border-bottom: 1px solid #dbdbd5;
-    border-left: 1px solid #dfdcd5;
-    border-radius: 3px;
-    font-size: 13px;
-}
-
-/* masthead is the big box with the tagline and sign-up form */
-
-#signedOutHome #masthead {
-    position: relative;
-    height: 295px;
-}
-
-#signedOutHome #masthead #headline {
-    float: left;
-    margin: 50px 0 0 95px;
-}
-
-/* Styles for account creation form */
-
-#signedOutHome #masthead #newAccountBox {
-    float: right;
-    width: 280px;
-    margin: 25px 20px 0 0;
-    font-family: arial, verdana, helvetica, sans-serif;
-}
-
-#signedOutHome #masthead #newAccountBox h2 {
-    margin-bottom: 10px;
-    font-size: 18px;
-}
-
-#signedOutHome #newAccountBox .fieldPara {
-    position: relative;
-    margin-top: 5px;
-}
-
-#signedOutHome #newAccountBox .fieldPara input[type="text"],
-#signedOutHome #newAccountBox .fieldPara input[type="email"],
-#signedOutHome #newAccountBox .fieldPara input[type="password"] {
-    width: 270px;
-    padding: 7px 5px;
-    border-top: 1px solid #a8aeac;
-    border-right: 1px solid #cbcac6;
-    border-bottom: 1px solid #e3dfdd;
-    border-left: 1px solid #cdccc8;
-    border-radius: 3px;
-    margin: 0;
-    font-size: 16px;
-    font-weight: lighter;
-}
-
-#signedOutHome #newAccountBox #userPasswordSignupLabel {
-    display: none;
-    position: absolute;
-    bottom: 10px;
-    right: 205px;
-    font-size: 16px;
-}
-
-#signedOutHome #navBar #signInForm #userPasswordLabel {
-    display: none;
-    position: absolute;
-    top: 7px;
-    right: 70px;
-    font-size: 13px;
-}
-
-#signedOutHome #thirdPartySignUpBox {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 325px;
-    height: 31px;
-    padding: 13px 0 6px 15px;
-    margin: 0;
-    vertical-align: middle;
-    background-image: url(/images/home/third_party_login_background.png);
-    background-position: 0 0px;
-    background-repeat: no-repeat;
-}
-
-/*
-#signedOutHome #newAccountBox #signUpPrivacyStatement,
-#signedOutHome #newAccountBox .labelDiv2,
-#signedOutHome #newAccountBox #emailInfoLink,
-#signedOutHome #newAccountBox #optin,
-#signedOutHome #newAccountBox #optinLabel {
-  display: none;
-}
-*/
-
-/* End styles for account creation form */
-
-#signedOutHome .mainContentContainer {
-    background-image: url(/images/home/masthead_bottom_gradient.png);
-    background-repeat: repeat-x;
-    padding-top: 15px;
-}
-
-#signedOutHome #premiumAdTop {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 15px;
-}
-
-#signedOutHome .mainContentFloat {
-    min-height: 0;
-    margin-top: 0;
-}
-
-/* Styles for boxes that display samples of quotes, groups, and other site features */
-
-#signedOutHome .featureTeaserBox {
-    float: left;
-    position: relative;
-    margin: 20px 5px 0 0;
-    width: 200px;
-    font-size: 14px;
-}
-
-#signedOutHome .leftContainer .featureTeaserGroup .featureTeaserBox {
-    /* border: 1px solid #ebece7; */
-    height: 200px;
-    margin-top: 0;
-}
-
-#signedOutHome .rightContainer .featureTeaserBox {
-    width: 300px;
-    float: none;
-}
-
-/* Because the premiumAd might not be present, don't space yourself out from it */
-#signedOutHome #onlineUsersTeaserBox {
-    clear: both;
-    height: 170px;
-    margin-top: 0;
-}
-
-#signedOutHome .featureTeaserBox .readerImage {
-    float: left;
-    line-height: 0;
-}
-
-#signedOutHome .leftContainer .featureTeaserBox .linkToFeature {
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 0;
-}
-
-#signedOutHome .featureTeaserBox .quizBoxImg {
-    float: left;
-    max-width: 25px;
-}
-
-#signedOutHome #listsTeaserBox p.linkToFeature {
-    margin-top: 2px;
-}
-
-#signedOutHome .featureTeaserBox .listTeaser,
-#signedOutHome .featureTeaserBox .quizBox {
-    clear: both;
-    width: 100%;
-    min-height: 40px;
-    margin: 0;
-    padding: 2px 0;
-    border-bottom: 1px solid #ebece7;
-    border-right: none;
-    border-top: none;
-    border-left: none;
-}
-
-#signedOutHome .featureTeaserBox .listTitle {
-    font-size: 14px;
-    font-weight: normal;
-}
-
-#signedOutHome .featureTeaserBox .listImg {
-    float: right;
-    overflow: hidden;
-    max-width: 120px;
-    max-height: 40px;
-}
-
-#signedOutHome .featureTeaserBox .listImg img {
-    max-height: 40px;
-}
-
-#signedOutHome .featureTeaserBox .listFullDetails {
-    display: none;
-}
-
-
-/* End styles for feature samples/teasers */
-
-/* Begin styles for the "What will you discover?" recommendation teaser box */
-#signedOutHome #discoveryBox {
-    clear: both;
-    border-radius: 10px;
-    padding: 15px 0 20px 0;
-    background-color: #f4f2e9;
-}
-
-#signedOutHome #discoveryBox h2 {
-    margin: 0 0 15px 15px;
-}
-
-#signedOutHome .discoveryBoxDiscovery {
-    clear: both;
-    margin-top: 20px;
-    height: 170px;
-    background-image: url(/images/home/discovery_box_shelf_gradient.png);
-    background-position: bottom;
-    background-repeat: repeat-x;
-}
-
-#signedOutHome .discoveryBoxDiscovery .discoverySourceBooks {
-    float: left;
-    margin-left: 15px;
-}
-
-/*
-#signedOutHome .discoveryBoxDiscovery .discoverySourceBooks p,
-#signedOutHome .discoveryBoxDiscovery .discoveryResultBook p {
-  margin-bottom: 10px;
-}
-*/
-
-#signedOutHome .discoveryBoxDiscovery .discoveryBoxArrow {
-    float: right;
-    height: 177px;
-    margin: 0;
-}
-
-#signedOutHome .discoveryBoxDiscovery.sourceBooks3 .discoveryBoxArrow {
-    margin-right: 45px;
-}
-
-#signedOutHome .discoveryBoxDiscovery.sourceBooks2 .discoveryBoxArrow {
-    margin-right: 90px;
-}
-
-#signedOutHome .discoveryBoxDiscovery.sourceBooks1 .discoveryBoxArrow {
-    margin-right: 135px;
-}
-
-#signedOutHome .discoveryBoxDiscovery .discoveryBoxArrow img {
-    margin: 80px 10px 0 0;
-}
-
-#signedOutHome .discoveryBoxDiscovery .discoveryBoxResultBook {
-    float: right;
-    width: 200px;
-    margin: 0 10px 0 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-#signedOutHome .bookImgSimilar {
-    float: left;
-    height: 120px;
-    margin: 0 12px 0 0;
-}
-
-#signedOutHome .discoveryBoxDiscovery .discoveryBoxResultBook .discoveryBoxResultDescriptors {
-    float: right;
-    width: 110px;
-    margin-top: 0;
-    color: #660;
-    font-family: arial, verdana, helvetica, sans-serif;
-    font-weight: bolder;
-}
-
-#signedOutHome .bookImgSimilar .reflected,
-#signedOutHome .bookImgDiscovered .reflected {
-    height: 120px;
-}
-
-/* end "what will you discover" box */
-
-/* Search box */
-#signedOutHome #sitesearch {
-    display: inline-block;
-    zoom: 1; /* IE 7 */
-    *display: inline; /* IE 7 */
-    position: relative;
-    float: none;
-    margin: 0;
-}
-
-#signedOutHome #sitesearch input {
-    border: 0 transparent;
-    padding: 5px;
-    border-radius: 5px;
-    -ms-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    background-color: white;
-    width: 300px;
-    border: 1px solid #999;
-}
-
-#signedOutHome #sitesearch .submitLink img {
-    position: absolute;
-    right: 5px;
-    top: 5px;
-}
-
-#signedOutHome .fieldDiv {
-    margin-bottom: 0;
-}
-
-#signedOutHome #sitesearch .auto_complete_results li .title {
-    width: 139px;
-}
-
-#signedOutHome #sitesearch .auto_complete_results .title,
-#signedOutHome #sitesearch .auto_complete_selected .title {
-    width: 173px;
-}
-
-#signedOutHome #sitesearch .auto_complete_field_wrapper .loading {
-    margin-right: 20px;
-}
-
-/* end search box */
 
 /* stuff moved from main.css */
 .profileMyLinksNarrow {
@@ -9391,76 +6380,6 @@ tr.update .bookTitle {
 }
 
 /* end of stuff moved from main.css */
-
-#timelinePrompt .topSection {
-    width: 560px;
-    margin: 0 auto;
-    min-height: 140px;
-    margin-bottom: 40px;
-    margin-top: 40px;
-}
-
-#timelinePrompt h2 {
-    font-family: Georgia, serif;
-    font-size: 22px;
-    color: #000000;
-    line-height: 28px;
-}
-
-#timelinePrompt .bookImageTimelinePrompt {
-    max-height: 100px;
-    max-width: 60px;
-    z-index: 10;
-    position: absolute;
-}
-
-#timelinePrompt .fbImage {
-    position: relative;
-    left: 40px;
-    margin-right: 40px;
-}
-
-#timelinePrompt .images {
-    margin-right: 40px;
-    float: left;
-}
-
-#timelinePrompt .button {
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-    color: #000000;
-    margin-top: 20px;
-}
-
-#timelinePrompt .bottomSection {
-    background-image: url(/images/facebook/bottom_section_bgd.jpeg);
-    width: 100%;
-    position: relative;
-    height: 280px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    font-family: georgia, serif;
-    color: #666666;
-}
-
-#timelinePrompt .sectionContent {
-    height: 280px;
-}
-
-#timelinePrompt .bottomSection .title {
-    font-size: 18px;
-    font-style: italic;
-}
-
-#timelinePrompt .bottomSection p {
-    width: 300px;
-    font-size: 14px;
-}
-
-#timelinePrompt .sectionContent {
-    margin-left: 30px;
-    padding-top: 30px;
-}
 
 /* poll form */
 div.labelDiv {
@@ -9707,7 +6626,7 @@ div.labelDiv .fieldWithErrors {
 
 .rateBooks .navigation h4 {
     color: #777;
-    padding: 0 0px 0 5px;
+    padding: 0 0 0 5px;
 }
 
 .rateBooksSearch input {
@@ -9762,21 +6681,6 @@ div.labelDiv .fieldWithErrors {
     padding: 0 10px 0 10px;
 }
 
-.rateBooks .navigationLinks a.selected {
-    background-image: url(/images/layout/nav_right_arrow.png);
-    background-color: transparent;
-    width: 200px;
-    color: #FFF;
-    font-weight: bold;
-    vertical-align: middle;
-    background-repeat: no-repeat;
-    height: 23px;
-    position: absolute;
-    left: -5px;
-    top: -3px;
-    padding: 3px 0 0px 15px;
-    text-decoration: none;
-}
 
 .rateBooks .coverBigBox .coverWrapper {
     width: 125px;
@@ -10208,23 +7112,12 @@ h1.rescueHeading strong {
 
 /* end topic show */
 
-.boxed {
-    width: 420px;
-    border: 2px solid #D5E2FF;
-    margin: 10px 10px 10px 20px;
-    padding: 4px;
-    background-color: #EEFFFF;
-    max-width: 380px;
 
-}
 
-.noBullet {
-    max-margin-left: 25%;
-}
 
-.noBullet ul {
-    list-style-type: none;
-}
+
+
+
 
 .pageCol {
     min-width: 40px;
@@ -10244,17 +7137,12 @@ span.toRight {
     text-align: right;
 }
 
-#main_books, #main_charts  {
-    padding: 0 0 0 63px;
-    width: 80em;
 
-}
+
+
 
 /* float & allow room for the widest item */
-#main_books li {
-    float: left;
-    width: 40em;
-}
+
 
 
 #maidsn_charts {
@@ -10303,4 +7191,89 @@ text-align: left;
 
 #wolframAlphaWidget33630 .wolframAlphaWidgetOutput{
 height:100%;
+}
+
+/* #siteheader */
+#siteheader {
+    padding-top: 5px;
+    height: 45px;
+    border-bottom: 1px solid #E3DFC9;
+    color: #382110;
+}
+
+.home #siteheader {
+    background: url(../img/gr_header_bg_books_new.jpg) repeat-x top center;
+    padding-top: 45px;
+    border-bottom: 1px solid #E3DFC9;
+}
+
+
+/* #mainContent */
+
+
+#mainContent {
+    padding: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.noBullet {
+    max-margin-left: 25%;
+}
+
+
+.mainContent {
+    /*  width:960px;*/
+    max-width: 965px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+
+/* #main_books*/
+#main_books, #main_charts  {
+    padding: 0 0 0 63px;
+    width: 80em;
+
+}
+
+
+
+.noBullet ul {
+    list-style-type: none;
+}
+
+
+/* rounded table box */
+
+#main_books li {
+    float: left;
+    width: 40em;
+}
+
+.boxed {
+    width: 420px;
+    border: 2px solid #D5E2FF;
+    margin: 10px 10px 10px 20px;
+    padding: 4px;
+    background-color: #EEFFFF;
+    max-width: 380px;
+
+}
+
+.roundedBorder {
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+}
+
+.titleText {
+    text-align: center;
+    float: left;
+    width: 100%;
+    font-size: 30px;
+    line-height: 30px;
 }
