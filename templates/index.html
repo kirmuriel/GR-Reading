@@ -4,13 +4,31 @@
 <head>
 	<title>My Reading Stats</title>
 	<link rel="stylesheet" href="css/default.css"/>
-	<script src="js/jquery-1.2.6.pack.js" type="text/javascript"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
+	<style type="text/css" media="screen">
+		.gr_grid_container {
+			/* customize grid container div here. eg: width: 500px; */
+			height: 60px;
+			padding-top: 10px;
+		}
 
+		.gr_grid_book_container {
+			/* customize book cover container div here */
+			float: left;
+			width: 39px;
+			height: 60px;
+			padding: 0 0;
+			overflow: hidden;
+		}
+	</style>
+	<!--script type="text/javascript" src="/socket.io/socket.io.js"></script-->
 </head>
 <body class='home'>
 <div id="wrap" class='content'>
-	<div class="uitext recsLaunchHeader" id="siteheader">
+
+
+	<div class="uitext" id="siteheader">
 		<div class="mainContent">
 			<div class="nav" id="usernav">
 				<ul class="content">
@@ -32,11 +50,39 @@
 		</div>
 	</div>
 
+	<div id="booksWidget" class="middle">
+		<div id="gr_grid_widget_1336201136">
+			<!-- Show static html as a placeholder in case js is not enabled - javascript include will override this if things work -->
+			<div class="gr_grid_container">
+				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/373755.Absalom_Absalom_" title="Absalom, Absalom!"><img alt="Absalom, Absalom!" border="0" src="http://photo.goodreads.com/books/1174260301s/373755.jpg" /></a></div>
+				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/10542898-fuente-ovejuna" title="Fuente Ovejuna"><img alt="Fuente Ovejuna" border="0" src="http://www.goodreads.com/assets/nocover/60x80.png" /></a></div>
+				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/13614740-bodas-de-sangre" title="Bodas de sangre"><img alt="Bodas de sangre" border="0" src="http://www.goodreads.com/assets/nocover/60x80.png" /></a></div>
+				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/967110.The_Adventures_of_Huckleberry_Finn" title="The Adventures of Huckleberry Finn"><img alt="The Adventures of Huckleberry Finn" border="0" src="http://photo.goodreads.com/books/1179874346s/967110.jpg" /></a></div>
+				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/786973.The_Scarlet_Letter" title="The Scarlet Letter"><img alt="The Scarlet Letter" border="0" src="http://www.goodreads.com/assets/nocover/60x80.png" /></a></div>
+				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/6978247-mortal-y-rosa" title="Mortal y rosa"><img alt="Mortal y rosa" border="0" src="http://www.goodreads.com/assets/nocover/60x80.png" /></a></div>
+				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/13413161-the-adventures-of-tom-sawyer" title="The Adventures of Tom Sawyer"><img alt="The Adventures of Tom Sawyer" border="0" src="http://photo.goodreads.com/books/1326569448s/13413161.jpg" /></a></div>
+				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/400888.Oliver_Twist" title="Oliver Twist"><img alt="Oliver Twist" border="0" src="http://photo.goodreads.com/books/1330900238s/400888.jpg" /></a></div>
+				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/168118.El_llano_en_llamas" title="El llano en llamas (The Burning Plain)"><img alt="El llano en llamas" border="0" src="http://photo.goodreads.com/books/1172357344s/168118.jpg" /></a></div>
+				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/40698.Of_Mice_and_Men" title="Of Mice and Men"><img alt="Of Mice and Men" border="0" src="http://photo.goodreads.com/books/1239412348s/40698.jpg" /></a></div>
+				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/168642.In_Cold_Blood" title="In Cold Blood"><img alt="In Cold Blood" border="0" src="http://photo.goodreads.com/books/1327873309s/168642.jpg" /></a></div>
+				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/69510.Los_Santos_Inocentes" title="Los Santos Inocentes"><img alt="Los Santos Inocentes" border="0" src="http://photo.goodreads.com/books/1170709234s/69510.jpg" /></a></div>
+				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/239217.The_Pearl" title="The Pearl"><img alt="The Pearl" border="0" src="http://photo.goodreads.com/books/1327624193s/239217.jpg" /></a></div>
+				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/7178.The_Catcher_in_the_Rye" title="The Catcher in the Rye"><img alt="The Catcher in the Rye" border="0" src="http://photo.goodreads.com/books/1330776113s/7178.jpg" /></a></div>
+				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/12541807-el-amante-de-lady-chatterley" title="El Amante de Lady Chatterley"><img alt="El Amante de Lady Chatterley" border="0" src="http://www.goodreads.com/assets/nocover/60x80.png" /></a></div>
+				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/437349.Othello" title="Othello"><img alt="Othello" border="0" src="http://photo.goodreads.com/books/1174766495s/437349.jpg" /></a></div>
+				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/3243936-pedro-p-ramo" title="Pedro Páramo"><img alt="Pedro Páramo" border="0" src="http://photo.goodreads.com/books/1267882569s/3243936.jpg" /></a></div>
+				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/13097106-tirano-banderas" title="Tirano Banderas "><img alt="Tirano Banderas" border="0" src="http://www.goodreads.com/assets/nocover/60x80.png" /></a></div>
+				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/1071072.Juntacadaveres" title="Juntacadaveres (El Libro De Bolsillo)"><img alt="Juntacadaveres" border="0" src="http://www.goodreads.com/assets/nocover/60x80.png" /></a></div>
+				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/8485851-do-a-perfecta" title="Doña Perfecta"><img alt="Doña Perfecta" border="0" src="http://photo.goodreads.com/books/1327101932s/8485851.jpg" /></a></div>
 
-	<div id="mysuperdiv" style="left:0"></div>
+			</div>
+
+        </div>
+        <script src="http://www.goodreads.com/review/grid_widget/5206760.Isabel's%20bookshelf:%20read?cover_size=small&hide_link=true&hide_title=true&num_books=20&order=d&shelf=read&sort=date_read&widget_id=1336201136" type="text/javascript" charset="utf-8"></script>
+	</div>
+	<div id="mysuperdiv" style=" margin-left:auto; margin-right:auto;max-width:965;"></div>
 	<div id="mainContent" class="noBullet mainContent">
 		<ul id="main_books">
-
 			{{#hashes}}
 			<li id='{{hash}}' class='featureTeaserBox boxed roundedBorder'></li>
 			{{/hashes}}
@@ -51,7 +97,6 @@
 		<ul id="main_charts" style="padding-left: 0;">
 			{{#hashes}}
 			<li>
-
 				<a name="{{hash}}_chart"></a>
 				<div id='chart_{{hash}}'></div>
 			</li>
