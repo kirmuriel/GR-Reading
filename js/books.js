@@ -44,7 +44,7 @@ jQuery(document).ready(function () {
 
 function draw(allData) {
 	var data = new google.visualization.DataTable();
-	var divId = 'mysuperdiv';
+	var divId = 'mySuperDiv';
 	var i, hash, points;
 
 	data.addColumn('date', 'Day');
@@ -61,7 +61,7 @@ function draw(allData) {
 	data.addRows(points);
 
 	var options = {
-		width:1200,
+		width:1000,
 		height:200,
 		titleTextStyle:{color:'black'},
 		hAxis:{gridlines:{count:10 }, minValue:0, maxValue:100 },
