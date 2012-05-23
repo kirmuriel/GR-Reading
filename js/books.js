@@ -136,7 +136,7 @@ function setBookDataTable(bookHash, response) {
 		if (i == 0) { //remove last line
 			html += ("<tr" + style + ">");
 		} else {
-			html += ("<tr  >");
+			html += ("<tr>");
 		}
 
 		//html += ("<td class='dateCol'>" + date  + "</td>");

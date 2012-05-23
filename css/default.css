@@ -102,8 +102,7 @@ UL.inline LI {
 }
 
 #siteheader .subnavlink,
-#siteheader #sitenav .subnavlink,
-.wantToReadDropdownArrow {
+#siteheader #sitenav .subnavlink {
     padding: 0 3px 1px;
     position: relative;
     outline: 0;
@@ -115,7 +114,6 @@ UL.inline LI {
     padding: 0;
     width: 16px;
     height: 16px;
-    background: #DFD8C6 url(/images/down_arrow_small.png) no-repeat center center;
     text-decoration: none;
 }
 
