@@ -26,26 +26,54 @@
 </head>
 <body class='home'>
 <div id="wrap" class='content'>
-
-
 	<div class="uitext" id="siteheader">
 		<div class="mainContent">
-			<div class="nav" id="usernav">
-				<ul class="content">
-					<li class="userNameNav">
-						<a href="widgets.html">Widgets</a>
-					</li>
-					<li class="userNameHeader">
-						<a href="http://www.goodreads.com/user/show/{{userIdName}}" class="navlink">
-							{{properName}}
-						</a>
-					</li>
-				</ul>
-			</div>
 			<div class="content">
 				<div id="logo">
-					<div class="titleText">Reads Stats</div>
+					<div class="titleText">Reading Stats</div>
 				</div>
+				<div id="globalStats" class="floatRight">
+					<ul>
+						<li>
+						Next book due in {{dueDays}} days
+						</li>
+						<li>
+						{{dueDate}}
+						</li>
+					</ul>
+				</div>
+				<div id="challenge_widget" style="max-width:194px;" class="right">
+					<div id="gr_challenge_207"
+					     style="padding: 0 7px 0 7px; max-width:180px; min-height: 45px">
+						<div id="gr_challenge_progress_body_207"
+						     style="font-size: 12px; font-family: georgia,serif;line-height: 20px">
+							<div
+									style="width: 100px; margin: 4px 5px 5px 0; float: left; border: 1px solid #382110; height: 8px; overflow: hidden; background-color: #FFF">
+								<div style="width: 30%; background-color: #D7D2C4; float: left"><span
+										style="visibility:hidden">hide</span>
+								</div>
+							</div>
+							<div style="font-family: arial, verdana, helvetica, sans-serif;font-size:90%">
+								<a href="http://www.goodreads.com/user_challenges/241309">20 of 60 (33%)</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<script src="http://www.goodreads.com/user_challenges/widget/5206760-isabel?challenge_id=207&v=2"
+				        type="text/javascript"></script>
+				<script type="text/javascript">
+					var toRead = "{{expected}}";
+
+					var percentageDiv = document.getElementById("gr_challenge_progress_body_207").getElementsByTagName("div")[2];
+					var text = percentageDiv.getElementsByTagName("a")[0].innerHTML;
+					var read = parseInt(text.split(" ")[0]);
+
+					var expected = document.createElement("div");
+					expected.innerHTML = toRead +" - " + read + " = " + (toRead - read).toFixed(2) + " books";
+					expected.className = "uitext floatRight";
+					document.getElementById("gr_challenge_progress_body_207").appendChild(expected);
+				</script>
+
 			</div>
 		</div>
 	</div>

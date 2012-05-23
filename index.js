@@ -37,7 +37,6 @@ mu.root = __dirname + '/templates';
 }
 */
 
-
 var server = http.createServer(function (req, response) {
 	var user = new GRUser("5206760-isabel");
 	var filePath = '.' + req.url;
@@ -84,11 +83,22 @@ var server = http.createServer(function (req, response) {
   activate Client
  */
 
+function getGlobalStats() {
+	var sixDaysInMillis = 6*24*60*60*1000;
+	var today = Date.now();
+	var init =  Date.UTC((new Date()).getFullYear(),0,1,0,0,0);
+	var expectedBooksRead = (today-init)/(sixDaysInMillis);
+	var nextReadDate = init + Math.ceil(expectedBooksRead)*sixDaysInMillis;
+	var dueDays = Math.floor((nextReadDate-today)/(sixDaysInMillis/6));
+	return {dueDate:(new Date(nextReadDate)).toDateString(),dueDays:dueDays,expected :expectedBooksRead.toFixed(2)};
+}
 function init(user,limit,response){
 	functions.getFeedData(user, limit, function(err,hashes,books){
 		if(err) return handleError(err, response);
 		//mu.clearCache();//@kjc remove on production
-		var stream = mu.compileAndRender('index.html', {properName:"Isabel", userIdName:"isabel-62760", "hashes":hashes, "books":books});
+		var globalStats = getGlobalStats();
+		var stream = mu.compileAndRender('index.html', {properName:"Isabel", userIdName:"isabel-62760", "hashes":hashes, "books":books,
+			dueDate: globalStats.dueDate, dueDays: globalStats.dueDays, expected:globalStats.expected });
 		util.pump(stream, response);
 		//@kjc var library = user.library; var books = library.getBooks();
 	});
