@@ -15,21 +15,14 @@ div.content {
     line-height: 0;
 }
 
-/* inline UL is a list which displays as list items separated by bars */
-
-
+/* <editor-fold desc="inline UL is a list which displays as list items separated by bars"> */
 UL.inline LI {
     display: inline;
     padding: 0em .3em 0em .6em;
     border-left: 1px solid #000000;
     margin: 0;
 }
-
-
-/* end: inline UL */
-
-
-
+/*</editor-fold>*/
 
 /*  Start style classes */
 .clearFloats:after {
@@ -48,7 +41,7 @@ UL.inline LI {
     float: right;
 }
 
-/* </editor-fold description="seth-style header test" */
+/* <editor-fold desc="seth-style header test" */
 
 #siteheader a {
     color: #382110;
@@ -398,13 +391,6 @@ UL.inline LI {
 }
 
 
-
-
-
-
-
-
-
 .pageCol {
     min-width: 40px;
     text-align: center;
@@ -449,7 +435,7 @@ br {
 
 .left {
   float: left;
-  padding: 0px 10px 0px 0px;
+  padding: 0 10px 0 0px;
   width: 180px;
 }
 
@@ -461,7 +447,7 @@ br {
 
 .right {
   float: right;
-  padding: 0px 10px 0px 10px;
+  padding: 0 10px 0 10px;
   width: 250px;
 }
 .widgetsContainer {
@@ -473,10 +459,6 @@ margin: auto;
 we inherited this setting from body */
 text-align: left;
 
-}
-
-#wolframAlphaWidget33630 .wolframAlphaWidgetOutput{
-height:100%;
 }
 
 /* #siteheader */
@@ -512,7 +494,7 @@ height:100%;
 
 .mainContent {
     /*  width:960px;*/
-    max-width: 965px;
+    max-width: 845px;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
@@ -543,7 +525,7 @@ height:100%;
 .boxed {
     width: 420px;
     border: 2px solid #D5E2FF;
-    margin: 10px 10px 10px 20px;
+    margin: 15px;
     padding: 4px;
     background-color: #EEFFFF;
     max-width: 380px;
@@ -746,4 +728,65 @@ p.first {
 
 .floatRight{
     float: right;
+}
+#mySuperDiv{
+    margin-left:auto;
+    margin-right:auto;
+    max-width:965px;
+}
+#gr_grid_widget_1336201136{
+    position: relative;
+	height: 70px;/* 30*2+10*/
+	width: 580px;/*50 19*30 +10 = */
+    margin: 10px auto;
+    border: 1px solid #382110;
+    overflow: hidden;
+    background-color: #FFF
+}
+.gr_grid_book_container {
+	/* customize book cover container div here */
+	width: 19px;
+	padding: 0 0;
+	overflow: hidden;
+}
+.gr_grid_book_container a img {
+	height: 30px;
+	overflow: hidden;
+	width: auto;
+}
+
+.invisible{
+	display:none;
+}
+
+.percent {
+	position: absolute;
+	top: 22px;
+	font-size: 40px;
+	font-weight: bold;
+}
+.fill{
+	float :left;
+	height : 100%;
+	background-color :#D9E2E1;
+}
+.top_row{
+	position: absolute;
+	top:5px;
+}
+.bottom_row{
+	position: absolute;
+	top: 35px;
+}
+.smallLetter{
+	font-family: arial, verdana, helvetica, sans-serif;
+	font-size:90%;
+}
+.odd{
+    background-color: #EEFFFF;
+    background-color: #fffcfd;
+}
+
+.last {
+    border-bottom : hidden;
 }
