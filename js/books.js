@@ -30,6 +30,7 @@ jQuery(document).ready(function () {
 	jQuery.getJSON('getGraphInfo', function (data) {
 		draw(data);
 	});
+	var required = myBooks.length;
 	jQuery.each(myBooksData, function (index, bookData) {
 		jQuery.getJSON('getBookInfo?hash=' + bookData, function (data) {
 			if (data.totalPages == 0) {
@@ -37,7 +38,13 @@ jQuery(document).ready(function () {
 			}
 			var bookHash = data.hash;
 			google.setOnLoadCallback(drawData(bookHash, data));
-			setBookDataTable(bookHash, data);
+			setBookDataTable(bookHash, data, function(){
+				if (--required === 0) {
+					jQuery(function () {
+						jQuery('#mainContent').masonry({itemSelector:'.featureTeaserBox' });
+					});
+				}
+			});
 		});
 	});
 });
@@ -115,10 +122,13 @@ function drawData(bookHash, response) {
 	chart.draw(data, options);
 }
 
-function setBookDataTable(bookHash, response) {
+function setBookDataTable(bookHash, response, callback) {
 	var style = " style='border-bottom : hidden;'";
+	var styleClass = "class='odd'";
+	var numUpdates = response.data.page.length;
+	var odd = false;
 	var il = document.getElementById(bookHash);
-	var html = "<table class='tableList '>" +
+	var html = "<table class='tableList'>" +
 		"<tbody>" +
 		"<tr>" +
 		"<th colspan='3'>" +
@@ -129,17 +139,10 @@ function setBookDataTable(bookHash, response) {
 		"</tbody>" +
 		"<tbody>";
 
-	var numUpdates = response.data.page.length;
 	for (var i = numUpdates - 1; i >= 0; i--) {
 		var date = response.updatesDates[numUpdates - i - 1];
-
-		if (i == 0) { //remove last line
-			html += ("<tr" + style + ">");
-		} else {
-			html += ("<tr>");
-		}
-
-		//html += ("<td class='dateCol'>" + date  + "</td>");
+		styleClass = (odd = !odd) ? " class='odd' " : "";
+		html += i === 0 ? ("<tr" + style + styleClass + ">") : ("<tr" + styleClass + ">");
 		html += ("<td class='dateCol'>" + (new Date(parseInt(date))).toUTCString().substr(0, 16) + "</td>");
 		html += ("<td class='pageCol'>" + response.data.page[i] + "</td>");
 		html += ("<td class='pageCol'>" + response.data.delta[i] + "</td>");
@@ -148,4 +151,5 @@ function setBookDataTable(bookHash, response) {
 	html += "</tbody>" +
 		"</table>";
 	il.innerHTML = html;
+	callback();
 }
