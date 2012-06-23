@@ -41,7 +41,7 @@ jQuery(document).ready(function () {
 			setBookDataTable(bookHash, data, function(){
 				if (--required === 0) {
 					jQuery(function () {
-						jQuery('#mainContent').masonry({itemSelector:'.featureTeaserBox' });
+						jQuery('#mainContent').masonry({itemSelector:'.bookTable' });
 					});
 				}
 			});

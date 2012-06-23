@@ -40,75 +40,25 @@
 </head>
 <body class='home'>
 <div id="wrap" class='content'>
-	<div class="uitext" id="siteheader">
-		<div class="mainContent">
-			<div class="content">
-				<div id="logo">
-					<div class="titleText">Reading Stats</div>
+	<div id="headerWrapper">
+		<div id="headerContent">
+			<div id="title">
+				<div class="titleText">Reading Stats</div>
+			</div>
+			<div id="dueStats">
+				<div id="nextDue">Next book due in #dueDays days</div>
+				<div id="dateDue">#dueDate</div>
+			</div>
+			<div id="progressStats">
+				<div id="progressBarBorder">
+					<div id="progressBar"><span style="visibility:hidden">hide</span></div>
 				</div>
-				<div id="globalStats" class="floatRight">
-					<ul>
-						<li class="smallLetter">
-						Next book due in {{dueDays}} days
-						</li>
-						<li class="smallLetter">
-						{{dueDate}}
-						</li>
-					</ul>
+				<div class="progressPercentage">
+					<a href="http://www.goodreads.com/user_challenges/{{challengeId}}">
+						{{read}} of {{goal}} ({{percentage}}%)
+					</a>
 				</div>
-				<div id="challenge_widget" style="max-width:194px;" class="right">
-					<div id="gr_challenge_207"
-					     style="padding: 0 7px 0 7px; max-width:180px; min-height: 45px">
-						<div id="gr_challenge_progress_body_207"
-						     style="font-size: 12px; font-family: georgia,serif;line-height: 20px" class="invisible">
-							<h3 style="margin: 4px 0 10px; font-weight: normal; text-align: center">
-								<a href="http://www.goodreads.com/challenges/207-2012-reading-challenge"
-								   style="text-decoration: none; font-family:georgia,serif;font-style:italic; font-size: 1.1em">
-									2012 Reading Challenge
-								</a>
-							</h3>
-
-							<div class="challegePic">
-								<a href="http://www.goodreads.com/challenges/207-2012-reading-challenge"><img
-										alt="2012 Reading Challenge"
-										src="http://photo.goodreads.com/challenges/1324418912p2/207.jpg"
-										style="float:left; margin-right: 10px; border: 0 none"/></a>
-							</div>
-							<div>
-								<a href="http://www.goodreads.com/user/show/5206760-isabel">Isabel</a> has
-								read 23 books toward her goal of 60 books.
-							</div>
-							<div
-									style="width: 100px; margin: 4px 5px 5px 0; float: left; border: 1px solid #382110; height: 8px; overflow: hidden; background-color: #FFF">
-								<div style="width: 38%; background-color: #DF9496; float: left"><span
-										style="visibility:hidden">hide</span>
-								</div>
-							</div>
-							<div style="font-family: arial, verdana, helvetica, sans-serif;font-size:90%">
-								<a href="http://www.goodreads.com/user_challenges/241309">23 of 60 (38%)</a>
-							</div>
-							<div style="text-align: right;">
-								<a href="http://www.goodreads.com/user_challenges/241309"
-								   style="text-decoration: none; font-size: 10px;">view books</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<script src="http://www.goodreads.com/user_challenges/widget/5206760-isabel?challenge_id=207&v=2"
-				        type="text/javascript"></script>
-				<script type="text/javascript">
-					var toRead = "{{expected}}";
-					var divs = $("#gr_challenge_progress_body_207 > div");
-					var percentageDiv = divs[3];
-					var read = parseInt($(percentageDiv).text().trim().split(" ")[0]);
-					console.log(read);
-					var expected = $("<div></div>").addClass("uitext").addClass("floatRight").addClass("smallLetter");
-					expected.text(toRead + " - " + read + " = " + (toRead - read).toFixed(2) + " books");
-
-					$("#gr_challenge_207").append(divs[2]);
-					$("#gr_challenge_207").append(divs[3]);
-					$("#gr_challenge_207").append(expected);
-				</script>
+				<div id="toRead">29.01 - 23 = 6.01 books</div>
 			</div>
 		</div>
 	</div>
@@ -137,40 +87,68 @@
 				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/1071072.Juntacadaveres" title="Juntacadaveres (El Libro De Bolsillo)"><img alt="Juntacadaveres" border="0" src="http://www.goodreads.com/assets/nocover/60x80.png" /></a></div>
 				<div class="gr_grid_book_container"><a href="http://www.goodreads.com/book/show/8485851-do-a-perfecta" title="Doña Perfecta"><img alt="Doña Perfecta" border="0" src="http://photo.goodreads.com/books/1327101932s/8485851.jpg" /></a></div>
 			</div>
+			<span class="percent" style="left: 14306.25px;">50%</span>
+			<div class="fill" style="width: 50%; "><span style="visibility:hidden">hide</span></div>
         </div>
-        <script src="http://www.goodreads.com/review/grid_widget/5206760.Isabel's%20bookshelf:%20read?cover_size=small&hide_link=true&hide_title=true&num_books=23&order=d&shelf=read&sort=date_read&widget_id=1336201136" type="text/javascript" charset="utf-8"></script>
+        <script src="http://www.goodreads.com/review/grid_widget/{{userId}}.Isabel's%20bookshelf:%20read?cover_size=small&hide_link=true&hide_title=true&num_books=23&order=d&shelf=read&sort=date_read&widget_id=1336201136" type="text/javascript" charset="utf-8"></script>
 	</div>
 	<script type="text/javascript">
-		var width = 19;
-		var border = 5;
-		var goal = 60;
-		var percentage = Math.round(read * 100 / goal);
-		var ds = (goal + read) / 4 * width + border - 20;
+		function getGlobalStats() {
+			var width = 19;
+			var border = 5;
+			var read = parseInt("{{read}}");
+			var goal = parseInt("{{goal}}");
+			var percentage = "{{percentage}}%";
 
-		var span = $("<span></span>").text(percentage + "%").addClass("percent").css("left", ds + "px");
-		$('#gr_grid_widget_1336201136').append(span);
-		var fill = $("<div><span style='visibility:hidden'>hide</span></div>").addClass("fill").css("width", percentage + "%");
-		$('#gr_grid_widget_1336201136').append(fill);
+			headerStats(read,goal,percentage);
+			formatGrid(width, border);
+			fillWidgetBar(goal, read, width, border, percentage);
 
-		var books = $(".gr_grid_book_container");
-		read = books.length;
-		console.log(read);
-		var parity = read % 2;
-		for (var i = 0; i < read; i++) {
-			var col = Math.floor((read - i - 1) / 2);
-			$(books[i]).css("left", (col * width + border) + "px").addClass(parity === i % 2 ? "bottom_row" : "top_row");
 		}
+		function fillWidgetBar(goal, read, width, border, percentage){
+			var tbrMiddle = (goal + read) / 4 * width + border - 20;
+			console.log(tbrMiddle);
+			console.log(percentage);
+			$("<span></span>").text(percentage).addClass("percent").css("left", tbrMiddle + "px").appendTo('#gr_grid_widget_1336201136');
+			$("<div><span style='visibility:hidden'>hide</span></div>").addClass("fill").css("width", percentage).appendTo('#gr_grid_widget_1336201136');
+		}
+		function headerStats(read, goal, percentage) {
+			var dayMillis = 24 * 60 * 60 * 1000;
+			var speed = Math.floor(365 / goal) * dayMillis;
+			var now = Date.now();
+			var init = new Date((new Date()).getFullYear(), 0, 1, 0, 0, 0).valueOf();
+
+			var expected = (now - init + dayMillis) / speed;
+			var dueDate = init + Math.ceil(expected) * speed;
+			var dueDays = Math.floor((dueDate - now) / dayMillis);
+
+			$('#progressBar').css("width", percentage);
+			$('#toRead').text(expected.toFixed(2) + " - " + read + " = " + (expected - read).toFixed(2) + " books");
+			$('#nextDue').text("Next book due in " + dueDays + " days");
+			$('#dateDue').text((new Date(dueDate)).toDateString());
+		}
+		function formatGrid(width, border) {
+			var gridBooks = $(".gr_grid_book_container");
+			var gridCount = gridBooks.length;
+			var parity = gridCount % 2;
+			console.log(gridCount);
+			for (var i = 0; i < gridCount; i++) {
+				var col = Math.floor((gridCount - i - 1) / 2);
+				$(gridBooks[i]).css("left", (col * width + border) + "px").addClass(parity === i % 2 ? "bottom_row" : "top_row");
+			}
+		}
+		getGlobalStats();
 	</script>
 	<div id="mySuperDiv"></div>
-	<div id="mainContent" class="noBullet mainContent">
+	<div id="mainContent" class="noBullet">
 		<ul id="main_books">
 			{{#hashes}}
-			<li id='{{hash}}' class='featureTeaserBox boxed roundedBorder'></li>
+			<li id='{{hash}}' class='bookTable'></li>
 			{{/hashes}}
 		</ul>
 	</div>
-	<div class="noBullet mainContent ">
-		<div class="pageHeader">
+	<div id="chartsContent" class="noBullet">
+		<div class="chartsTitle">
 			<h1>Charts</h1>
 		</div>
 		<ul id="main_charts" style="padding-left: 0;">
@@ -187,11 +165,8 @@
 <!--end wrap-->
 <div class="footerContainer">
 	<div class="footer">
-		<div class="copyright">
-			<a href="http://www.jetbrains.com/phpstorm/" style="display:block;
-			background:#5854b5 url(http://www.jetbrains.com/phpstorm/documentation/phpstorm_banners/phpstorm1/phpstorm468x60_violet.gif) no-repeat 10px 50%;
-			border:solid 1px #5854b5; margin:0;padding:0;text-decoration:none;text-indent:0;letter-spacing:-0.001em;
-			width:466px; height:58px" alt="Smart editor for HTML, CSS &amp; JavaScript"
+		<div id="phpstorm" class="copyright">
+			<a href="http://www.jetbrains.com/phpstorm/" alt="Smart editor for HTML, CSS &amp; JavaScript"
 			title="Smart editor for HTML, CSS & JavaScript">
 				<span style="margin: 3px 0 0 65px;padding: 0;float: left;font-size: 12px;cursor:pointer;
 				background-image:none;border:0;color: #fff; font-family: trebuchet ms,arial,sans-serif;

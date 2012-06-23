@@ -1,387 +1,166 @@
-/*    background-color: #D5E2FF;*/
-
 
 div.content {
     position: relative;
 }
 
-/* use this class to fix container height for a div with floating elements */
-.clearFix:after {
-    content: '.';
-    display: block;
-    clear: both;
-    visibility: hidden;
-    height: 0;
-    line-height: 0;
+/* <editor-fold desc="site header"> */
+#headerWrapper{
+    background: url(../img/gr_header_bg_books_new_blue.jpg) repeat-x top center;
+    padding-top: 45px;
+    border-bottom: 1px solid #E3DFC9;
+    font-family: Arial, Helvetica, Verdana, sans-serif;
+    height: 45px;
+    color: #132932;
 }
-
-/* <editor-fold desc="inline UL is a list which displays as list items separated by bars"> */
-UL.inline LI {
-    display: inline;
-    padding: 0em .3em 0em .6em;
-    border-left: 1px solid #000000;
-    margin: 0;
+#headerContent {
+    max-width: 845px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
 }
-/*</editor-fold>*/
-
-/*  Start style classes */
-.clearFloats:after {
-    content: '.';
-    display: block;
-    visibility: hidden;
-    height: 0;
-    clear: both;
+/* there is a selector for all A that makes them puke yellow*/
+#headerContent a {
+    color: #132932;
 }
+/* </editor-fold> */
 
-.left {
-    float: left;
-}
-
-.right {
-    float: right;
-}
-
-/* <editor-fold desc="seth-style header test" */
-
-#siteheader a {
-    color: #382110;
-}
-
-#siteheader .greyText {
-    color: #999999
-}
-
-#siteheader #logo {
+/*<editor-fold desc="title">*/
+#title {
+    display: inline-block;
+    zoom: 1;
+    vertical-align: middle;
     margin: 5px 10px 0 5px;
     float: left;
 }
-
-#siteheader #sitesearch .auto_complete_results li .title {
-    width: 139px;
-}
-
-#siteheader #logo,
-#siteheader #sitesearch,
-#siteheader #sitenav {
-    display: inline-block;
-    zoom: 1; /* IE 7 */
-    *display: inline; /* IE 7 */
-    vertical-align: middle;
-}
-
-#siteheader .nav li {
-    list-style: none;
-}
-
-#siteheader .nav li {
-    display: inline-block; /* required for Opera, which doesn't allow z-index on inline */
-    zoom: 1; /* IE 7 */
-    *display: inline; /* IE 7 */
-    padding: 2px 5px;
-    font-size: 13px;
-    position: relative;
-    z-index: 100;
+.titleText {
+    text-align: center;
     float: left;
-    margin-top: 10px;
-    margin-right: 4px;
-}
-
-#siteheader #sitenav .navlink {
-    font-weight: bold;
-}
-
-#siteheader .withsubnav .navlink {
-    position: relative;
-}
-
-#siteheader .subnavlink,
-#siteheader #sitenav .subnavlink {
-    padding: 0 3px 1px;
-    position: relative;
-    outline: 0;
-    background-color: #DFD8C6;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-
-    padding: 0;
-    width: 16px;
-    height: 16px;
-    text-decoration: none;
-}
-
-#siteheader #usernav {
-    height: 33px;
-    display: table-cell;
-    vertical-align: middle;
-    float: right;
-}
-
-#siteheader .subnavlink:hover,
-#siteheader #sitenav .subnavlink:hover,
-#siteheader .subnavlink:focus,
-#siteheader #sitenav .subnavlink:focus,
-#siteheader .subnavlink:active,
-#siteheader #sitenav .subnavlink:active {
-    background-color: #D7D2C4;
-}
-
-#siteheader #sitenav li {
-    margin-right: 5px;
-}
-
-#siteheader .subnav li {
-    float: none
-}
-
-#siteheader #usernav li {
-    text-align: right;
-    height: 18px;
-    max-width: 180px;
-}
-
-#siteheader #usernav .navlink {
-    white-space: nowrap;
-}
-
-#siteheader #usernav li.withsubnav {
-    height: 33px;
-    margin-top: 5px;
-    margin-right: 2px;
-    padding-top: 0;
-    padding-right: 10px;
-}
-
-#siteheader #usernav li.notificationIcon a {
-    background-position: 0 3px;
-    width: 20px;
-    height: 25px;
-    display: inline-block;
-    background-repeat: no-repeat;
-    text-decoration: none;
-    position: relative;
-    z-index: 5;
-}
-
-#siteheader #usernav li.notificationIcon.generalNotice a {
-    background-position: 0 0;
-}
-
-#siteheader #usernav li.notificationIcon .notification {
-    position: absolute;
-    top: -7px;
-    right: -5px;
-    z-index: 5;
-}
-
-#siteheader #usernav li.notificationIcon a:hover {
-    text-decoration: none;
-}
-
-#siteheader #usernav li.notificationIcon {
-    margin-right: 0;
-}
-
-#siteheader #usernav .subnavlink.profilePhoto {
-    margin-right: 2px;
-    height: 33px;
-    width: 25px;
-    margin-left: 5px;
-    margin-right: 3px;
-    z-index: 3;
-}
-
-#siteheader #usernav .subnavlink.profilePhoto img {
-    height: 33px;
-    width: 25px;
-}
-
-#siteheader #usernav .subnavlink.profileSubNavLink {
-    vertical-align: middle;
-    z-index: 3;
-}
-
-/* border-bottom: solid 1px #d7d7d7;*/
-#siteheader #usernav .userNameNav {
-    font-weight: bold;
-    padding-bottom: 10px;
-    padding-top: 5px;
-}
-
-#siteheader #usernav .userNameHeader {
-    font-weight: bold;
-    border-bottom: solid 1px #d7d7d7;
-    padding-bottom: 0;
-    padding-top: 5px;
-}
-
-#siteheader .subnav.profileSubNav {
-    top: 35px;
-    padding-right: 3px;
-    padding-top: 0;
-    z-index: 1;
-}
-
-#siteheader #usernav .subnav {
-    margin: 0 0 5px 10px
-}
-
-#siteheader #usernav .subNavTopper {
-    top: -5px;
-    left: -90000px;
-    right: auto;
-    width: 70px;
-    height: 20px;
-    z-index: 2;
-    overflow: visible;
-    -moz-box-shadow: #888 0 3px 4px;
-    -webkit-box-shadow: #888 0 3px 4px;
-    box-shadow: #888 0 3px 4px;
-    -moz-border-top-radius: 10px;
-    -moz-border-bottom-radius: 0px;
-    -webkit-border-top-radius: 10px;
-    -webkit-border-bottom-radius: 0px;
-    border-top-radius: 10px;
-    border-bottom-radius: 0px;
-}
-
-#siteheader #usernav .subNavTopper.selected {
-    right: 0;
-    left: auto;
-}
-
-#siteheader #usernav .subNavTopperContent {
-    background-color: #FFF;
-    height: 29px;
-}
-
-#siteheader #usernav .subnav .content {
-    margin-top: 2px;
-}
-
-#siteheader .profileSubNavContent {
-    z-index: 4;
-}
-
-#siteheader .subnav {
-    background-color: white;
-    position: absolute;
-    top: -5px;
-    left: -90000px;
-    right: auto;
-    padding-top: 20px;
-    border: 1px solid #bbb;
-    -moz-box-shadow: #888 0 3px 10px;
-    -webkit-box-shadow: #888 0 3px 10px;
-    box-shadow: #888 0 3px 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    width: auto;
-    min-width: 100%;
-}
-
-#siteheader .subnav.selected {
-    left: auto;
-    right: 0;
-}
-
-#siteheader .subnav .content {
-    margin: 10px 15px 10px 10px
-}
-
-#siteheader .nav .subnav li,
-#siteheader #sitenav .subnav li {
-    display: block;
-    padding: 0;
-    text-align: right;
-    margin-top: 3px;
-    white-space: nowrap;
-    margin-right: 7px;
     width: 100%;
+    font-size: 30px;
+    line-height: 30px;
 }
 
-#siteheader #usernav .subnav li {
-    text-align: left;
+/* </editor-fold> */
+/* <editor-fold desc="dueStats"> */
+#dueStats{
+    text-align: right;
+    display: inline-block;
+    font-family: arial, verdana, helvetica, sans-serif;
+    font-size: 90%;
+    line-height: 20px;
+    float: right;
+    color:#132932;
+    font-family: arial, verdana, helvetica, sans-serif;
+   	font-size:90%;
+    line-height: 20px;
+}
+#dueStats div{
+    width: 150px;
+    height: 20px;
+    display: block;
+}
+/* </editor-fold> */
+/* <editor-fold desc="progressStats"> */
+#progressStats{
+
+    max-width:194px;
+    min-height: 45px;
+
+    font-size: 12px;
+    font-family: georgia, serif;
+    line-height: 20px;
+
+    float: right;
+    padding: 0 10px 0 10px;
+    width: 250px;
 }
 
-#siteheader #sitesearch {
-    position: relative;
-    margin-right: 10px;
+#progressBarBorder{
+    width: 100px;
+    height: 8px;
+    margin: 4px 5px 5px 0;
     float: left;
-    margin-top: 5px;
-    z-index: 100;
+    border: 1px solid #132932;
+    overflow: hidden;
+    background-color: #FFF;
+}
+#progressBar{
+    background-color: #DF9496;
 }
 
-#siteheader .fieldDiv {
-    margin-bottom: 0;
+.progressPercentage{
+	font-family: arial, verdana, helvetica, sans-serif;
+	font-size:90%;
+    line-height: 20px;
+}
+#toRead{
+    max-width: 194px;
+    text-align: right;
+    padding-right: 15px;
+
+    font-family: arial, verdana, helvetica, sans-serif;
+   	font-size:90%;
+    line-height: 20px;
+
+    float: right;
+    color:#132932;
 }
 
-#siteheader #sitesearch input {
-    border: 0 transparent;
-    padding: 5px 25px 5px 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    background-color: white;
-    width: 155px;
-    border: 1px solid #E3DFC9;
+/* </editor-fold> */
+
+/* <editor-fold desc="gr_grid_widget_1336201136"> */
+#gr_grid_widget_1336201136 {
+    position: relative;
+    height: 70px; /* 30*2+10*/
+    width: 580px; /*50 19*30 +10 = */
+    margin: 10px auto;
+    border: 1px solid #132932;
+    overflow: hidden;
+    background-color: #FFF
 }
 
-#siteheader #sitesearch .submitLink img {
+.gr_grid_book_container {
+    /* customize book cover container div here */
+    width: 19px;
+    padding: 0 0;
+    overflow: hidden;
+}
+
+.gr_grid_book_container a img {
+    height: 30px;
+    overflow: hidden;
+    width: auto;
+}
+.gr_grid_container div{
     position: absolute;
-    right: 5px;
+}
+.top_row {
     top: 5px;
 }
-
-#siteheader #sitesearch .auto_complete_results .title,
-#siteheader #sitesearch .auto_complete_selected .title {
-    width: 173px;
+.bottom_row {
+    top: 35px;
 }
 
-#siteheader #sitesearch .auto_complete_field_wrapper .loading {
-    margin-right: 20px;
+.percent {
+    position: absolute;
+    top: 22px;
+    font-size: 40px;
+    font-weight: bold;
 }
 
-#siteheader .notification {
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    background-color: #893B37;
-    color: white;
-    font-family: Verdana, sans-serif;
-    font-size: 9px;
-    font-weight: normal;
-    line-height: 1;
-    padding: 2px 3px;
-    position: relative;
-    width: auto;
-    z-index: 120;
-    text-decoration: none;
-}
-
-#siteheader .headerTitle {
-    font-size: 20px;
-    padding: 12px 0 0 25px;
+.fill {
     float: left;
+    height: 100%;
+    background-color: #D9E2E1;
 }
 
-@-moz-document url-prefix() {
-  #siteheader .notification {
-    padding: 1px 3px 3px;
-  }
-  #siteheader .subnavlink,
-  #siteheader #sitenav .subnavlink {
-    vertical-align: middle;
-  }
-}
+/* </editor-fold> */
 
-#siteheader .notification a {
-    color: white;
-}
 
-#siteheader a.notice {
-    color: #D10000;
-}
+/* </editor-fold> */
+
+/* </editor-fold> */
+
 
 /* </editor-fold> */
 
@@ -389,7 +168,6 @@ UL.inline LI {
     font-family: georgia, serif;
     font-size: 120%;
 }
-
 
 .pageCol {
     min-width: 40px;
@@ -409,20 +187,6 @@ span.toRight {
     text-align: right;
 }
 
-
-
-
-
-/* float & allow room for the widest item */
-
-
-
-#maidsn_charts {
-    padding: 0 0 0 63px;
-    width: 80em;
-}
-
-/* float & allow room for the widest item */
 #main_charts li {
     float: left;
     width: 40em;
@@ -450,79 +214,50 @@ br {
   padding: 0 10px 0 10px;
   width: 250px;
 }
-.widgetsContainer {
-  width: 700px;
-/* Centering for IE6+ in strict mode,
-Firefox, and other modern browsers */
-margin: auto;
-/* Don't center every line of text -
-we inherited this setting from body */
-text-align: left;
-
-}
-
-/* #siteheader */
-#siteheader {
-    padding-top: 5px;
-    height: 45px;
-    border-bottom: 1px solid #E3DFC9;
-    color: #382110;
-}
-
-.home #siteheader {
-    background: url(../img/gr_header_bg_books_new.jpg) repeat-x top center;
-    padding-top: 45px;
-    border-bottom: 1px solid #E3DFC9;
-}
-
 
 /* #mainContent */
 
 
 #mainContent {
+    max-width: 845px;
     padding: 5px;
     -moz-border-radius-bottomleft: 5px;
     -moz-border-radius-bottomright: 5px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
-
-.noBullet {
-    max-margin-left: 25%;
+#chartsContent{
+    max-width: 960px;
 }
 
-
-.mainContent {
-    /*  width:960px;*/
-    max-width: 845px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-}
-
-
-/* #main_books*/
+/*<editor-fold desc="tables and charts">*/
 #main_books, #main_charts  {
     padding: 0 0 0 63px;
     width: 80em;
-
 }
 
-
+.noBullet {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    max-margin-left: 25%;
+}
 
 .noBullet ul {
     list-style-type: none;
 }
+/*</editor-fold>*/
 
 
-/* rounded table box */
+
+/*<editor-fold desc="rounded table box">*/
 
 #main_books li {
     float: left;
     width: 40em;
 }
 
-.boxed {
+.bookTable {
     width: 420px;
     border: 2px solid #D5E2FF;
     margin: 15px;
@@ -530,56 +265,19 @@ text-align: left;
     background-color: #EEFFFF;
     max-width: 380px;
 
-}
-
-.roundedBorder {
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
 }
 
-.titleText {
-    text-align: center;
-    float: left;
-    width: 100%;
-    font-size: 30px;
-    line-height: 30px;
-}
 
-
+/*</editor-fold>*/
 
 .reviewText a {
     text-decoration: underline;
 }
 
-.logo {
-    float: left;
-    margin-top: 12px;
-}
-
-.navigationContainer {
-    float: right;
-    width: 725px;
-    position: relative;
-    z-index: 20;
-}
-
-* html .navigationContainer {
-    width: 760px;
-    w\idth: 730px;
-}
-
-.navigation {
-    float: right;
-    width: 100%;
-    margin-top: 0;
-}
-
-.home .navigation {
-    margin-top: 40px;
-}
-
-/* table*/
+/* <editor-fold desc="table">*/
 
 .tableList {
     width: 100%;
@@ -591,9 +289,9 @@ text-align: left;
     padding: 5px;
 }
 .tableList th a {
-    color: #382110;
+    color: #132932;
 }
-
+/* </editor-fold>*/
 
 /* Start global styles */
 body {
@@ -615,12 +313,8 @@ body, ol, ul, td, th {
     margin: 0;
 }
 
-ul.bodyCopy, ol.bodyCopy {
-    margin-left: 20px;
-}
-
 th {
-    color: #382110;
+    color: #132932;
     text-align: left;
 }
 
@@ -630,13 +324,6 @@ H1, H2, H3, H4, H5, H6 {
     font-weight: normal;
 }
 
-H1, .h2Container H2 {
-    padding: 0 0 2px 0;
-    font-size: 20px;
-    margin-top: 0;
-    margin-bottom: 15px;
-    color: #382110;
-}
 a {
     color: #666600;
     text-decoration: none;
@@ -661,15 +348,19 @@ p {
 p.first {
     margin-top: 0;
 }
-.uitext,
-.uitext th,
-.uitext td,
-.uitext ul,
-.uitext ol,
-.uitext li {
-    font-family: Arial, Helvetica, Verdana, sans-serif;
+/*charts title*/
+.chartsTitle{
+    top: 22px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #132932;
+    height:50px;
+    margin-left: 80px;
+    margin-top: 30px;
 }
-
+.chartsTitle h1{
+    color: #132932;
+}
 
 /* BEGIN: footer styles */
 .footerContainer {
