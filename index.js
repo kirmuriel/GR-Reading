@@ -53,10 +53,10 @@ var server = http.createServer(function (req, response) {
 	} else {
 		switch (filePath) {
 			case './':
-				init(user, 8, response);
+				init(user, 12, response);
 				break;
 			case './getGraphInfo':
-				getGraphInfo(user, 8, response);
+				getGraphInfo(user, 12, response);
 				break;
 			default:
 				getStatic(filePath, response);
