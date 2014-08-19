@@ -5,15 +5,15 @@
  */
 //
 /*
-@kjc restructure callbacks with step!
-@kjc no graph :(
-@kjc read library just once
-@kjc remove books without things
-@kjc remove comments
-@kjc set logs
-@kjc the adventures of ...
-@kjc no graph on 10
-@kjc encode and decode book info
+ @kjc change date calculation, do them in client => client time
+ @kjc make all html be written in the backend (books.js) weld??
+ @kjc add option to hide average line
+ @kjc restructure callbacks with step!
+ @kjc read library just once
+ @kjc set logs
+ @kjc the adventures of ...
+ @kjc encode and decode book info
+ @kjc fix widgets error
  */
 var http = require('http')
 	, util = require('util')
@@ -29,16 +29,14 @@ var http = require('http')
 	;
 
 mu.root = __dirname + '/templates';
-var challengeId = 241309;
-
-
 /*if (undefined !=  (_GET ['user'])) {
 	grUserIdName = _GET ['user'];
 }
 */
 
 var server = http.createServer(function (req, response) {
-	var user = new GRUser("5206760-isabel", challengeId);
+	// read user from config
+	var user = new GRUser();
 	var filePath = '.' + req.url;
 
 	if (req.url.indexOf("/getBookInfo") == 0) {
@@ -53,10 +51,10 @@ var server = http.createServer(function (req, response) {
 	} else {
 		switch (filePath) {
 			case './':
-				init(user, 12, response);
+				init(user, 3, response);
 				break;
 			case './getGraphInfo':
-				getGraphInfo(user, 12, response);
+				getGraphInfo(user, 6, response);
 				break;
 			default:
 				getStatic(filePath, response);
@@ -106,6 +104,12 @@ function init(user,limit,response){
   Server->Client: callback(bookInfo)
   Client->Client : display(bookInfo)
   */
+/**
+ * Get all the info for a book from a raw book
+ * @param {GRUser} user user
+ * @param {Object} raw raw book info
+ * @param {function} response
+ */
 function getBookInfo(user, raw, response){
 	raw = raw.replace(/&quot;/ig, '"');
 	raw = raw.replace(/%20/ig, ' ');
@@ -113,30 +117,28 @@ function getBookInfo(user, raw, response){
 	raw = raw.replace(/%C3%B1/ig,'ñ');
 	raw = raw.replace(/%C3%BA/ig,'ú');
 	raw = raw.replace(/%C3%A1/ig,'á');
-	raw = raw.replace(/o%CC%81/ig, 'ó');
+	raw = raw.replace(/%C3%AD/ig,'í');
+	raw = raw.replace(/o%CC%81/ig,'ó');
+	raw = raw.replace(/&amp;/ig,'&');
 
 	raw = raw.replace(/"Cordera"/, "'Cordera'");
 	//console.log(raw);
 	var rawBook = JSON.parse(raw);
-
 	var book = Book.createBook(rawBook.title, rawBook.hash);
 	book.rawReadUpdates = rawBook.rawReadUpdates;
 	book.totalPages = rawBook.totalPages;
 	book.finishedOn = rawBook.finishedOn;
 	book.needsUpdate = rawBook.needsUpdate;
+	book.shelf = rawBook.shelf;
 	book.getStatusUpdates(function (err) {
-		if(err) return handleError(err, response);
-		book.completeInfo(user.userIdName(), function (err) {
+		if (err) return handleError(err, response);
+		functions.getAllData(book, function (err, data) {
 			if (err) return handleError(err, response);
-			functions.getAllData(book, function (err, data) {
-				if(err) return handleError(err, response);
-				//console.log("::", book.title, "::");
-				response.writeHead(200, { 'Content-Type':'text/html' });
-				response.end(JSON.stringify(data), 'utf-8');
-			});
+			//console.log("::", book.title, "::");
+			response.writeHead(200, { 'Content-Type':'text/html' });
+			response.end(JSON.stringify(data), 'utf-8');
 		});
 	});
-	book.shelf = rawBook.shelf;
 }
 
 
@@ -182,7 +184,7 @@ function getStatic(filePath, response){
 			break;
 		default:
 	}
-	path.exists(filePath, function (exists) {
+	fs.exists(filePath, function (exists) {
 		if (exists) {
 			fs.readFile(filePath, function (err, content) {
 				if (err) {
@@ -205,5 +207,5 @@ function handleError(err, response){
 	response.end();
 }
 // Listen on port 8000, IP defaults to 127.0.0.1
-server.listen(8080);
+server.listen(8383);
 

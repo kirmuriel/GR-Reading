@@ -4,7 +4,7 @@
   "scripts": {
     "start": "index.js"
   },
-  "version": "0.0.0-12",
+  "version": "0.0.0-22",
   "engines": {
     "node": "0.6.x"
   },
@@ -18,6 +18,8 @@
     "request": "2.9.202",
     "path": "0.4.9",
     "xml2js": "0.1.13",
-    "cheerio": "0.8.3"
+    "cheerio": "0.8.3",
+	"async":"*",
+	"oauth":"0.9.11"
   }
 }

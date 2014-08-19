@@ -50,11 +50,12 @@ jQuery(document).ready(function () {
 });
 
 function draw(allData) {
-	var data = new google.visualization.DataTable();
 	var divId = 'mySuperDiv';
 	var i, hash, points;
+	var data = new google.visualization.DataTable();
 
-	data.addColumn('date', 'Day');
+	//data.addColumn('date', 'Day');
+	data.addColumn('string', 'Day');
 	for(hash in allData.titles){
 		if(allData.titles.hasOwnProperty(hash)){
 			data.addColumn('number', allData.titles[hash]);
@@ -62,8 +63,11 @@ function draw(allData) {
 	}
 
 	points = allData.points;
+	//console.log(allData.points);
 	for (i = 0; i < points.length; i++) {
-		points[i][0] = new Date(parseInt(points[i][0]));
+		var date = new  Date(parseInt(points[i][0]));
+		//points[i][0] = new Date(date.getFullYear(), date.getMonth(),  date.getDate());
+		points[i][0] = date.getFullYear() +"." +(date.getMonth()+1) +"." + date.getDate();
 	}
 	data.addRows(points);
 

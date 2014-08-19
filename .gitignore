@@ -1,2 +1,4 @@
 .idea
 node_modules
+jquery-ui-1.8.21.custom
+lib/config.js
