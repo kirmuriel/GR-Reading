@@ -3,3 +3,12 @@ Reads the status update RSS from [Goodreads](www.goodreads.com) and displays the
 Originally coded in `PHP`, has a version in `Node.js`, deployed to [nodejitsu](http://www.nodejitsu.com/)
 ## Tags
 Stats, goodreads, node, php
+
+Create lib/config.js
+
+how to update
+
+$ cd $HM/BookPrediction
+$ af login
+// use key chain
+$ af update readingstats
