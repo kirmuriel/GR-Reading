@@ -1,212 +1,207 @@
 
 div.content {
-    position: relative;
+  position: relative;
 }
 
 /* <editor-fold desc="site header"> */
-#headerWrapper{
-    background: url(../img/gr_header_bg_books_new_blue.jpg) repeat-x top center;
-    padding-top: 45px;
-    border-bottom: 1px solid #E3DFC9;
-    font-family: Arial, Helvetica, Verdana, sans-serif;
-    height: 45px;
-    color: #132932;
+#headerWrapper {
+  background: url(../img/gr_header_bg_books_new_blue.jpg) repeat-x top center;
+  border-bottom: 1px solid #E3DFC9;
+  color: #132932;
+  font-family: Arial, Helvetica, Verdana, sans-serif;
+  height: 45px;
+  padding-top: 45px;
 }
+
 #headerContent {
-    max-width: 845px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 845px;
+  text-align: left;
 }
+
 /* there is a selector for all A that makes them puke yellow*/
 #headerContent a {
-    color: #132932;
+  color: #132932;
 }
+
 /* </editor-fold> */
 
 /*<editor-fold desc="title">*/
 #title {
-    display: inline-block;
-    zoom: 1;
-    vertical-align: middle;
-    margin: 5px 10px 0 5px;
-    float: left;
+  display: inline-block;
+  float: left;
+  margin: 5px 10px 0 5px;
+  vertical-align: middle;
+  zoom: 1;
 }
+
 .titleText {
-    text-align: center;
-    float: left;
-    width: 100%;
-    font-size: 30px;
-    line-height: 30px;
+  float: left;
+  font-size: 30px;
+  line-height: 30px;
+  text-align: center;
+  width: 100%;
 }
 
 /* </editor-fold> */
 /* <editor-fold desc="dueStats"> */
-#dueStats{
-    text-align: right;
-    display: inline-block;
-    font-family: arial, verdana, helvetica, sans-serif;
-    font-size: 90%;
-    line-height: 20px;
-    float: right;
-    color:#132932;
-    font-family: arial, verdana, helvetica, sans-serif;
-   	font-size:90%;
-    line-height: 20px;
+#dueStats {
+  color: #132932;
+  display: inline-block;
+  float: right;
+  font-family: arial, verdana, helvetica, sans-serif;
+  font-size: 90%;
+  line-height: 20px;
+  text-align: right;
 }
-#dueStats div{
-    width: 150px;
-    height: 20px;
-    display: block;
+
+#dueStats div {
+  display: block;
+  height: 20px;
+  width: 150px;
 }
+
 /* </editor-fold> */
 /* <editor-fold desc="progressStats"> */
-#progressStats{
-
-    max-width:194px;
-    min-height: 45px;
-
-    font-size: 12px;
-    font-family: georgia, serif;
-    line-height: 20px;
-
-    float: right;
-    padding: 0 10px 0 10px;
-    width: 250px;
+#progressStats {
+  float: right;
+  font-family: georgia, serif;
+  font-size: 12px;
+  line-height: 20px;
+  max-width: 194px;
+  min-height: 45px;
+  padding: 0 10px 0 10px;
+  width: 250px;
 }
 
-#progressBarBorder{
-    width: 100px;
-    height: 8px;
-    margin: 4px 5px 5px 0;
-    float: left;
-    border: 1px solid #132932;
-    overflow: hidden;
-    background-color: #FFF;
-}
-#progressBar{
-    background-color: #DF9496;
+#progressBarBorder {
+  background-color: #FFF;
+  border: 1px solid #132932;
+  float: left;
+  height: 8px;
+  margin: 4px 5px 5px 0;
+  overflow: hidden;
+  width: 100px;
 }
 
-.progressPercentage{
-	font-family: arial, verdana, helvetica, sans-serif;
-	font-size:90%;
-    line-height: 20px;
+#progressBar {
+  background-color: #DF9496;
 }
-#toRead{
-    max-width: 194px;
-    text-align: right;
-    padding-right: 15px;
 
-    font-family: arial, verdana, helvetica, sans-serif;
-   	font-size:90%;
-    line-height: 20px;
+.progressPercentage {
+  font-family: arial, verdana, helvetica, sans-serif;
+  font-size: 90%;
+  line-height: 20px;
+}
 
-    float: right;
-    color:#132932;
+#toRead {
+  color: #132932;
+  float: right;
+  font-family: arial, verdana, helvetica, sans-serif;
+  font-size: 90%;
+  line-height: 20px;
+  max-width: 194px;
+  padding-right: 15px;
+  text-align: right;
 }
 
 /* </editor-fold> */
 
 /* <editor-fold desc="gr_grid_widget_1336201136"> */
 #gr_grid_widget_1336201136 {
-    position: relative;
-    height: 70px; /* 30*2+10*/
-    width: 580px; /*50 19*30 +10 = */
-    margin: 10px auto;
-    border: 1px solid #132932;
-    overflow: hidden;
-    background-color: #FFF
+  background-color: #FFF;
+  border: 1px solid #132932;
+  height: 70px; /* 30 * 2 + 10*/
+  margin: 10px auto;
+  overflow: hidden;
+  position: relative;
+  width: 580px; /*50 19 * 30 + 10 = */
 }
 
 .gr_grid_book_container {
-    /* customize book cover container div here */
-    width: 19px;
-    padding: 0 0;
-    overflow: hidden;
+  /* customize book cover container div here */
+  overflow: hidden;
+  padding: 0 0;
+  width: 19px;
 }
 
 .gr_grid_book_container a img {
-    height: 30px;
-    overflow: hidden;
-    width: auto;
+  height: 30px;
+  overflow: hidden;
+  width: auto;
 }
-.gr_grid_container div{
-    position: absolute;
+
+.gr_grid_container div {
+  position: absolute;
 }
+
 .top_row {
-    top: 5px;
+  top: 5px;
 }
+
 .bottom_row {
-    top: 35px;
+  top: 35px;
 }
 
 .percent {
-    position: absolute;
-    top: 22px;
-    font-size: 40px;
-    font-weight: bold;
+  font-size: 40px;
+  font-weight: bold;
+  position: absolute;
+  top: 22px;
 }
 
 .fill {
-    float: left;
-    height: 100%;
-    background-color: #D9E2E1;
+  background-color: #D9E2E1;
+  float: left;
+  height: 100%;
 }
-
-/* </editor-fold> */
-
-
-/* </editor-fold> */
-
-/* </editor-fold> */
-
 
 /* </editor-fold> */
 
 .bookTitle {
-    font-family: georgia, serif;
-    font-size: 120%;
+  font-family: georgia, serif;
+  font-size: 120%;
 }
 
 .pageCol {
-    min-width: 40px;
-    text-align: center;
+  min-width: 40px;
+  text-align: center;
 }
 
 .dateCol {
-    min-width: 100px;
+  min-width: 100px;
 }
 
 span.toRight {
-    float: right;
-    text-align: right;
+  float: right;
+  text-align: right;
 }
 
 .textToRight {
-    text-align: right;
+  text-align: right;
 }
 
 #main_charts li {
-    float: left;
-    width: 40em;
+  float: left;
+  width: 40em;
 }
 
 /* stop the float */
 br {
-    clear: left;
+  clear: left;
 }
 
 .left {
   float: left;
-  padding: 0 10px 0 0px;
+  padding: 0 10px 0 0;
   width: 180px;
 }
 
 .middle {
-  top: 10px;
   margin-left: 190px;
   margin-right: 260px;
+  top: 10px;
 }
 
 .right {
@@ -217,218 +212,215 @@ br {
 
 /* #mainContent */
 
-
 #mainContent {
-    max-width: 845px;
-    padding: 5px;
-    -moz-border-radius-bottomleft: 5px;
-    -moz-border-radius-bottomright: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+  max-width: 845px;
+  padding: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
-#chartsContent{
-    max-width: 960px;
+
+#chartsContent {
+  max-width: 960px;
 }
 
 /*<editor-fold desc="tables and charts">*/
-#main_books, #main_charts  {
-    padding: 0 0 0 63px;
-    width: 80em;
+#main_books, #main_charts {
+  padding: 0 0 0 63px;
+  width: 80em;
 }
 
 .noBullet {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-    max-margin-left: 25%;
+  margin-left: auto;
+  margin-right: auto;
+  max-margin-left: 25%;
+  text-align: left;
 }
 
 .noBullet ul {
-    list-style-type: none;
+  list-style-type: none;
 }
+
 /*</editor-fold>*/
-
-
 
 /*<editor-fold desc="rounded table box">*/
 
 #main_books li {
-    float: left;
-    width: 40em;
+  float: left;
+  width: 40em;
 }
 
 .bookTable {
-    width: 420px;
-    border: 2px solid #D5E2FF;
-    margin: 15px;
-    padding: 4px;
-    background-color: #EEFFFF;
-    max-width: 380px;
+  width: 420px;
+  border: 2px solid #D5E2FF;
+  margin: 15px;
+  padding: 4px;
+  background-color: #EEFFFF;
+  max-width: 380px;
 
-    border-radius: 7px;
-    -moz-border-radius: 7px;
-    -webkit-border-radius: 7px;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
 }
-
 
 /*</editor-fold>*/
 
 .reviewText a {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* <editor-fold desc="table">*/
 
 .tableList {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.tableList td, .tableList th {
-    border-bottom: 1px solid #e8d8e4;
-    padding: 5px;
+.tableList td,
+.tableList th {
+  border-bottom: 1px solid #e8d8e4;
+  padding: 5px;
 }
+
 .tableList th a {
-    color: #132932;
+  color: #132932;
 }
+
 /* </editor-fold>*/
 
 /* Start global styles */
 body {
-    background-color: #FFFFFF;
+  background-color: #FFFFFF;
 }
 
 body, p, ol, ul, td, th {
-    font-family: georgia, serif;
-    line-height: 18px;
-    padding: 0;
+  font-family: georgia, serif;
+  line-height: 18px;
+  padding: 0;
 }
 
 body {
-    color: #181818;
+  color: #181818;
 }
 
 body, ol, ul, td, th {
-    font-size: 12px;
-    margin: 0;
+  font-size: 12px;
+  margin: 0;
 }
 
 th {
-    color: #132932;
-    text-align: left;
+  color: #132932;
+  text-align: left;
 }
 
 H1, H2, H3, H4, H5, H6 {
-    margin: 4px 0 4px 0;
-    color: #aaa;
-    font-weight: normal;
+  color: #aaa;
+  font-weight: normal;
+  margin: 4px 0 4px 0;
 }
 
 a {
-    color: #666600;
-    text-decoration: none;
+  color: #666600;
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 img {
-    border: 0;
+  border: 0;
 }
 
-input[type=checkbox], input[type=radio], label, .inlineFormField {
-    vertical-align: middle;
+input[type=checkbox],
+input[type=radio],
+label,
+.inlineFormField {
+  vertical-align: middle;
 }
 
 p {
-    margin: 18px 0;
+  margin: 18px 0;
 }
 
 p.first {
-    margin-top: 0;
+  margin-top: 0;
 }
+
 /*charts title*/
-.chartsTitle{
-    top: 22px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #132932;
-    height:50px;
-    margin-left: 80px;
-    margin-top: 30px;
+.chartsTitle {
+  color: #132932;
+  font-size: 20px;
+  font-weight: bold;
+  height: 50px;
+  margin-left: 80px;
+  margin-top: 30px;
+  top: 22px;
 }
-.chartsTitle h1{
-    color: #132932;
+
+.chartsTitle h1 {
+  color: #132932;
 }
 
 /* BEGIN: footer styles */
 .footerContainer {
-    background: url(/img/gr_footer_bg.png) repeat-x;
-    width: 100%;
-    height: 80px;
-    text-align: center;
-    clear: both;
+  background: url(/img/gr_footer_bg.png) repeat-x;
+  clear: both;
+  height: 80px;
+  text-align: center;
+  width: 100%;
 }
 
 .footerContainer * {
-    text-align: left;
+  text-align: left;
 }
 
 .footer {
-    width: 960px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 12px;
+  width: 960px;
 }
 
 .copyright {
-    float: left;
-    font-family: georgia, serif;
-    font-size: 11px;
-    color: #666;
-    width: 200px;
-    padding-top: 3px;
+  color: #666;
+  float: left;
+  font-family: georgia, serif;
+  font-size: 11px;
+  padding-top: 3px;
+  width: 200px;
 }
-#phpstorm a{
-    display: block;
-    background: #5854b5 url(http://www.jetbrains.com/phpstorm/documentation/phpstorm_banners/phpstorm1/phpstorm468x60_violet.gif) no-repeat 10px 50%;
-    border: solid 1px #5854b5;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    text-indent: 0;
-    letter-spacing: -0.001em;
-    width: 466px;
-    height: 58px
+
+#phpstorm a {
+  background: #5854b5 url(http://www.jetbrains.com/phpstorm/documentation/phpstorm_banners/phpstorm1/phpstorm468x60_violet.gif) no-repeat 10px 50%;
+  border: solid 1px #5854b5;
+  display: block;
+  height: 58px;
+  letter-spacing: -0.001em;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  text-indent: 0;
+  width: 466px;
 }
+
 /*used for info about goodreads*/
 .adminLinksContainer {
-    float: right;
-    padding-top: 3px;
+  float: right;
+  padding-top: 3px;
 }
 
-#mySuperDiv{
-    margin-left:auto;
-    margin-right:auto;
-    max-width:965px;
+#mySuperDiv {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 965px;
 }
 
-.odd{
-    background-color: #EEFFFF;
-    background-color: #fffcfd;
+.odd {
+  background-color: #EEFFFF;
 }
 
 .last {
-    border-bottom : hidden;
-}
-
-}
-}
-}
-}
-}
-    background-color: #EEFFFF;
-}
-
+  border-bottom: hidden;
 }
