@@ -1,0 +1,22 @@
+{
+  "extends": "airbnb-base",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "eslint prefer-arrow-callback": "off",
+    "func-names": "off",
+    "no-var": "off",
+    "vars-on-top": ["off"],
+    "prefer-template": "off",
+    "prefer-destructuring": "off",
+    "prefer-arrow-callback":"off",
+    "object-shorthand": "off",
+    "import/no-unresolved": "off",
+    "no-use-before-define": ["off"],
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "consistent-return": "off",
+    "no-cond-assign": ["off", {"except-parens": true}]
+  }
+}

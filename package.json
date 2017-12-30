@@ -2,23 +2,29 @@
   "name": "BookPrediction",
   "subdomain": "readingstats",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "lint": "eslint lib/** js/books.js"
   },
   "version": "0.0.0-23",
   "engines": {
     "node": "8.1.3"
   },
   "dependencies": {
-    "url": "0.4.9",
-    "mu2": "0.5.x",
+    "async": "*",
     "crypto": "0.0.3",
-    "util": "0.4.9",
     "feedparser": "2.2.7",
     "moment": "1.5.1",
-    "request": "2.9.202",
+    "mu2": "^0.5.21",
+    "oauth": "0.9.11",
     "path": "0.4.9",
-    "xml2js": "0.1.13",
-	"async":"*",
-	"oauth":"0.9.11"
+    "request": "2.9.202",
+    "url": "0.4.9",
+    "util": "0.4.9",
+    "xml2js": "0.1.13"
+  },
+  "devDependencies": {
+    "eslint": "^4.14.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
   }
 }

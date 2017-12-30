@@ -15,31 +15,26 @@
  @kjc encode and decode book info
  @kjc fix widgets error
  */
-var http = require('http')
-  , mu = require('mu2')
-  , fs = require('fs')
-  , path = require('path')
-  , url = require('url')
-  , GRUser = require('./lib/GRUser')
-  , Book = require('./lib/Book')
-  , functions = require('./lib/functions')
-;
+var http = require('http');
+var mu = require('mu2');
+var fs = require('fs');
+var path = require('path');
+var url = require('url');
+var GRUser = require('./lib/GRUser');
+var Book = require('./lib/Book');
+var functions = require('./lib/functions');
 
-mu.root = __dirname + '/templates';
-/*if (undefined !=  (_GET ['user'])) {
-	grUserIdName = _GET ['user'];
-}
-*/
+mu.root = path.join(__dirname, '/templates');
 
-var server = http.createServer(function(req, response) {
+var server = http.createServer(function (req, response) {
   // read user from config
   var user = new GRUser();
   var filePath = '.' + req.url;
 
-  if (req.url.indexOf("/getBookInfo") === 0) {
-    var url_parts = url.parse(req.url);
-    if (url_parts.query.indexOf("hash") === 0) {
-      var raw = url_parts.query.replace("hash=", "");
+  if (req.url.indexOf('/getBookInfo') === 0) {
+    var urlParts = url.parse(req.url);
+    if (urlParts.query.indexOf('hash') === 0) {
+      var raw = urlParts.query.replace('hash=', '');
       getBookInfo(user, raw, response);
     } else {
       response.writeHead(200, { 'Content-Type': 'text/html' });
@@ -56,7 +51,6 @@ var server = http.createServer(function(req, response) {
       default:
         getStatic(filePath, response);
         break;
-
     }
   }
 });
@@ -75,20 +69,24 @@ var server = http.createServer(function(req, response) {
  */
 
 function init(user, limit, response) {
-  functions.getFeedData(user, limit, function(err, hashes, books) {
+  functions.getFeedData(user, limit, function (err, hashes, books) {
     if (err) return handleError(err, response);
-    //mu.clearCache();//@kjc remove on production
-    user.getReadAndGoal(function(err, read, goal) {
-      if (err) console.log(err);
-      var percentage = Math.round(read * 100 / goal) || 0;
+    // mu.clearCache();//@kjc remove on production
+    user.getReadAndGoal(function (goalErr, read, goal) {
+      if (goalErr) console.log(goalErr);
+      var percentage = Math.round((read * 100) / goal) || 0;
       var stream = mu.compileAndRender('index.html', {
-        "hashes": hashes, "books": books, read: read || 0, goal: goal || 0,
-        percentage: percentage, challengeId: user.challengeId, userId: user.userId
+        hashes: hashes,
+        books: books,
+        read: read || 0,
+        goal: goal || 0,
+        percentage: percentage,
+        challengeId: user.challengeId,
+        userId: user.userId,
       });
       stream.pipe(response);
-      //@kjc var library = user.library; var books = library.getBooks();
+      // @kjc var library = user.library; var books = library.getBooks();
     });
-
   });
 }
 
@@ -110,6 +108,7 @@ function init(user, limit, response) {
  * @param {Object} raw raw book info
  * @param {function} response
  */
+/* eslint-disable no-param-reassign */
 function getBookInfo(user, raw, response) {
   raw = raw.replace(/&quot;/ig, '"');
   raw = raw.replace(/%20/ig, ' ');
@@ -124,7 +123,7 @@ function getBookInfo(user, raw, response) {
   raw = raw.replace(/&amp;/ig, '&');
 
   raw = raw.replace(/"Cordera"/, "'Cordera'");
-  //console.log(raw);
+  // console.log(raw);
   var rawBook = JSON.parse(raw);
   var book = Book.createBook(rawBook.title, rawBook.hash);
   book.rawReadUpdates = rawBook.rawReadUpdates;
@@ -132,16 +131,17 @@ function getBookInfo(user, raw, response) {
   book.finishedOn = rawBook.finishedOn;
   book.needsUpdate = rawBook.needsUpdate;
   book.shelf = rawBook.shelf;
-  book.getStatusUpdates(function(err) {
+  book.getStatusUpdates(function (err) {
     if (err) return handleError(err, response);
-    functions.getAllData(book, function(err, data) {
-      if (err) return handleError(err, response);
-      //console.log("::", book.title, "::");
+    functions.getAllData(book, function (allErr, data) {
+      if (allErr) return handleError(allErr, response);
+      // console.log("::", book.title, "::");
       response.writeHead(200, { 'Content-Type': 'text/html' });
       response.end(JSON.stringify(data), 'utf-8');
     });
   });
 }
+/* eslint-enable no-param-reassign */
 
 
 /*
@@ -153,12 +153,12 @@ function getBookInfo(user, raw, response) {
   Client->Client : display(graphInfo)
   */
 function getGraphInfo(user, limit, response) {
-  user.getLibrary(limit, function(err) {
+  user.getLibrary(limit, function (err) {
     if (err) return handleError(err, response);
     var library = user.library;
     var books = library.getBooks();
-    functions.graphAll(books, function(err, data) {
-      if (err) return handleError(err, response);
+    functions.graphAll(books, function (graphErr, data) {
+      if (graphErr) return handleError(graphErr, response);
       response.writeHead(200, { 'Content-Type': 'text/html' });
       response.end(JSON.stringify(data), 'utf-8');
     });
@@ -187,9 +187,9 @@ function getStatic(filePath, response) {
       break;
     default:
   }
-  fs.exists(filePath, function(exists) {
+  fs.exists(filePath, function (exists) {
     if (exists) {
-      fs.readFile(filePath, function(err, content) {
+      fs.readFile(filePath, function (err, content) {
         if (err) {
           handleError(err, response);
         } else {
