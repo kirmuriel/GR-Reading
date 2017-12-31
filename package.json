@@ -3,7 +3,7 @@
   "subdomain": "readingstats",
   "scripts": {
     "start": "node index.js",
-    "lint": "eslint lib/** js/books.js"
+    "lint": "eslint lib/** js/books.js index.js"
   },
   "version": "0.0.0-23",
   "engines": {

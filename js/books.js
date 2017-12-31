@@ -6,35 +6,11 @@
  */
 try {
   jQuery.noConflict();
-} catch (e) { // eslint-disable-line no-empty
-}
+} catch (e) { } // eslint-disable-line no-empty
+
 google.load('visualization', '1', { packages: ['corechart'] });
 
 var DECIMAL_RADIX = 10;
-
-jQuery(document).ready(function () {
-  jQuery.getJSON('getGraphInfo', function (data) {
-    draw(data);
-  });
-  var required = myBooks.length;
-  jQuery.each(myBooksData, function (index, bookData) {
-    jQuery.getJSON('getBookInfo?hash=' + bookData, function (data) {
-      if (data.totalPages === 0) {
-        console.log(data.title + '[' + data.totalPages + ']');
-      }
-      var bookHash = data.hash;
-      google.setOnLoadCallback(drawData(bookHash, data));
-      setBookDataTable(bookHash, data, function () {
-        required -= 1;
-        if (required === 0) {
-          jQuery(function () {
-            jQuery('#mainContent').masonry({ itemSelector: '.bookTable' });
-          });
-        }
-      });
-    });
-  });
-});
 
 function draw(allData) {
   var divId = 'mySuperDiv';
@@ -153,3 +129,27 @@ function setBookDataTable(bookHash, response, callback) {
   il.innerHTML = html;
   callback();
 }
+
+jQuery(document).ready(function () {
+  jQuery.getJSON('getGraphInfo', function (data) {
+    draw(data);
+  });
+  var required = myBooks.length;
+  jQuery.each(myBooksData, function (index, bookData) {
+    jQuery.getJSON('getBookInfo?hash=' + bookData, function (data) {
+      if (data.totalPages === 0) {
+        console.log(data.title + '[' + data.totalPages + ']');
+      }
+      var bookHash = data.hash;
+      google.setOnLoadCallback(drawData(bookHash, data));
+      setBookDataTable(bookHash, data, function () {
+        required -= 1;
+        if (required === 0) {
+          jQuery(function () {
+            jQuery('#mainContent').masonry({ itemSelector: '.bookTable' });
+          });
+        }
+      });
+    });
+  });
+});

@@ -26,34 +26,11 @@ var functions = require('./lib/functions');
 
 mu.root = path.join(__dirname, '/templates');
 
-var server = http.createServer(function (req, response) {
-  // read user from config
-  var user = new GRUser();
-  var filePath = '.' + req.url;
-
-  if (req.url.indexOf('/getBookInfo') === 0) {
-    var urlParts = url.parse(req.url);
-    if (urlParts.query.indexOf('hash') === 0) {
-      var raw = urlParts.query.replace('hash=', '');
-      getBookInfo(user, raw, response);
-    } else {
-      response.writeHead(200, { 'Content-Type': 'text/html' });
-      response.end();
-    }
-  } else {
-    switch (filePath) {
-      case './':
-        init(user, 3, response);
-        break;
-      case './getGraphInfo':
-        getGraphInfo(user, 6, response);
-        break;
-      default:
-        getStatic(filePath, response);
-        break;
-    }
-  }
-});
+function handleError(err, response) {
+  console.log(err);
+  response.writeHead(500);
+  response.end();
+}
 
 /*
  Client->Server: GET
@@ -67,7 +44,6 @@ var server = http.createServer(function (req, response) {
   Server->Client: callback(HTML)
   activate Client
  */
-
 function init(user, limit, response) {
   functions.getFeedData(user, limit, function (err, hashes, books) {
     if (err) return handleError(err, response);
@@ -89,7 +65,6 @@ function init(user, limit, response) {
     });
   });
 }
-
 
 /*
   Client->Server: getBookInfo(hash)
@@ -142,7 +117,6 @@ function getBookInfo(user, raw, response) {
   });
 }
 /* eslint-enable no-param-reassign */
-
 
 /*
   Client->Server: getGraphInfo()
@@ -204,11 +178,34 @@ function getStatic(filePath, response) {
   });
 }
 
-function handleError(err, response) {
-  console.log(err);
-  response.writeHead(500);
-  response.end();
-}
+var server = http.createServer(function (req, response) {
+  // read user from config
+  var user = new GRUser();
+  var filePath = '.' + req.url;
+
+  if (req.url.indexOf('/getBookInfo') === 0) {
+    var urlParts = url.parse(req.url);
+    if (urlParts.query.indexOf('hash') === 0) {
+      var raw = urlParts.query.replace('hash=', '');
+      getBookInfo(user, raw, response);
+    } else {
+      response.writeHead(200, { 'Content-Type': 'text/html' });
+      response.end();
+    }
+  } else {
+    switch (filePath) {
+      case './':
+        init(user, 3, response);
+        break;
+      case './getGraphInfo':
+        getGraphInfo(user, 6, response);
+        break;
+      default:
+        getStatic(filePath, response);
+        break;
+    }
+  }
+});
 
 // Listen on port 8000, IP defaults to 127.0.0.1
 server.listen(8383);

@@ -14,7 +14,6 @@
     "prefer-arrow-callback":"off",
     "object-shorthand": "off",
     "import/no-unresolved": "off",
-    "no-use-before-define": ["off"],
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "consistent-return": "off",
     "no-cond-assign": ["off", {"except-parens": true}]
